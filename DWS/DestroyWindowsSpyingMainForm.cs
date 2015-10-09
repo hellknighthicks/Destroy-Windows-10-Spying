@@ -769,12 +769,33 @@ namespace DWS_Lite
             {
                 DisableSpyingTasks();
             }
-            Progressbaradd(10); //80
+            Progressbaradd(5); //75
+            if (checkBoxDisableServices.Checked)
+            {   //Direct Registry modifications threw a .reg file will not be applied to the section of the registry that sets the start type of services
+                // Not sure if you can touch that area of the registry threw an Admin rights Console Command or not. 
+
+                    //DPS
+                RunCmd("/c net stop DPS ");
+                _OutPut("Stopping Diagnostic Protocol Serivice.");
+                RunCmd("/c sc config DPS start = disabled");
+                _OutPut("Disabling Diagnostic Protocol Serivice.");
+                    //TrkWks
+                RunCmd("/c net stop TrkWks ");
+                _OutPut("Stopping Distributed link Tracking Client Service.");
+                RunCmd("/c sc config TrkWks start = disabled");
+                _OutPut("Disabling Distributed link Tracking Client Service.");
+                    //Disable Remote Registry
+                RunCmd("/c net stop RemoteRegistry ");
+                _OutPut("Stopping Remote Registry Service.");
+                RunCmd("/c sc config RemoteRegistry start = disabled");
+                _OutPut("Disabling Remote Registry Service.");
+            }
+            Progressbaradd(10); //85
             if (checkBoxDeleteWindows10Apps.Checked)
             {
                 RemoveWindows10Apps();
             }
-            Progressbaradd(20); //100
+            Progressbaradd(15); //100
             EnableOrDisableTab(true);
             try
             {

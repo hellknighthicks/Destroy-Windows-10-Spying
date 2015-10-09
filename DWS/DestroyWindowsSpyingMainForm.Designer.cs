@@ -103,6 +103,7 @@ namespace DWS_Lite
             this.BorderDown = new System.Windows.Forms.PictureBox();
             this.BorderLeft = new System.Windows.Forms.PictureBox();
             this.BorderR = new System.Windows.Forms.PictureBox();
+            this.checkBoxDisableServices = new System.Windows.Forms.CheckBox();
             this.FormTabsControl.SuspendLayout();
             this.tabPageMain.SuspendLayout();
             this.tabPageSettings.SuspendLayout();
@@ -220,6 +221,7 @@ namespace DWS_Lite
             this.tabPageSettings.BackColor = System.Drawing.Color.White;
             this.tabPageSettings.BackgroundImage = global::DWS_Lite.Properties.Resources.BGProgImg;
             this.tabPageSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPageSettings.Controls.Add(this.checkBoxDisableServices);
             this.tabPageSettings.Controls.Add(this.btnProfessionalMode);
             this.tabPageSettings.Controls.Add(this.labelInfoDeleteMetroApps);
             this.tabPageSettings.Controls.Add(this.checkBoxDeleteAppXBOX);
@@ -278,7 +280,7 @@ namespace DWS_Lite
             this.checkBoxDeleteAppXBOX.Checked = true;
             this.checkBoxDeleteAppXBOX.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxDeleteAppXBOX.Enabled = false;
-            this.checkBoxDeleteAppXBOX.Location = new System.Drawing.Point(6, 312);
+            this.checkBoxDeleteAppXBOX.Location = new System.Drawing.Point(6, 329);
             this.checkBoxDeleteAppXBOX.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDeleteAppXBOX.Name = "checkBoxDeleteAppXBOX";
             this.checkBoxDeleteAppXBOX.Size = new System.Drawing.Size(84, 17);
@@ -293,7 +295,7 @@ namespace DWS_Lite
             this.checkBoxDeleteAppVoice.Checked = true;
             this.checkBoxDeleteAppVoice.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxDeleteAppVoice.Enabled = false;
-            this.checkBoxDeleteAppVoice.Location = new System.Drawing.Point(6, 295);
+            this.checkBoxDeleteAppVoice.Location = new System.Drawing.Point(6, 312);
             this.checkBoxDeleteAppVoice.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDeleteAppVoice.Name = "checkBoxDeleteAppVoice";
             this.checkBoxDeleteAppVoice.Size = new System.Drawing.Size(132, 17);
@@ -308,7 +310,7 @@ namespace DWS_Lite
             this.checkBoxDeleteAppSolit.Checked = true;
             this.checkBoxDeleteAppSolit.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxDeleteAppSolit.Enabled = false;
-            this.checkBoxDeleteAppSolit.Location = new System.Drawing.Point(6, 278);
+            this.checkBoxDeleteAppSolit.Location = new System.Drawing.Point(6, 295);
             this.checkBoxDeleteAppSolit.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDeleteAppSolit.Name = "checkBoxDeleteAppSolit";
             this.checkBoxDeleteAppSolit.Size = new System.Drawing.Size(147, 17);
@@ -323,7 +325,7 @@ namespace DWS_Lite
             this.checkBoxDeleteAppPhotos.Checked = true;
             this.checkBoxDeleteAppPhotos.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxDeleteAppPhotos.Enabled = false;
-            this.checkBoxDeleteAppPhotos.Location = new System.Drawing.Point(6, 261);
+            this.checkBoxDeleteAppPhotos.Location = new System.Drawing.Point(6, 278);
             this.checkBoxDeleteAppPhotos.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDeleteAppPhotos.Name = "checkBoxDeleteAppPhotos";
             this.checkBoxDeleteAppPhotos.Size = new System.Drawing.Size(93, 17);
@@ -338,7 +340,7 @@ namespace DWS_Lite
             this.checkBoxDeleteAppPhone.Checked = true;
             this.checkBoxDeleteAppPhone.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxDeleteAppPhone.Enabled = false;
-            this.checkBoxDeleteAppPhone.Location = new System.Drawing.Point(6, 244);
+            this.checkBoxDeleteAppPhone.Location = new System.Drawing.Point(6, 261);
             this.checkBoxDeleteAppPhone.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDeleteAppPhone.Name = "checkBoxDeleteAppPhone";
             this.checkBoxDeleteAppPhone.Size = new System.Drawing.Size(146, 17);
@@ -353,7 +355,7 @@ namespace DWS_Lite
             this.checkBoxDeleteAppPeopleOneNote.Checked = true;
             this.checkBoxDeleteAppPeopleOneNote.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxDeleteAppPeopleOneNote.Enabled = false;
-            this.checkBoxDeleteAppPeopleOneNote.Location = new System.Drawing.Point(6, 227);
+            this.checkBoxDeleteAppPeopleOneNote.Location = new System.Drawing.Point(6, 244);
             this.checkBoxDeleteAppPeopleOneNote.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDeleteAppPeopleOneNote.Name = "checkBoxDeleteAppPeopleOneNote";
             this.checkBoxDeleteAppPeopleOneNote.Size = new System.Drawing.Size(159, 17);
@@ -368,7 +370,7 @@ namespace DWS_Lite
             this.checkBoxDeleteAppZune.Checked = true;
             this.checkBoxDeleteAppZune.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxDeleteAppZune.Enabled = false;
-            this.checkBoxDeleteAppZune.Location = new System.Drawing.Point(6, 210);
+            this.checkBoxDeleteAppZune.Location = new System.Drawing.Point(6, 227);
             this.checkBoxDeleteAppZune.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDeleteAppZune.Name = "checkBoxDeleteAppZune";
             this.checkBoxDeleteAppZune.Size = new System.Drawing.Size(184, 17);
@@ -383,7 +385,7 @@ namespace DWS_Lite
             this.checkBoxDeleteAppBing.Checked = true;
             this.checkBoxDeleteAppBing.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxDeleteAppBing.Enabled = false;
-            this.checkBoxDeleteAppBing.Location = new System.Drawing.Point(6, 193);
+            this.checkBoxDeleteAppBing.Location = new System.Drawing.Point(6, 210);
             this.checkBoxDeleteAppBing.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDeleteAppBing.Name = "checkBoxDeleteAppBing";
             this.checkBoxDeleteAppBing.Size = new System.Drawing.Size(229, 17);
@@ -398,7 +400,7 @@ namespace DWS_Lite
             this.checkBoxDeleteMailCalendarMaps.Checked = true;
             this.checkBoxDeleteMailCalendarMaps.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxDeleteMailCalendarMaps.Enabled = false;
-            this.checkBoxDeleteMailCalendarMaps.Location = new System.Drawing.Point(6, 176);
+            this.checkBoxDeleteMailCalendarMaps.Location = new System.Drawing.Point(6, 193);
             this.checkBoxDeleteMailCalendarMaps.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDeleteMailCalendarMaps.Name = "checkBoxDeleteMailCalendarMaps";
             this.checkBoxDeleteMailCalendarMaps.Size = new System.Drawing.Size(174, 17);
@@ -413,7 +415,7 @@ namespace DWS_Lite
             this.checkBoxDeleteAppCamera.Checked = true;
             this.checkBoxDeleteAppCamera.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxDeleteAppCamera.Enabled = false;
-            this.checkBoxDeleteAppCamera.Location = new System.Drawing.Point(6, 159);
+            this.checkBoxDeleteAppCamera.Location = new System.Drawing.Point(6, 176);
             this.checkBoxDeleteAppCamera.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDeleteAppCamera.Name = "checkBoxDeleteAppCamera";
             this.checkBoxDeleteAppCamera.Size = new System.Drawing.Size(97, 17);
@@ -428,7 +430,7 @@ namespace DWS_Lite
             this.checkBoxDeleteApp3d.Checked = true;
             this.checkBoxDeleteApp3d.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxDeleteApp3d.Enabled = false;
-            this.checkBoxDeleteApp3d.Location = new System.Drawing.Point(6, 142);
+            this.checkBoxDeleteApp3d.Location = new System.Drawing.Point(6, 159);
             this.checkBoxDeleteApp3d.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDeleteApp3d.Name = "checkBoxDeleteApp3d";
             this.checkBoxDeleteApp3d.Size = new System.Drawing.Size(108, 17);
@@ -440,7 +442,7 @@ namespace DWS_Lite
             // 
             this.checkBoxDeleteWindows10Apps.AutoSize = true;
             this.checkBoxDeleteWindows10Apps.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxDeleteWindows10Apps.Location = new System.Drawing.Point(6, 125);
+            this.checkBoxDeleteWindows10Apps.Location = new System.Drawing.Point(6, 142);
             this.checkBoxDeleteWindows10Apps.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDeleteWindows10Apps.Name = "checkBoxDeleteWindows10Apps";
             this.checkBoxDeleteWindows10Apps.Size = new System.Drawing.Size(173, 17);
@@ -1073,6 +1075,18 @@ namespace DWS_Lite
             this.BorderR.TabIndex = 7;
             this.BorderR.TabStop = false;
             // 
+            // checkBoxDisableServices
+            // 
+            this.checkBoxDisableServices.AutoSize = true;
+            this.checkBoxDisableServices.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxDisableServices.Location = new System.Drawing.Point(6, 125);
+            this.checkBoxDisableServices.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBoxDisableServices.Name = "checkBoxDisableServices";
+            this.checkBoxDisableServices.Size = new System.Drawing.Size(160, 17);
+            this.checkBoxDisableServices.TabIndex = 22;
+            this.checkBoxDisableServices.Text = "Disable Un-Needed Services";
+            this.checkBoxDisableServices.UseVisualStyleBackColor = false;
+            // 
             // DestroyWindowsSpyingMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1194,6 +1208,7 @@ namespace DWS_Lite
         private PictureBox BorderDown;
         private PictureBox BorderLeft;
         private PictureBox BorderR;
+        private CheckBox checkBoxDisableServices;
     }
 }
 
