@@ -281,7 +281,6 @@ namespace DWS_Lite
                 }
             }
         }
-
         private enum LogLevel // thx TRoskop
         {
             Info,
@@ -317,14 +316,12 @@ namespace DWS_Lite
             Console.WriteLine(str);
             LogOutputTextBox.Text += str + Environment.NewLine;
         }
-
         private void OutPutSplitInvoke()
         {
             string splittext = "==========================" + Environment.NewLine;
             File.WriteAllText(_logFileName, File.ReadAllText(_logFileName) + splittext);
             LogOutputTextBox.Text += splittext;
         }
-
         #endregion
         private void Progressbaradd(int numberadd)
         {
@@ -374,7 +371,6 @@ namespace DWS_Lite
                 tabPageUtilites.Enabled = enableordisable;
             }
         }
-
         public void RecreateLogFile(string logfilename)
         {
             try
@@ -398,12 +394,10 @@ namespace DWS_Lite
         {
             RunCmd(String.Format("/c del /F /Q \"{0}\"", filepath));
         }
-
         public void RunCmd(string args)
         {
             ProcStartargs(Paths.ShellCmdLocation, args);
         }
-
         private void ProcStartargs(string name, string args)
         {
             try
@@ -511,7 +505,6 @@ namespace DWS_Lite
             }
         }
         #endregion
-
         private void DeleteWindows10MetroApp(string appname)
         {
             ProcStartargs("powershell", "-command \"Get-AppxPackage *" + appname + "* | Remove-AppxPackage\"");
@@ -753,8 +746,6 @@ namespace DWS_Lite
         }
         void DisableSpyingTasks()
         {
-
-
             string[] disabletaskslist =
                 {
                     @"Microsoft\Office\Office ClickToRun Service Monitor",
@@ -887,7 +878,7 @@ namespace DWS_Lite
                     {
                         ProcStartargs(_shellCmdLocation,
                             "/c echo " + "0.0.0.0 " + hostsdomains[i] + " >> \"" + hostslocation + "\"");
-                        _OutPut(hostsdomains[i] + " - Now Blocked in Host file.");
+                        _OutPut(hostsdomains[i] + " - Now Blocked in Host file.", LogLevel.Warning);
                     }
                     else
                         _OutPut(hostsdomains[i] + " - Already exists or could not be added to Host File.");
