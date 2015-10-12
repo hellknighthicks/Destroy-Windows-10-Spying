@@ -123,6 +123,7 @@
     <EmbeddedResource Include="lang\cs-CZ.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>cs-CZ.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="lang\pl-PL.resx">
       <Generator>ResXFileCodeGenerator</Generator>

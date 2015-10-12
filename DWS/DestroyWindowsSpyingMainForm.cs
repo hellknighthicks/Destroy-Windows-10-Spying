@@ -49,8 +49,6 @@ namespace DWS_Lite
             labelBuildDataTime.Text = @"Build number:" + Resources.build_number + @"  |  Build Time:" +
                                       Resources.build_datatime;
 
-            SetLanguage(_GetLang(args));
-            ChangeLanguage();
             StealthMode(args);
             new Thread(CheckUpdates).Start();
             new Thread(AnimateBackground).Start();
@@ -171,7 +169,7 @@ namespace DWS_Lite
                 tabPageUtilites.Enabled = false;
                 tabPageSettings.Enabled = false;
                 btnDestroyWindowsSpying.Visible = false;
-                btnDestroyWindows78Spy.Visible = true;
+                btnDestroyWindows10Spy.Visible = true;
             }
             //------------------------------------------
 
@@ -191,106 +189,6 @@ namespace DWS_Lite
             return languageName;
         }
 
-        private void SetLanguage(string currentlang = null)
-        {
-            if (currentlang == null)
-            {
-                currentlang = CultureInfo.CurrentUICulture.Name.ToLower();
-            }
-            if (currentlang.IndexOf("ru", StringComparison.Ordinal) > -1)
-            {
-                _rm = ru_RU.ResourceManager;
-                comboBoxLanguageSelect.Text = @"ru-RU | Русский";
-            }
-            else if (currentlang.IndexOf("fr", StringComparison.Ordinal) > -1)
-            {
-                _rm = fr_FR.ResourceManager;
-                comboBoxLanguageSelect.Text = @"fr-FR | French";
-            }
-            else if (currentlang.IndexOf("es", StringComparison.Ordinal) > -1)
-            {
-                _rm = es_ES.ResourceManager;
-                comboBoxLanguageSelect.Text = @"es-ES | Spanish";
-            }
-            else if (currentlang.IndexOf("pt", StringComparison.Ordinal) > -1)
-            {
-                _rm = pt_BR.ResourceManager;
-                comboBoxLanguageSelect.Text = @"pt-BR | Portuguese";
-            }
-            else if (currentlang.IndexOf("de", StringComparison.Ordinal) > -1)
-            {
-                _rm = de_DE.ResourceManager;
-                comboBoxLanguageSelect.Text = @"de-DE | German";
-            }
-            else if (currentlang.IndexOf("pl", StringComparison.Ordinal) > -1)
-            {
-                _rm = pl_PL.ResourceManager;
-                comboBoxLanguageSelect.Text = @"pl-PL | Polish";
-            }
-            else if (currentlang.IndexOf("it", StringComparison.Ordinal) > -1)
-            {
-                _rm = it_CH.ResourceManager;
-                comboBoxLanguageSelect.Text = @"it-CH | Italian";
-            }
-            else if (currentlang.IndexOf("cs", StringComparison.Ordinal) > -1)
-            {
-                _rm = cs_CZ.ResourceManager;
-                comboBoxLanguageSelect.Text = @"cs-CZ | Czech";
-            }
-            else if (currentlang.IndexOf("cn", StringComparison.Ordinal) > -1)
-            {
-                _rm = zh_CN.ResourceManager;
-                comboBoxLanguageSelect.Text = @"zh-CN | 中文(简体)";
-            }
-            else
-            {
-                _rm = en_US.ResourceManager;
-                comboBoxLanguageSelect.Text = @"en-US | English";
-            }
-        }
-
-        void ChangeLanguage()
-        {
-            ReadmeRichTextBox.Text = GetTranslateText("ReadMeTextBox");
-            tabPageMain.Text = GetTranslateText("tabPageMain");
-            tabPageAbout.Text = GetTranslateText("tabPageAbout");
-            tabPageReadMe.Text = GetTranslateText("tabPageReadMe");
-            tabPageSettings.Text = GetTranslateText("tabPageSettings");
-            tabPageUtilites.Text = GetTranslateText("tabPageUtilites");
-            btnDeleteAllWindows10Apps.Text = GetTranslateText("btnDeleteAllWindows10Apps");
-            btnDeleteOneDrive.Text = GetTranslateText("btnDeleteOneDrive");
-            btnOpenAndEditHosts.Text = GetTranslateText("btnOpenAndEditHosts");
-            btnProfessionalMode.Text = GetTranslateText("btnProfessionalMode");
-            btnRestoreSystem.Text = GetTranslateText("btnRestoreSystem");
-            checkBoxAddToHosts.Text = GetTranslateText("checkBoxAddToHosts");
-            checkBoxCreateSystemRestorePoint.Text = GetTranslateText("checkBoxCreateSystemRestorePoint");
-            checkBoxDeleteWindows10Apps.Text = GetTranslateText("checkBoxDeleteWindows10Apps");
-            checkBoxDisablePrivateSettings.Text = GetTranslateText("checkBoxDisablePrivateSettings");
-            checkBoxDisableWindowsDefender.Text = GetTranslateText("checkBoxDisableWindowsDefender");
-            checkBoxKeyLoggerAndTelemetry.Text = GetTranslateText("checkBoxKeyLoggerAndTelemetry");
-            checkBoxSetDefaultPhoto.Text = GetTranslateText("checkBoxSetDefaultPhoto");
-            checkBoxSPYTasks.Text = GetTranslateText("checkBoxSPYTasks");
-            labelInfoDeleteMetroApps.Text = GetTranslateText("labelInfoDeleteMetroApps");
-            btnEnableUac.Text = string.Format("{0} UAC", GetTranslateText("Enable"));
-            btnDisableUac.Text = string.Format("{0} UAC", GetTranslateText("Disable"));
-            btnDisableOfficeUpdate.Text = string.Format("{0} Office 2016 Telemetry", GetTranslateText("Disable"));
-            btnDisableWindowsUpdate.Text = string.Format("{0} Windows Update", GetTranslateText("Disable"));
-            btnEnableWindowsUpdate.Text = string.Format("{0} Windows Update", GetTranslateText("Enable"));
-            checkBoxDeleteApp3d.Text = string.Format("{0} Builder 3D", GetTranslateText("Delete"));
-            checkBoxDeleteAppCamera.Text = string.Format("{0} Camera", GetTranslateText("Delete"));
-            checkBoxDeleteMailCalendarMaps.Text = string.Format("{0} Mail, Calendar, Maps", GetTranslateText("Delete"));
-            checkBoxDeleteAppBing.Text = string.Format("{0} Money, Sports, News, Weather", GetTranslateText("Delete"));
-            checkBoxDeleteAppZune.Text = string.Format("{0} Groove Music, Film TV", GetTranslateText("Delete"));
-            checkBoxDeleteAppPeopleOneNote.Text = string.Format("{0} People, OneNote", GetTranslateText("Delete"));
-            checkBoxDeleteAppPhone.Text = string.Format("{0} Phone Companion", GetTranslateText("Delete"));
-            checkBoxDeleteAppPhotos.Text = string.Format("{0} Photos", GetTranslateText("Delete"));
-            checkBoxDeleteAppSolit.Text = string.Format("{0} Solitaire Collection", GetTranslateText("Delete"));
-            checkBoxDeleteAppVoice.Text = string.Format("{0} Voice Recorder", GetTranslateText("Delete"));
-            checkBoxDeleteAppXBOX.Text = string.Format("{0} XBOX", GetTranslateText("Delete"));
-            btnRemoveOldFirewallRules.Text = GetTranslateText("RemoveAllOldFirewallRules");
-            btnReportABug.Text = GetTranslateText("ReportABug");
-            groupBoxLinks.Text = GetTranslateText("Links");
-        }
         string GetTranslateText(string name)
         {
             try
@@ -400,10 +298,10 @@ namespace DWS_Lite
             switch (logLevel)
             {
                 case LogLevel.Info:
-                    str = "[INFO] " + str;
+                    str = "" + str;
                     break;
                 case LogLevel.Warning:
-                    str = "[WARNING] " + str;
+                    str = "[!] " + str;
                     break;
                 case LogLevel.Error:
                     str = "[ERROR] " + str;
@@ -613,6 +511,7 @@ namespace DWS_Lite
             }
         }
         #endregion
+
         private void DeleteWindows10MetroApp(string appname)
         {
             ProcStartargs("powershell", "-command \"Get-AppxPackage *" + appname + "* | Remove-AppxPackage\"");
@@ -649,7 +548,7 @@ namespace DWS_Lite
             if (checkBoxKeyLoggerAndTelemetry.Checked)
             {
                 // DISABLE TELEMETRY
-                _OutPut("Disable telemetry...");
+                _OutPut("Disabling telemetry...");
                 RunCmd("/c net stop DiagTrack ");
                 RunCmd("/c net stop diagnosticshub.standardcollector.service ");
                 RunCmd("/c net stop dmwappushservice ");
@@ -741,8 +640,7 @@ namespace DWS_Lite
             {
                 try
                 {
-                    SetRegValueHklm(@"SOFTWARE\Policies\Microsoft\Windows Defender", "DisableAntiSpyware", "1",
-                        RegistryValueKind.DWord);
+                    SetRegValueHklm(@"SOFTWARE\Policies\Microsoft\Windows Defender", "DisableAntiSpyware", "1", RegistryValueKind.DWord);
                     _OutPut("Disable Windows Defender.");
                 }
                 catch (Exception ex)
@@ -820,15 +718,15 @@ namespace DWS_Lite
         {
             if (start)
             {
-                StatusCommandsLable.Text = @"Destroy Windows 10 Spying";
-                StatusCommandsLable.ForeColor = Color.Black;
+                //StatusCommandsLable.Text = @"Destroy Windows 10 Spying";
+                //StatusCommandsLable.ForeColor = Color.Black;
             }
             else
             {
                 if (_fatalErrors == 0)
                 {
-                    StatusCommandsLable.Text = string.Format("Destroy Windows 10 Spying - {0}!", GetTranslateText("Complete"));
-                    StatusCommandsLable.ForeColor = Color.DarkGreen;
+                    //StatusCommandsLable.Text = string.Format("Destroy Windows 10 Spying - {0}!", GetTranslateText("Complete"));
+                    //StatusCommandsLable.ForeColor = Color.DarkGreen;
                     if (
                         MessageBox.Show(GetTranslateText("CompleteMSG"), GetTranslateText("Info"),
                             MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
@@ -840,8 +738,8 @@ namespace DWS_Lite
                 }
                 else
                 {
-                    StatusCommandsLable.Text = string.Format("Destroy Windows 10 Spying - errors: {0}", _fatalErrors);
-                    StatusCommandsLable.ForeColor = Color.Red;
+                    //StatusCommandsLable.Text = string.Format("Destroy Windows 10 Spying - errors: {0}", _fatalErrors);
+                    //StatusCommandsLable.ForeColor = Color.Red;
                     if (
                         MessageBox.Show(string.Format(GetTranslateText("ErrorMSG"), _fatalErrors), GetTranslateText("Info"),
                             MessageBoxButtons.YesNo, MessageBoxIcon.Warning) ==
@@ -973,9 +871,9 @@ namespace DWS_Lite
                     "spynetalt.microsoft.com",
                     "fe3.delivery.dsp.mp.microsoft.com.nsatc.net"
                 };
-                string hostslocation = _system32Location + @"drivers\etc\hosts";
+                string hostslocation = _system32Location + @"drivers\etc\hosts"; //This is the default file location
                 string hosts = null;
-                if (File.Exists(hostslocation))
+                if (File.Exists(hostslocation)) //Checks for host file in location
                 {
                     hosts = File.ReadAllText(hostslocation);
                     File.SetAttributes(hostslocation, FileAttributes.Normal);
@@ -988,10 +886,11 @@ namespace DWS_Lite
                     if (hosts != null && hosts.IndexOf(hostsdomains[i], StringComparison.Ordinal) == -1)
                     {
                         ProcStartargs(_shellCmdLocation,
-                            "/c echo " + "0.0.0.0 " + hostsdomains[i] + " >> \"" + hostslocation +
-                            "\"");
-                        _OutPut("Add to hosts - " + hostsdomains[i]);
+                            "/c echo " + "0.0.0.0 " + hostsdomains[i] + " >> \"" + hostslocation + "\"");
+                        _OutPut(hostsdomains[i] + " - Now Blocked in Host file.");
                     }
+                    else
+                        _OutPut(hostsdomains[i] + " - Already exists or could not be added to Host File.");
                 }
             }
             catch (Exception ex)
@@ -1283,63 +1182,11 @@ namespace DWS_Lite
             Process.Start("https://github.com/Nummer/Destroy-Windows-10-Spying/issues/new");
         }
 
-        private void comboBoxLanguageSelect_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBoxLanguageSelect.Text.Split('|')[0].Replace(" ", "") == "ru-RU")
-            {
-                _rm = ru_RU.ResourceManager;
-                ChangeLanguage();
-            }
-            else if (comboBoxLanguageSelect.Text.Split('|')[0].Replace(" ", "") == "fr-FR")
-            {
-                _rm = fr_FR.ResourceManager;
-                ChangeLanguage();
-            }
-            else if (comboBoxLanguageSelect.Text.Split('|')[0].Replace(" ", "") == "es-ES")
-            {
-                _rm = es_ES.ResourceManager;
-                ChangeLanguage();
-            }
-            else if (comboBoxLanguageSelect.Text.Split('|')[0].Replace(" ", "") == "pt-BR")
-            {
-                _rm = pt_BR.ResourceManager;
-                ChangeLanguage();
-            }
-            else if (comboBoxLanguageSelect.Text.Split('|')[0].Replace(" ", "") == "de-DE")
-            {
-                _rm = de_DE.ResourceManager;
-                ChangeLanguage();
-            }
-            else if (comboBoxLanguageSelect.Text.Split('|')[0].Replace(" ", "") == "pl-PL")
-            {
-                _rm = pl_PL.ResourceManager;
-                ChangeLanguage();
-            }
-            else if (comboBoxLanguageSelect.Text.Split('|')[0].Replace(" ", "") == "it-CH")
-            {
-                _rm = it_CH.ResourceManager;
-                ChangeLanguage();
-            }
-            else if (comboBoxLanguageSelect.Text.Split('|')[0].Replace(" ", "") == "cs-CZ")
-            {
-                _rm = cs_CZ.ResourceManager;
-                ChangeLanguage();
-            }
-            else if (comboBoxLanguageSelect.Text.Split('|')[0].Replace(" ", "") == "zh-CN")
-            {
-                _rm = zh_CN.ResourceManager;
-                ChangeLanguage();
-            }
-            else
-            {
-                _rm = en_US.ResourceManager;
-                ChangeLanguage();
-            }
-        }
+       
 
         private void btnDestroyWindows78Spy_Click(object sender, EventArgs e)
         {
-            btnDestroyWindows78Spy.Enabled = false;
+            btnDestroyWindows10Spy.Enabled = false;
             _fatalErrors = 0;
             new Thread(() =>
             {
@@ -1349,7 +1196,7 @@ namespace DWS_Lite
                 RunCmd("/c REG ADD HKLM\\SYSTEM\\CurrentControlSet\\Control\\WMI\\AutoLogger\\AutoLogger-Diagtrack-Listener /v Start /t REG_DWORD /d 0 /f");
                 Invoke(new MethodInvoker(delegate
                 {
-                    btnDestroyWindows78Spy.Enabled = true;
+                    btnDestroyWindows10Spy.Enabled = true;
                     MessageBox.Show(GetTranslateText("Complete"), GetTranslateText("Info"), MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
                 }));
@@ -1625,6 +1472,11 @@ Are you sure?", @"Warning", MessageBoxButtons.YesNo,MessageBoxIcon.Warning) == D
                 default: // case 5:
                     return Color.FromArgb(255, 255, 0, descending);
             }
+        }
+
+        private void tabPageAbout_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

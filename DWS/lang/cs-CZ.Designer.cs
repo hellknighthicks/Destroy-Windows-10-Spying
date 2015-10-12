@@ -353,7 +353,7 @@ namespace DWS_Lite.lang {
         /// </summary>
         internal static string Restart {
             get {
-                return ResourceManager.GetString("Restart", resourceCulture);
+                return "Restart";
             }
         }
         
