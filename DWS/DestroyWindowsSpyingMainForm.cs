@@ -294,20 +294,25 @@ namespace DWS_Lite
         {
             if(logLevel == LogLevel.Debug && String.IsNullOrEmpty(str))
                 return;
+            var logItemColor = new System.Drawing.Color();
 
             switch (logLevel)
             {
                 case LogLevel.Info:
                     str = "" + str;
+                    logItemColor = Color.White;
                     break;
                 case LogLevel.Warning:
                     str = "[!] " + str;
+                    logItemColor = Color.Orange;
                     break;
                 case LogLevel.Error:
                     str = "[ERROR] " + str;
+                    logItemColor = Color.Red;
                     break;
                 case LogLevel.FatalError:
                     str = "[!! FATAL ERROR !!] " + str;
+                    logItemColor = Color.PaleVioletRed;
                     break;
                 case LogLevel.Debug:
                     str = "[DEBUG] " + str;
@@ -315,7 +320,8 @@ namespace DWS_Lite
             }
             File.WriteAllText(_logFileName, File.ReadAllText(_logFileName) + str + Environment.NewLine);
             Console.WriteLine(str);
-            LogOutputTextBox.Text += str + Environment.NewLine;
+            LogOutputTextBox.SelectionColor = logItemColor;
+            LogOutputTextBox.AppendText(str + Environment.NewLine);
         }
         private void OutPutSplitInvoke()
         {
@@ -654,7 +660,8 @@ namespace DWS_Lite
               */
                 try
                 {
-                    SetRegValueHklm(@"SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config", "DODownloadMode", "0", RegistryValueKind.DWord);
+                    SetRegValueHklm(@"SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config", "DODownloadMode", "0", RegistryValueKind.DWord); // this key will be on upgraded machines 
+                    SetRegValueHklm(@"SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config", "DownloadMode"  , "0", RegistryValueKind.DWord); // This key will be on machines that have fresh installs
                     _OutPut("Disabled Windows Update Internet P2P Distribution");
                 }
                 catch (Exception ex)
