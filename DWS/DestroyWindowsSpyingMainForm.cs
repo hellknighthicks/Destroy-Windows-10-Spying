@@ -68,7 +68,7 @@ namespace DWS_Lite
         }
 
         void CheckUpdates()
-        {
+        {/*  Dont want to be pulling updates from Main branch any more... Temporarily disabled while new build is setup.
             try
             {
                 string latestVersion = new WebClient().DownloadString(
@@ -92,6 +92,7 @@ namespace DWS_Lite
                 _OutPut("Error check updates.", LogLevel.Error);
                 if (_debug) _OutPut(ex.Message, LogLevel.Debug);
             }
+          */
         }
 
         public override sealed string Text
