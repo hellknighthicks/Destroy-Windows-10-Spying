@@ -88,6 +88,7 @@ namespace DWS_Lite
             this.ProgressBarStatus = new System.Windows.Forms.ProgressBar();
             this.btnDestroyWindowsSpying = new System.Windows.Forms.Button();
             this.FormTabsControl = new System.Windows.Forms.TabControl();
+            this.checkBoxP2PWinUpdate = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.CloseButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BorderUP)).BeginInit();
@@ -190,7 +191,7 @@ namespace DWS_Lite
             this.tabPageLicense.Controls.Add(this.labelLicense);
             this.tabPageLicense.Location = new System.Drawing.Point(4, 22);
             this.tabPageLicense.Name = "tabPageLicense";
-            this.tabPageLicense.Size = new System.Drawing.Size(445, 400);
+            this.tabPageLicense.Size = new System.Drawing.Size(445, 454);
             this.tabPageLicense.TabIndex = 5;
             this.tabPageLicense.Text = "License";
             this.tabPageLicense.UseVisualStyleBackColor = true;
@@ -223,7 +224,7 @@ namespace DWS_Lite
             this.tabPageAbout.Controls.Add(this.labelBuildDataTime);
             this.tabPageAbout.Location = new System.Drawing.Point(4, 22);
             this.tabPageAbout.Name = "tabPageAbout";
-            this.tabPageAbout.Size = new System.Drawing.Size(445, 400);
+            this.tabPageAbout.Size = new System.Drawing.Size(445, 454);
             this.tabPageAbout.TabIndex = 3;
             this.tabPageAbout.Text = "About";
             this.tabPageAbout.Click += new System.EventHandler(this.tabPageAbout_Click);
@@ -268,7 +269,7 @@ namespace DWS_Lite
             this.tabPageUtilites.Controls.Add(this.btnDeleteAllWindows10Apps);
             this.tabPageUtilites.Location = new System.Drawing.Point(4, 22);
             this.tabPageUtilites.Name = "tabPageUtilites";
-            this.tabPageUtilites.Size = new System.Drawing.Size(445, 400);
+            this.tabPageUtilites.Size = new System.Drawing.Size(445, 454);
             this.tabPageUtilites.TabIndex = 2;
             this.tabPageUtilites.Text = "Utilites";
             // 
@@ -438,6 +439,7 @@ namespace DWS_Lite
             // 
             this.tabPageSettings.BackColor = System.Drawing.Color.White;
             this.tabPageSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPageSettings.Controls.Add(this.checkBoxP2PWinUpdate);
             this.tabPageSettings.Controls.Add(this.checkBoxDisableServices);
             this.tabPageSettings.Controls.Add(this.btnProfessionalMode);
             this.tabPageSettings.Controls.Add(this.labelInfoDeleteMetroApps);
@@ -485,11 +487,11 @@ namespace DWS_Lite
             // 
             this.btnProfessionalMode.AutoSize = true;
             this.btnProfessionalMode.ForeColor = System.Drawing.Color.Red;
-            this.btnProfessionalMode.Location = new System.Drawing.Point(6, 371);
+            this.btnProfessionalMode.Location = new System.Drawing.Point(345, 3);
             this.btnProfessionalMode.Name = "btnProfessionalMode";
-            this.btnProfessionalMode.Size = new System.Drawing.Size(113, 17);
+            this.btnProfessionalMode.Size = new System.Drawing.Size(105, 17);
             this.btnProfessionalMode.TabIndex = 21;
-            this.btnProfessionalMode.Text = "Professional mode";
+            this.btnProfessionalMode.Text = "Manually  Config";
             this.btnProfessionalMode.UseVisualStyleBackColor = true;
             this.btnProfessionalMode.CheckedChanged += new System.EventHandler(this.btnProfessionalMode_Click);
             // 
@@ -498,11 +500,11 @@ namespace DWS_Lite
             this.labelInfoDeleteMetroApps.AutoSize = true;
             this.labelInfoDeleteMetroApps.BackColor = System.Drawing.Color.Transparent;
             this.labelInfoDeleteMetroApps.ForeColor = System.Drawing.Color.Red;
-            this.labelInfoDeleteMetroApps.Location = new System.Drawing.Point(3, 345);
+            this.labelInfoDeleteMetroApps.Location = new System.Drawing.Point(3, 182);
             this.labelInfoDeleteMetroApps.Name = "labelInfoDeleteMetroApps";
-            this.labelInfoDeleteMetroApps.Size = new System.Drawing.Size(396, 13);
+            this.labelInfoDeleteMetroApps.Size = new System.Drawing.Size(273, 13);
             this.labelInfoDeleteMetroApps.TabIndex = 20;
-            this.labelInfoDeleteMetroApps.Text = "METRO applications are deleted permanently, without the possibility of recovery.";
+            this.labelInfoDeleteMetroApps.Text = "If selected the Metro Apps will be deleted permanently.";
             // 
             // checkBoxDeleteAppXBOX
             // 
@@ -511,7 +513,7 @@ namespace DWS_Lite
             this.checkBoxDeleteAppXBOX.Checked = true;
             this.checkBoxDeleteAppXBOX.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxDeleteAppXBOX.Enabled = false;
-            this.checkBoxDeleteAppXBOX.Location = new System.Drawing.Point(6, 329);
+            this.checkBoxDeleteAppXBOX.Location = new System.Drawing.Point(6, 382);
             this.checkBoxDeleteAppXBOX.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDeleteAppXBOX.Name = "checkBoxDeleteAppXBOX";
             this.checkBoxDeleteAppXBOX.Size = new System.Drawing.Size(84, 17);
@@ -526,7 +528,7 @@ namespace DWS_Lite
             this.checkBoxDeleteAppVoice.Checked = true;
             this.checkBoxDeleteAppVoice.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxDeleteAppVoice.Enabled = false;
-            this.checkBoxDeleteAppVoice.Location = new System.Drawing.Point(6, 312);
+            this.checkBoxDeleteAppVoice.Location = new System.Drawing.Point(6, 365);
             this.checkBoxDeleteAppVoice.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDeleteAppVoice.Name = "checkBoxDeleteAppVoice";
             this.checkBoxDeleteAppVoice.Size = new System.Drawing.Size(132, 17);
@@ -541,7 +543,7 @@ namespace DWS_Lite
             this.checkBoxDeleteAppSolit.Checked = true;
             this.checkBoxDeleteAppSolit.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxDeleteAppSolit.Enabled = false;
-            this.checkBoxDeleteAppSolit.Location = new System.Drawing.Point(6, 295);
+            this.checkBoxDeleteAppSolit.Location = new System.Drawing.Point(6, 348);
             this.checkBoxDeleteAppSolit.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDeleteAppSolit.Name = "checkBoxDeleteAppSolit";
             this.checkBoxDeleteAppSolit.Size = new System.Drawing.Size(147, 17);
@@ -556,7 +558,7 @@ namespace DWS_Lite
             this.checkBoxDeleteAppPhotos.Checked = true;
             this.checkBoxDeleteAppPhotos.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxDeleteAppPhotos.Enabled = false;
-            this.checkBoxDeleteAppPhotos.Location = new System.Drawing.Point(6, 278);
+            this.checkBoxDeleteAppPhotos.Location = new System.Drawing.Point(6, 331);
             this.checkBoxDeleteAppPhotos.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDeleteAppPhotos.Name = "checkBoxDeleteAppPhotos";
             this.checkBoxDeleteAppPhotos.Size = new System.Drawing.Size(93, 17);
@@ -571,7 +573,7 @@ namespace DWS_Lite
             this.checkBoxDeleteAppPhone.Checked = true;
             this.checkBoxDeleteAppPhone.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxDeleteAppPhone.Enabled = false;
-            this.checkBoxDeleteAppPhone.Location = new System.Drawing.Point(6, 261);
+            this.checkBoxDeleteAppPhone.Location = new System.Drawing.Point(6, 314);
             this.checkBoxDeleteAppPhone.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDeleteAppPhone.Name = "checkBoxDeleteAppPhone";
             this.checkBoxDeleteAppPhone.Size = new System.Drawing.Size(146, 17);
@@ -586,7 +588,7 @@ namespace DWS_Lite
             this.checkBoxDeleteAppPeopleOneNote.Checked = true;
             this.checkBoxDeleteAppPeopleOneNote.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxDeleteAppPeopleOneNote.Enabled = false;
-            this.checkBoxDeleteAppPeopleOneNote.Location = new System.Drawing.Point(6, 244);
+            this.checkBoxDeleteAppPeopleOneNote.Location = new System.Drawing.Point(6, 297);
             this.checkBoxDeleteAppPeopleOneNote.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDeleteAppPeopleOneNote.Name = "checkBoxDeleteAppPeopleOneNote";
             this.checkBoxDeleteAppPeopleOneNote.Size = new System.Drawing.Size(159, 17);
@@ -601,7 +603,7 @@ namespace DWS_Lite
             this.checkBoxDeleteAppZune.Checked = true;
             this.checkBoxDeleteAppZune.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxDeleteAppZune.Enabled = false;
-            this.checkBoxDeleteAppZune.Location = new System.Drawing.Point(6, 227);
+            this.checkBoxDeleteAppZune.Location = new System.Drawing.Point(6, 280);
             this.checkBoxDeleteAppZune.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDeleteAppZune.Name = "checkBoxDeleteAppZune";
             this.checkBoxDeleteAppZune.Size = new System.Drawing.Size(184, 17);
@@ -616,7 +618,7 @@ namespace DWS_Lite
             this.checkBoxDeleteAppBing.Checked = true;
             this.checkBoxDeleteAppBing.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxDeleteAppBing.Enabled = false;
-            this.checkBoxDeleteAppBing.Location = new System.Drawing.Point(6, 210);
+            this.checkBoxDeleteAppBing.Location = new System.Drawing.Point(6, 263);
             this.checkBoxDeleteAppBing.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDeleteAppBing.Name = "checkBoxDeleteAppBing";
             this.checkBoxDeleteAppBing.Size = new System.Drawing.Size(229, 17);
@@ -631,7 +633,7 @@ namespace DWS_Lite
             this.checkBoxDeleteMailCalendarMaps.Checked = true;
             this.checkBoxDeleteMailCalendarMaps.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxDeleteMailCalendarMaps.Enabled = false;
-            this.checkBoxDeleteMailCalendarMaps.Location = new System.Drawing.Point(6, 193);
+            this.checkBoxDeleteMailCalendarMaps.Location = new System.Drawing.Point(6, 246);
             this.checkBoxDeleteMailCalendarMaps.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDeleteMailCalendarMaps.Name = "checkBoxDeleteMailCalendarMaps";
             this.checkBoxDeleteMailCalendarMaps.Size = new System.Drawing.Size(174, 17);
@@ -646,7 +648,7 @@ namespace DWS_Lite
             this.checkBoxDeleteAppCamera.Checked = true;
             this.checkBoxDeleteAppCamera.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxDeleteAppCamera.Enabled = false;
-            this.checkBoxDeleteAppCamera.Location = new System.Drawing.Point(6, 176);
+            this.checkBoxDeleteAppCamera.Location = new System.Drawing.Point(6, 229);
             this.checkBoxDeleteAppCamera.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDeleteAppCamera.Name = "checkBoxDeleteAppCamera";
             this.checkBoxDeleteAppCamera.Size = new System.Drawing.Size(97, 17);
@@ -661,7 +663,7 @@ namespace DWS_Lite
             this.checkBoxDeleteApp3d.Checked = true;
             this.checkBoxDeleteApp3d.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxDeleteApp3d.Enabled = false;
-            this.checkBoxDeleteApp3d.Location = new System.Drawing.Point(6, 159);
+            this.checkBoxDeleteApp3d.Location = new System.Drawing.Point(6, 212);
             this.checkBoxDeleteApp3d.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDeleteApp3d.Name = "checkBoxDeleteApp3d";
             this.checkBoxDeleteApp3d.Size = new System.Drawing.Size(108, 17);
@@ -673,7 +675,7 @@ namespace DWS_Lite
             // 
             this.checkBoxDeleteWindows10Apps.AutoSize = true;
             this.checkBoxDeleteWindows10Apps.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxDeleteWindows10Apps.Location = new System.Drawing.Point(6, 142);
+            this.checkBoxDeleteWindows10Apps.Location = new System.Drawing.Point(6, 195);
             this.checkBoxDeleteWindows10Apps.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDeleteWindows10Apps.Name = "checkBoxDeleteWindows10Apps";
             this.checkBoxDeleteWindows10Apps.Size = new System.Drawing.Size(173, 17);
@@ -859,6 +861,20 @@ namespace DWS_Lite
             this.FormTabsControl.Size = new System.Drawing.Size(453, 426);
             this.FormTabsControl.TabIndex = 0;
             // 
+            // checkBoxP2PWinUpdate
+            // 
+            this.checkBoxP2PWinUpdate.AutoSize = true;
+            this.checkBoxP2PWinUpdate.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxP2PWinUpdate.Checked = true;
+            this.checkBoxP2PWinUpdate.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxP2PWinUpdate.Location = new System.Drawing.Point(6, 142);
+            this.checkBoxP2PWinUpdate.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBoxP2PWinUpdate.Name = "checkBoxP2PWinUpdate";
+            this.checkBoxP2PWinUpdate.Size = new System.Drawing.Size(283, 17);
+            this.checkBoxP2PWinUpdate.TabIndex = 23;
+            this.checkBoxP2PWinUpdate.Text = "Disable Internet P2P Distribution of Windows Updates";
+            this.checkBoxP2PWinUpdate.UseVisualStyleBackColor = false;
+            // 
             // DestroyWindowsSpyingMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -961,6 +977,7 @@ namespace DWS_Lite
         private ProgressBar ProgressBarStatus;
         private Button btnDestroyWindowsSpying;
         private TabControl FormTabsControl;
+        private CheckBox checkBoxP2PWinUpdate;
     }
 }
 

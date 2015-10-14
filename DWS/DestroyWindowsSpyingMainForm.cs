@@ -629,7 +629,7 @@ namespace DWS_Lite
                 SetRegValueHkcu(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Search", "BingSearchEnabled", "0",
                     RegistryValueKind.DWord);
             }
-            Progressbaradd(10); //55
+            Progressbaradd(5); //50
             if (checkBoxDisableWindowsDefender.Checked)
             {
                 try
@@ -639,7 +639,27 @@ namespace DWS_Lite
                 }
                 catch (Exception ex)
                 {
-                    _OutPut("Error disable windows Defender", LogLevel.Error);
+                    _OutPut("Failed to Disable Windows Defender", LogLevel.Error);
+                    if (_debug) _OutPut(ex.Message, LogLevel.Debug);
+                    _fatalErrors++;
+                }
+            }
+            Progressbaradd(5); //55
+            if (checkBoxP2PWinUpdate.Checked)
+            {/*
+              * HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config\DODownloadMode
+              *  0= Disable 
+              *  2= Local Network Distribution 
+              *  3= Internet Distribution
+              */
+                try
+                {
+                    SetRegValueHklm(@"SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config", "DODownloadMode", "0", RegistryValueKind.DWord);
+                    _OutPut("Disabled Windows Update Internet P2P Distribution");
+                }
+                catch (Exception ex)
+                {
+                    _OutPut("Failed to Disable Windows Update Internet P2P Distribution", LogLevel.Error);
                     if (_debug) _OutPut(ex.Message, LogLevel.Debug);
                     _fatalErrors++;
                 }
