@@ -26,11 +26,184 @@ namespace DWS_Lite
         private readonly string _systemPath = Path.GetPathRoot(Environment.SystemDirectory);
         private string _shellCmdLocation;
         private string _system32Location;
-        private string _logFileName = "DWS.log";
+        private string _logFileName = "Privatizer10.log";
         private bool _win10 = true;
         private int _fatalErrors;
         private bool _debug;
 
+        #region Global Vars
+        string[] WindowsFirewall_SpyIPBlockList =
+            {//List of Know Windows Spying IP addresses & Malware
+                "111.221.29.177",
+                "111.221.29.253",
+                "131.253.40.37",
+                "134.170.30.202",
+                "134.170.115.60",
+                "134.170.165.248",
+                "134.170.165.253",
+                "134.170.185.70",
+                "137.116.81.24",
+                "137.117.235.16",
+                "157.55.129.21",
+                "157.55.133.204",
+                "157.56.121.89",
+                "157.56.91.77",
+                "168.63.108.233",
+                "191.232.139.254",
+                "191.232.80.58",
+                "191.232.80.62",
+                "191.237.208.126",
+                "204.79.197.200",
+                "207.46.101.29",
+                "207.46.114.58",
+                "207.46.223.94",
+                "207.68.166.254",
+                "212.30.134.204",
+                "212.30.134.205",
+                "23.102.21.4",
+                "23.99.10.11",
+                "23.218.212.69",
+                "64.4.54.22",
+                "64.4.54.32",
+                "64.4.6.100",
+                "65.39.117.230",
+                "65.52.100.11",
+                "65.52.100.7",
+                "65.52.100.9",
+                "65.52.100.91",
+                "65.52.100.92",
+                "65.52.100.93",
+                "65.52.100.94",
+                "65.52.108.29",
+                "65.55.108.23",
+                "65.55.138.114",
+                "65.55.138.126",
+                "65.55.138.186",
+                "65.55.252.63",
+                "65.55.252.71",
+                "65.55.252.92",
+                "65.55.252.93",
+                "65.55.29.238",
+                "65.55.39.10",
+                "191.232.139.2",
+                "64.4.23.0-64.4.23.255",
+                "111.221.64.0-111.221.127.255", // singapure
+                "157.55.235.0-157.55.235.255",
+                "157.55.56.0-157.55.56.255",
+                "157.55.52.0-157.55.52.255",
+                "157.55.130.0-157.55.130.255",
+                "65.55.223.0-65.55.223.255",
+                "213.199.179.0-213.199.179.255", // Ireland
+                "195.138.255.0-195.138.255.255"
+
+            };
+        string[] hostfile_BlockList =
+                {//Known Spying and Malware Block List for host file
+                    "vortex.data.microsoft.com",
+                    "vortex-win.data.microsoft.com",
+                    "telecommand.telemetry.microsoft.com",
+                    "telecommand.telemetry.microsoft.com.nsatc.net",
+                    "oca.telemetry.microsoft.com",
+                    "sqm.telemetry.microsoft.com",
+                    "sqm.telemetry.microsoft.com.nsatc.net",
+                    "watson.telemetry.microsoft.com",
+                    "watson.telemetry.microsoft.com.nsatc.net",
+                    "redir.metaservices.microsoft.com",
+                    "choice.microsoft.com",
+                    "choice.microsoft.com.nsatc.net",
+                    "wes.df.telemetry.microsoft.com",
+                    "services.wes.df.telemetry.microsoft.com",
+                    "sqm.df.telemetry.microsoft.com",
+                    "telemetry.microsoft.com",
+                    "watson.ppe.telemetry.microsoft.com",
+                    "telemetry.appex.bing.net",
+                    "telemetry.urs.microsoft.com",
+                    "telemetry.appex.bing.net:443",
+                    "settings-sandbox.data.microsoft.com",
+                    "survey.watson.microsoft.com",
+                    "watson.live.com",
+                    "watson.microsoft.com",
+                    "statsfe2.ws.microsoft.com",
+                    "corpext.msitadfs.glbdns2.microsoft.com",
+                    "compatexchange.cloudapp.net",
+                    "a-0001.a-msedge.net",
+                    "statsfe2.update.microsoft.com.akadns.net",
+                    "sls.update.microsoft.com.akadns.net",
+                    "fe2.update.microsoft.com.akadns.net",
+                    "diagnostics.support.microsoft.com",
+                    "corp.sts.microsoft.com",
+                    "statsfe1.ws.microsoft.com",
+                    "feedback.windows.com",
+                    "feedback.microsoft-hohm.com",
+                    "feedback.search.microsoft.com",
+                    "rad.msn.com",
+                    "preview.msn.com",
+                    "ad.doubleclick.net",
+                    "ads.msn.com",
+                    "ads1.msads.net",
+                    "ads1.msn.com",
+                    "a.ads1.msn.com",
+                    "a.ads2.msn.com",
+                    "adnexus.net",
+                    "adnxs.com",
+                    "az361816.vo.msecnd.net",
+                    "az512334.vo.msecnd.net",
+                    "ssw.live.com",
+                    "ca.telemetry.microsoft.com",
+                    "i1.services.social.microsoft.com",
+                    "i1.services.social.microsoft.com.nsatc.net",
+                    "df.telemetry.microsoft.com",
+                    "reports.wes.df.telemetry.microsoft.com",
+                    "cs1.wpc.v0cdn.net",
+                    "vortex-sandbox.data.microsoft.com",
+                    "oca.telemetry.microsoft.com.nsatc.net",
+                    "pre.footprintpredict.com",
+                    "spynet2.microsoft.com",
+                    "spynetalt.microsoft.com",
+                    "fe3.delivery.dsp.mp.microsoft.com.nsatc.net"
+                };
+        string[] disabletaskslist =
+                {
+                    @"Microsoft\Office\Office ClickToRun Service Monitor",
+                    @"Microsoft\Office\OfficeTelemetryAgentFallBack2016",
+                    @"Microsoft\Office\OfficeTelemetryAgentLogOn2016",
+                    @"Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask",
+                    @"Microsoft\Windows\Customer Experience Improvement Program\UsbCeip",
+                    @"Microsoft\Windows\Power Efficiency Diagnostics\AnalyzeSystem",
+                    @"Microsoft\Windows\Shell\FamilySafetyMonitor",
+                    @"Microsoft\Windows\Shell\FamilySafetyRefresh",
+                    @"Microsoft\Windows\Application Experience\AitAgent",
+                    @"Microsoft\Windows\Application Experience\ProgramDataUpdater",
+                    @"Microsoft\Windows\Application Experience\StartupAppTask",
+                    @"Microsoft\Windows\Autochk\Proxy",
+                    @"Microsoft\Windows\Customer Experience Improvement Program\BthSQM",
+                    @"Microsoft\Windows\Customer Experience Improvement Program\Consolidator",
+                    @"Microsoft\Office\OfficeTelemetry\AgentFallBack2016",
+                    @"Microsoft\Office\OfficeTelemetry\OfficeTelemetryAgentLogOn2016",
+                    @"Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser",
+                    @"Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector",
+                    @"Microsoft\Windows\Maintenance\WinSAT",
+                    @"Microsoft\Windows\Media Center\ActivateWindowsSearch",
+                    @"Microsoft\Windows\Media Center\ConfigureInternetTimeService",
+                    @"Microsoft\Windows\Media Center\DispatchRecoveryTasks",
+                    @"Microsoft\Windows\Media Center\ehDRMInit",
+                    @"Microsoft\Windows\Media Center\InstallPlayReady",
+                    @"Microsoft\Windows\Media Center\mcupdate",
+                    @"Microsoft\Windows\Media Center\MediaCenterRecoveryTask",
+                    @"Microsoft\Windows\Media Center\ObjectStoreRecoveryTask",
+                    @"Microsoft\Windows\Media Center\OCURActivate",
+                    @"Microsoft\Windows\Media Center\OCURDiscovery",
+                    @"Microsoft\Windows\Media Center\PBDADiscovery",
+                    @"Microsoft\Windows\Media Center\PBDADiscoveryW1",
+                    @"Microsoft\Windows\Media Center\PBDADiscoveryW2",
+                    @"Microsoft\Windows\Media Center\PvrRecoveryTask",
+                    @"Microsoft\Windows\Media Center\PvrScheduleTask",
+                    @"Microsoft\Windows\Media Center\RegisterSearch",
+                    @"Microsoft\Windows\Media Center\ReindexSearchRoot",
+                    @"Microsoft\Windows\Media Center\SqlLiteRecoveryTask",
+                    @"Microsoft\Windows\Media Center\UpdateRecordPath"
+                };
+        #endregion
         public DestroyWindowsSpyingMainForm(string[] args)
         {
 
@@ -41,7 +214,17 @@ namespace DWS_Lite
             CheckWindowsVersion();
             //Check SYSNATIVE (x64)
             _SetShellSys32Path();
-            ProfessionalModeSet(false);
+
+            if (WindowsUtil.SystemRestore_Status() == 0)
+            {
+                checkBoxCreateSystemRestorePoint.Checked = false;
+                checkBoxCreateSystemRestorePoint.Enabled = false;
+            }
+            else
+            {
+                checkBoxCreateSystemRestorePoint.Enabled = true;
+            }
+
             CheckEnableOrDisableUac();
             Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
 
@@ -104,7 +287,11 @@ namespace DWS_Lite
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
-            if (WindowsUtil.SystemRestore_Status() == 0) _OutPut("Windows Restore DISABLE", LogLevel.Warning);
+            if (WindowsUtil.SystemRestore_Status() == 0)
+            {
+                _OutPut("System Restore is Disabled.  Can not Create System Restore point.", LogLevel.Warning);
+                _OutPut("Be aware Changes will be Irreversable!!!");
+            }
         }
 
         void StealthMode(string[] args)
@@ -650,6 +837,11 @@ namespace DWS_Lite
                     _fatalErrors++;
                 }
             }
+            Progressbaradd(2); //55
+            if (checkBoxOneDrive.Checked)
+            {
+                UnInstallOneDrive_Action();
+            }
             Progressbaradd(5); //55
             if (checkBoxP2PWinUpdate.Checked)
             {/*
@@ -749,8 +941,8 @@ namespace DWS_Lite
                     //StatusCommandsLable.Text = string.Format("Destroy Windows 10 Spying - {0}!", GetTranslateText("Complete"));
                     //StatusCommandsLable.ForeColor = Color.DarkGreen;
                     if (
-                        MessageBox.Show(GetTranslateText("CompleteMSG"), GetTranslateText("Info"),
-                            MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
+                        MessageBox.Show("Worked Completed. \nIn order for the changes to be fully applied you need to restart your computer.", "Work Completed",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) ==
                         DialogResult.Yes)
                     {
                         Process.Start("shutdown.exe", "-r -t 0");
@@ -762,7 +954,7 @@ namespace DWS_Lite
                     //StatusCommandsLable.Text = string.Format("Destroy Windows 10 Spying - errors: {0}", _fatalErrors);
                     //StatusCommandsLable.ForeColor = Color.Red;
                     if (
-                        MessageBox.Show(string.Format(GetTranslateText("ErrorMSG"), _fatalErrors), GetTranslateText("Info"),
+                        MessageBox.Show(string.Format("Apparently somethings didnt go as expected.  \nPlease Review the log for more details.", _fatalErrors), "Done but Bad News",
                             MessageBoxButtons.YesNo, MessageBoxIcon.Warning) ==
                         DialogResult.Yes)
                     {
@@ -774,122 +966,20 @@ namespace DWS_Lite
         }
         void DisableSpyingTasks()
         {
-            string[] disabletaskslist =
-                {
-                    @"Microsoft\Office\Office ClickToRun Service Monitor",
-                    @"Microsoft\Office\OfficeTelemetryAgentFallBack2016",
-                    @"Microsoft\Office\OfficeTelemetryAgentLogOn2016",
-                    @"Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask",
-                    @"Microsoft\Windows\Customer Experience Improvement Program\UsbCeip",
-                    @"Microsoft\Windows\Power Efficiency Diagnostics\AnalyzeSystem",
-                    @"Microsoft\Windows\Shell\FamilySafetyMonitor",
-                    @"Microsoft\Windows\Shell\FamilySafetyRefresh",
-                    @"Microsoft\Windows\Application Experience\AitAgent",
-                    @"Microsoft\Windows\Application Experience\ProgramDataUpdater",
-                    @"Microsoft\Windows\Application Experience\StartupAppTask",
-                    @"Microsoft\Windows\Autochk\Proxy",
-                    @"Microsoft\Windows\Customer Experience Improvement Program\BthSQM",
-                    @"Microsoft\Windows\Customer Experience Improvement Program\Consolidator",
-                    @"Microsoft\Office\OfficeTelemetry\AgentFallBack2016",
-                    @"Microsoft\Office\OfficeTelemetry\OfficeTelemetryAgentLogOn2016",
-                    @"Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser",
-                    @"Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector",
-                    @"Microsoft\Windows\Maintenance\WinSAT",
-                    @"Microsoft\Windows\Media Center\ActivateWindowsSearch",
-                    @"Microsoft\Windows\Media Center\ConfigureInternetTimeService",
-                    @"Microsoft\Windows\Media Center\DispatchRecoveryTasks",
-                    @"Microsoft\Windows\Media Center\ehDRMInit",
-                    @"Microsoft\Windows\Media Center\InstallPlayReady",
-                    @"Microsoft\Windows\Media Center\mcupdate",
-                    @"Microsoft\Windows\Media Center\MediaCenterRecoveryTask",
-                    @"Microsoft\Windows\Media Center\ObjectStoreRecoveryTask",
-                    @"Microsoft\Windows\Media Center\OCURActivate",
-                    @"Microsoft\Windows\Media Center\OCURDiscovery",
-                    @"Microsoft\Windows\Media Center\PBDADiscovery",
-                    @"Microsoft\Windows\Media Center\PBDADiscoveryW1",
-                    @"Microsoft\Windows\Media Center\PBDADiscoveryW2",
-                    @"Microsoft\Windows\Media Center\PvrRecoveryTask",
-                    @"Microsoft\Windows\Media Center\PvrScheduleTask",
-                    @"Microsoft\Windows\Media Center\RegisterSearch",
-                    @"Microsoft\Windows\Media Center\ReindexSearchRoot",
-                    @"Microsoft\Windows\Media Center\SqlLiteRecoveryTask",
-                    @"Microsoft\Windows\Media Center\UpdateRecordPath"
-                };
+          
             for (int i = 0; i < disabletaskslist.Length; i++)
             {
                 ProcStartargs("SCHTASKS", "/Change /TN \"" + disabletaskslist[i] + "\" /disable");
                 _OutPut("Disabled task: " + disabletaskslist[i]);
             }
         }
+
         void AddToHostsAndFirewall()
         {
             try
             {
-                string[] hostsdomains =
-                {
-                    "vortex.data.microsoft.com",
-                    "vortex-win.data.microsoft.com",
-                    "telecommand.telemetry.microsoft.com",
-                    "telecommand.telemetry.microsoft.com.nsatc.net",
-                    "oca.telemetry.microsoft.com",
-                    "sqm.telemetry.microsoft.com",
-                    "sqm.telemetry.microsoft.com.nsatc.net",
-                    "watson.telemetry.microsoft.com",
-                    "watson.telemetry.microsoft.com.nsatc.net",
-                    "redir.metaservices.microsoft.com",
-                    "choice.microsoft.com",
-                    "choice.microsoft.com.nsatc.net",
-                    "wes.df.telemetry.microsoft.com",
-                    "services.wes.df.telemetry.microsoft.com",
-                    "sqm.df.telemetry.microsoft.com",
-                    "telemetry.microsoft.com",
-                    "watson.ppe.telemetry.microsoft.com",
-                    "telemetry.appex.bing.net",
-                    "telemetry.urs.microsoft.com",
-                    "telemetry.appex.bing.net:443",
-                    "settings-sandbox.data.microsoft.com",
-                    "survey.watson.microsoft.com",
-                    "watson.live.com",
-                    "watson.microsoft.com",
-                    "statsfe2.ws.microsoft.com",
-                    "corpext.msitadfs.glbdns2.microsoft.com",
-                    "compatexchange.cloudapp.net",
-                    "a-0001.a-msedge.net",
-                    "statsfe2.update.microsoft.com.akadns.net",
-                    "sls.update.microsoft.com.akadns.net",
-                    "fe2.update.microsoft.com.akadns.net",
-                    "diagnostics.support.microsoft.com",
-                    "corp.sts.microsoft.com",
-                    "statsfe1.ws.microsoft.com",
-                    "feedback.windows.com",
-                    "feedback.microsoft-hohm.com",
-                    "feedback.search.microsoft.com",
-                    "rad.msn.com",
-                    "preview.msn.com",
-                    "ad.doubleclick.net",
-                    "ads.msn.com",
-                    "ads1.msads.net",
-                    "ads1.msn.com",
-                    "a.ads1.msn.com",
-                    "a.ads2.msn.com",
-                    "adnexus.net",
-                    "adnxs.com",
-                    "az361816.vo.msecnd.net",
-                    "az512334.vo.msecnd.net",
-                    "ssw.live.com",
-                    "ca.telemetry.microsoft.com",
-                    "i1.services.social.microsoft.com",
-                    "i1.services.social.microsoft.com.nsatc.net",
-                    "df.telemetry.microsoft.com",
-                    "reports.wes.df.telemetry.microsoft.com",
-                    "cs1.wpc.v0cdn.net",
-                    "vortex-sandbox.data.microsoft.com",
-                    "oca.telemetry.microsoft.com.nsatc.net",
-                    "pre.footprintpredict.com",
-                    "spynet2.microsoft.com",
-                    "spynetalt.microsoft.com",
-                    "fe3.delivery.dsp.mp.microsoft.com.nsatc.net"
-                };
+                _OutPut("Updating Windows Host File.");
+                
                 string hostslocation = _system32Location + @"drivers\etc\hosts"; //This is the default file location
                 string hosts = null;
                 if (File.Exists(hostslocation)) //Checks for host file in location
@@ -900,16 +990,16 @@ namespace DWS_Lite
                 }
                 File.Create(hostslocation).Close();
                 File.WriteAllText(hostslocation, hosts + Environment.NewLine);
-                for (int i = 0; i < hostsdomains.Length; i++)
+                for (int i = 0; i < hostfile_BlockList.Length; i++)
                 {
-                    if (hosts != null && hosts.IndexOf(hostsdomains[i], StringComparison.Ordinal) == -1)
+                    if (hosts != null && hosts.IndexOf(hostfile_BlockList[i], StringComparison.Ordinal) == -1)
                     {
                         ProcStartargs(_shellCmdLocation,
-                            "/c echo " + "0.0.0.0 " + hostsdomains[i] + " >> \"" + hostslocation + "\"");
-                        _OutPut(hostsdomains[i] + " - Now Blocked in Host file.", LogLevel.Warning);
+                            "/c echo " + "0.0.0.0 " + hostfile_BlockList[i] + " >> \"" + hostslocation + "\"");
+                        _OutPut(hostfile_BlockList[i] + " - Blocked.", LogLevel.Warning);
                     }
                     else
-                        _OutPut(hostsdomains[i] + " - Already exists or could not be added to Host File.");
+                        _OutPut(hostfile_BlockList[i] + " - Already Blocked.");
                 }
             }
             catch (Exception ex)
@@ -920,8 +1010,8 @@ namespace DWS_Lite
             }
             RunCmd("/c ipconfig /flushdns");
 
-            _OutPut("Add hosts MS complete.");
-            BlockIpAddr();
+            _OutPut("Block Hosts update Completed.");
+            BlockIPs_WindowsFirewall();
         }
         private void RemoveWindows10Apps()
         {
@@ -1097,35 +1187,7 @@ namespace DWS_Lite
         {
             Process.Start("http://goo.gl/sZIfQD");
         }
-        private void btnProfessionalMode_Click(object sender, EventArgs e)
-        {
-            ProfessionalModeSet(btnProfessionalMode.Checked);
-            Text = btnProfessionalMode.Checked
-                ? string.Format("{0}  !Professional mode!", Text)
-                : Text.Replace("  !Professional mode!", String.Empty);
-        }
-        private void ProfessionalModeSet(bool enableordisable)
-        {
-            checkBoxKeyLoggerAndTelemetry.Enabled = enableordisable;
-            checkBoxAddToHosts.Enabled = enableordisable;
-            checkBoxDisablePrivateSettings.Enabled = enableordisable;
-            checkBoxDisableWindowsDefender.Enabled = enableordisable;
-            checkBoxSetDefaultPhoto.Enabled = enableordisable;
-            checkBoxSPYTasks.Enabled = enableordisable;
-            btnDeleteAllWindows10Apps.Enabled = enableordisable;
-            groupBoxUACEdit.Enabled = enableordisable;
-            btnDeleteMetroAppsInfo.Enabled = enableordisable;
-            btnDeleteOneDrive.Enabled = enableordisable;
-            if (WindowsUtil.SystemRestore_Status() == 0)
-            {
-                checkBoxCreateSystemRestorePoint.Checked = false;
-                checkBoxCreateSystemRestorePoint.Enabled = false;
-            }
-            else
-            {
-                checkBoxCreateSystemRestorePoint.Enabled = enableordisable;
-            }
-        }
+
         private void linkLabelOtherThanks_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             MessageBox.Show(@"Чёрная поганка, Архангел, Yele, TRoskop, artemiy , moldabekovm", @"Thanks");
@@ -1135,45 +1197,61 @@ namespace DWS_Lite
             MessageBox.Show(@"Delete apps: Calculator, Windows Store, Windows Feedback, and other METRO apps.", @"Info",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-        private void btnDeleteOneDrive_Click(object sender, EventArgs e)
+        private void UnInsall_OneDrive(object sender, EventArgs e)
         {
             new Thread(() =>
             {
-                EnableOrDisableTab(false);
-                try
-                {
-                    RunCmd("/c taskkill /f /im OneDrive.exe > NUL 2>&1");
-                    RunCmd("/c ping 127.0.0.1 -n 5 > NUL 2>&1");
-                    if (File.Exists(_systemPath + @"Windows\System32\OneDriveSetup.exe"))
-                        ProcStartargs(_systemPath + @"Windows\System32\OneDriveSetup.exe", "/uninstall");
-                    if (File.Exists(_systemPath + @"Windows\SysWOW64\OneDriveSetup.exe"))
-                        ProcStartargs(_systemPath + @"Windows\SysWOW64\OneDriveSetup.exe", "/uninstall");
-                    RunCmd("/c ping 127.0.0.1 -n 5 > NUL 2>&1");
-                    RunCmd("/c rd \"%USERPROFILE%\\OneDrive\" /Q /S > NUL 2>&1");
-                    RunCmd("/c rd \"C:\\OneDriveTemp\" /Q /S > NUL 2>&1");
-                    RunCmd("/c rd \"%LOCALAPPDATA%\\Microsoft\\OneDrive\" /Q /S > NUL 2>&1");
-                    RunCmd("/c rd \"%PROGRAMDATA%\\Microsoft OneDrive\" /Q /S > NUL 2>&1");
-                    ProcStartargs(_shellCmdLocation,
-                        "/c REG DELETE \"HKEY_CLASSES_ROOT\\CLSID\\{018D5C66-4533-4307-9B53-224DE2ED1FE6}\" /f > NUL 2>&1");
-                    ProcStartargs(_shellCmdLocation,
-                        "/c REG DELETE \"HKEY_CLASSES_ROOT\\Wow6432Node\\CLSID\\{018D5C66-4533-4307-9B53-224DE2ED1FE6}\" /f > NUL 2>&1");
-                }
-                catch (Exception ex)
-                {
-                    Invoke(new MethodInvoker(delegate
-                    {
-                        MessageBox.Show(ex.Message, GetTranslateText("Error"), MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-                    }));
-                    if (_debug) _OutPut(ex.Message, LogLevel.Debug);
-                }
+                UnInstallOneDrive_Action();
                 Invoke(new MethodInvoker(delegate
                 {
-                    MessageBox.Show(GetTranslateText("Complete"), GetTranslateText("Info"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("One Drive Removal Completed.", "Action Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }));
                 EnableOrDisableTab(true);
             }).Start();
         }
+
+        private void UnInstallOneDrive_Action()
+        {
+            EnableOrDisableTab(false);
+            _OutPut("Starting Removal of MS One Drive");
+            try
+            {
+                _OutPut("- Killing Service");
+                RunCmd("/c taskkill /f /im OneDrive.exe > NUL 2>&1");
+                RunCmd("/c ping 127.0.0.1 -n 5 > NUL 2>&1");
+                if (File.Exists(_systemPath + @"Windows\System32\OneDriveSetup.exe"))
+                {
+                    _OutPut("- Un-Installing x32 Version");
+                    ProcStartargs(_systemPath + @"Windows\System32\OneDriveSetup.exe", "/uninstall");
+                }
+                if (File.Exists(_systemPath + @"Windows\SysWOW64\OneDriveSetup.exe"))
+                {
+                    _OutPut("- Un-Installing x64 Version");
+                    ProcStartargs(_systemPath + @"Windows\SysWOW64\OneDriveSetup.exe", "/uninstall");
+                }
+                RunCmd("/c ping 127.0.0.1 -n 5 > NUL 2>&1");
+                RunCmd("/c rd \"%USERPROFILE%\\OneDrive\" /Q /S > NUL 2>&1");
+                RunCmd("/c rd \"C:\\OneDriveTemp\" /Q /S > NUL 2>&1");
+                RunCmd("/c rd \"%LOCALAPPDATA%\\Microsoft\\OneDrive\" /Q /S > NUL 2>&1");
+                RunCmd("/c rd \"%PROGRAMDATA%\\Microsoft OneDrive\" /Q /S > NUL 2>&1");
+                _OutPut("- Removing Registry Entrys");
+                ProcStartargs(_shellCmdLocation,
+                    "/c REG DELETE \"HKEY_CLASSES_ROOT\\CLSID\\{018D5C66-4533-4307-9B53-224DE2ED1FE6}\" /f > NUL 2>&1");
+                ProcStartargs(_shellCmdLocation,
+                    "/c REG DELETE \"HKEY_CLASSES_ROOT\\Wow6432Node\\CLSID\\{018D5C66-4533-4307-9B53-224DE2ED1FE6}\" /f > NUL 2>&1");
+                _OutPut("Completed Un-Install of MS One Drive");
+            }
+            catch (Exception ex)
+            {
+                Invoke(new MethodInvoker(delegate
+                {
+                    _OutPut("Something went wrong:/n"+ex.Message,LogLevel.Error);
+
+                }));
+                if (_debug) _OutPut(ex.Message, LogLevel.Debug);
+            }
+        }
+
         private void linkLabelSourceCode_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("https://github.com/Nummer/Destroy-Windows-10-Spying");
@@ -1200,9 +1278,6 @@ namespace DWS_Lite
         {
             Process.Start("https://github.com/Nummer/Destroy-Windows-10-Spying/issues/new");
         }
-
-       
-
         private void btnDestroyWindows78Spy_Click(object sender, EventArgs e)
         {
             btnDestroyWindows10Spy.Enabled = false;
@@ -1247,84 +1322,20 @@ namespace DWS_Lite
                 _OutPut("Remove update KB" + updatesnumberlist[i]);
             }
         }
-        void BlockIpAddr()
+        void BlockIPs_WindowsFirewall()
         {
-            string[] ipAddr =
-            {
-                "111.221.29.177",
-                "111.221.29.253",
-                "131.253.40.37",
-                "134.170.30.202",
-                "134.170.115.60",
-                "134.170.165.248",
-                "134.170.165.253",
-                "134.170.185.70",
-                "137.116.81.24",
-                "137.117.235.16",
-                "157.55.129.21",
-                "157.55.133.204",
-                "157.56.121.89",
-                "157.56.91.77",
-                "168.63.108.233",
-                "191.232.139.254",
-                "191.232.80.58",
-                "191.232.80.62",
-                "191.237.208.126",
-                "204.79.197.200",
-                "207.46.101.29",
-                "207.46.114.58",
-                "207.46.223.94",
-                "207.68.166.254",
-                "212.30.134.204",
-                "212.30.134.205",
-                "23.102.21.4",
-                "23.99.10.11",
-                "23.218.212.69",
-                "64.4.54.22",
-                "64.4.54.32",
-                "64.4.6.100",
-                "65.39.117.230",
-                "65.52.100.11",
-                "65.52.100.7",
-                "65.52.100.9",
-                "65.52.100.91",
-                "65.52.100.92",
-                "65.52.100.93",
-                "65.52.100.94",
-                "65.52.108.29",
-                "65.55.108.23",
-                "65.55.138.114",
-                "65.55.138.126",
-                "65.55.138.186",
-                "65.55.252.63",
-                "65.55.252.71",
-                "65.55.252.92",
-                "65.55.252.93",
-                "65.55.29.238",
-                "65.55.39.10",
-                "191.232.139.2",
-                "64.4.23.0-64.4.23.255",
-                "111.221.64.0-111.221.127.255", // singapure
-                "157.55.235.0-157.55.235.255",
-                "157.55.56.0-157.55.56.255",
-                "157.55.52.0-157.55.52.255",
-                "157.55.130.0-157.55.130.255",
-                "65.55.223.0-65.55.223.255",
-                "213.199.179.0-213.199.179.255", // Ireland
-                "195.138.255.0-195.138.255.255"
 
-            };
-            for (int i = 0; i < ipAddr.Length; i++)
+            for (int i = 0; i < WindowsFirewall_SpyIPBlockList.Length; i++)
             {
-                RunCmd("/c route -p ADD " + ipAddr[i] + " MASK 255.255.255.255 0.0.0.0");
-                RunCmd("/c netsh advfirewall firewall delete rule name=\"" + ipAddr[i] + "_Block\"");
-                RunCmd("/c netsh advfirewall firewall add rule name=\"" + ipAddr[i] + "_Block\" dir=out interface=any action=block remoteip=" + ipAddr[i]);
-                _OutPut("Add Windows Firewall rule: \"" + ipAddr[i] + "_Block\"");
+                RunCmd("/c route -p ADD " + WindowsFirewall_SpyIPBlockList[i] + " MASK 255.255.255.255 0.0.0.0");
+                RunCmd("/c netsh advfirewall firewall delete rule name=\"" + WindowsFirewall_SpyIPBlockList[i] + "_Block\"");
+                RunCmd("/c netsh advfirewall firewall add rule name=\"" + WindowsFirewall_SpyIPBlockList[i] + "_Block\" dir=out interface=any action=block remoteip=" + WindowsFirewall_SpyIPBlockList[i]);
+                _OutPut("Adding Windows Firewall rule: \"" + WindowsFirewall_SpyIPBlockList[i] + "_Block\"");
             }
             RunCmd("/c netsh advfirewall firewall delete rule name=\"WSearch_Block\"");
             RunCmd("/c netsh advfirewall firewall add rule name=\"WSearch_Block\" dir=out interface=any action=block service=WSearch");
-            _OutPut("Add Windows Firewall rule: \"WSearch_Block\"");
-            _OutPut("Ip list blocked");
+            _OutPut("Adding Windows Firewall rule: \"WSearch_Block\"");
+            _OutPut("Spy Ip list blocked");
         }
         private void linkLabelLicense_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -1339,8 +1350,8 @@ namespace DWS_Lite
         private void btnDisableOfficeUpdate_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show(
-@"Office 2016 may stop working after these actions.
-Are you sure?", @"Warning", MessageBoxButtons.YesNo,MessageBoxIcon.Warning) == DialogResult.No)
+                @"Office 2016 may stop working after these actions.
+                Are you sure?", @"Warning", MessageBoxButtons.YesNo,MessageBoxIcon.Warning) == DialogResult.No)
             {
                 return;
             }
@@ -1497,6 +1508,8 @@ Are you sure?", @"Warning", MessageBoxButtons.YesNo,MessageBoxIcon.Warning) == D
         {
 
         }
+
+
 
     }
 }
