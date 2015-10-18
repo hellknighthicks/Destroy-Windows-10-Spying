@@ -203,6 +203,12 @@ namespace DWS_Lite
                     @"Microsoft\Windows\Media Center\SqlLiteRecoveryTask",
                     @"Microsoft\Windows\Media Center\UpdateRecordPath"
                 };
+        string[,] services_to_Disable = {//Used in the Remove Un-Needed Services function.
+                                                        //ServiceName       //Service Details  
+                                                        { "DPS"             , "Diagnostic Protocol Serivice"},
+                                                        {"TrWks"            , "Distributed link Tracking Client Service"},
+                                                        {"RemoteRegistry"   , "Disabling Remote Registry Service"}
+                                                };
         #endregion
         public DestroyWindowsSpyingMainForm(string[] args)
         {
@@ -734,22 +740,26 @@ namespace DWS_Lite
             Progressbaradd(10);
             if (checkBoxKeyLoggerAndTelemetry.Checked)
             {
-                // DISABLE TELEMETRY
-                _OutPut("Disabling telemetry...");
+                _OutPut("Staring Remove Keylogger//Telemetry//MetaData Components");
+                _OutPut("-Stopping Telemetry Services.");
                 RunCmd("/c net stop DiagTrack ");
                 RunCmd("/c net stop diagnosticshub.standardcollector.service ");
                 RunCmd("/c net stop dmwappushservice ");
                 RunCmd("/c net stop WMPNetworkSvc ");
+                _OutPut("-Disabling Telemetry Serivices.");
                 RunCmd("/c sc config DiagTrack start=disabled ");
                 RunCmd("/c sc config diagnosticshub.standardcollector.service start=disabled ");
                 RunCmd("/c sc config dmwappushservice start=disabled ");
                 RunCmd("/c sc config WMPNetworkSvc start=disabled ");
+                _OutPut("-Killing AutoLogger-Diagtrack-Listener");
                 RunCmd("/c REG ADD HKLM\\SYSTEM\\ControlSet001\\Control\\WMI\\AutoLogger\\AutoLogger-Diagtrack-Listener /v Start /t REG_DWORD /d 0 /f");
                 RunCmd("/c net stop dmwappushservice");
                 RunCmd("/c net stop diagtrack");
+                _OutPut("-Deleting Objects");
                 RunCmd("/c sc delete dmwappushsvc");
                 RunCmd("/c sc delete \"Diagnostics Tracking Service\"");
                 RunCmd("/c sc delete diagtrack");
+                _OutPut("-Removing//Disabling Meta Data Trackers and other tracking Junk via Registry");
                 RunCmd("/c reg add \"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Device Metadata\" /v \"PreventDeviceMetadataFromNetwork\" /t REG_DWORD /d 1 /f ");
                 RunCmd("/c reg add \"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\DataCollection\" /v \"AllowTelemetry\" /t REG_DWORD /d 0 /f ");
                 RunCmd("/c reg add \"HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\MRT\" /v \"DontOfferThroughWUAU\" /t REG_DWORD /d 1 /f ");
@@ -763,8 +773,7 @@ namespace DWS_Lite
                 RunCmd("/c reg add \"HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\AppCompat\" /v \"DisableUAR\" /t REG_DWORD /d 1 /f ");
                 RunCmd("/c reg add \"HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\SQMClient\\Windows\" /v \"CEIPEnable\" /t REG_DWORD /d 0 /f ");
                 RunCmd("/c reg delete \"HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Siuf\\Rules\" /v \"PeriodInNanoSeconds\" /f ");
-                // DELETE KEYLOGGER
-                _OutPut("Delete keylogger...");
+                _OutPut("Completed Removal of Keylogger//Telemetry//MetaData Objects");
             }
             Progressbaradd(15); //25
             if (checkBoxAddToHosts.Checked)
@@ -774,7 +783,7 @@ namespace DWS_Lite
             Progressbaradd(20); //45
             if (checkBoxDisablePrivateSettings.Checked)
             {
-
+                _OutPut("Starting Disable of Phone Home ");
                 SetRegValueHkcu(
                     @"SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{21157C1F-2651-4CC1-90CA-1F28B02263F6}",
                     "Value", "Deny", RegistryValueKind.String);
@@ -816,7 +825,7 @@ namespace DWS_Lite
                     "Value", "Deny", RegistryValueKind.String);
                 SetRegValueHkcu(@"SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\LooselyCoupled",
                     "Value", "Deny", RegistryValueKind.String);
-                _OutPut("Disable private settings");
+                _OutPut("Disable Cortana and BingSearch");
                 SetRegValueHkcu(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Search", "CortanaEnabled", "0",
                     RegistryValueKind.DWord);
                 SetRegValueHkcu(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Search", "BingSearchEnabled", "0",
@@ -827,8 +836,8 @@ namespace DWS_Lite
             {
                 try
                 {
+                    _OutPut("Disabling Windows Defender.");
                     SetRegValueHklm(@"SOFTWARE\Policies\Microsoft\Windows Defender", "DisableAntiSpyware", "1", RegistryValueKind.DWord);
-                    _OutPut("Disable Windows Defender.");
                 }
                 catch (Exception ex)
                 {
@@ -866,14 +875,22 @@ namespace DWS_Lite
             Progressbaradd(5); //60
             if (checkBoxSetDefaultPhoto.Checked)
             {
+                _OutPut("Starting Set Default PhotoViewer");
+                _OutPut("-Setting .ico");
                 SetRegValueHkcu(@"Software\Classes\.ico", null, "PhotoViewer.FileAssoc.Tiff", RegistryValueKind.String);
+                _OutPut("-Setting .tiff");
                 SetRegValueHkcu(@"Software\Classes\.tiff", null, "PhotoViewer.FileAssoc.Tiff", RegistryValueKind.String);
+                _OutPut("-Setting .bmp");
                 SetRegValueHkcu(@"Software\Classes\.bmp", null, "PhotoViewer.FileAssoc.Tiff", RegistryValueKind.String);
+                _OutPut("-Setting .png");
                 SetRegValueHkcu(@"Software\Classes\.png", null, "PhotoViewer.FileAssoc.Tiff", RegistryValueKind.String);
+                _OutPut("-Setting .gif");
                 SetRegValueHkcu(@"Software\Classes\.gif", null, "PhotoViewer.FileAssoc.Tiff", RegistryValueKind.String);
+                _OutPut("-Setting .jpeg");
                 SetRegValueHkcu(@"Software\Classes\.jpeg", null, "PhotoViewer.FileAssoc.Tiff", RegistryValueKind.String);
+                _OutPut("-Setting .jpg");
                 SetRegValueHkcu(@"Software\Classes\.jpg", null, "PhotoViewer.FileAssoc.Tiff", RegistryValueKind.String);
-                _OutPut("Set Default PhotoViewer");
+                _OutPut("Completed Set Default PhotoViewer");
             }
             Progressbaradd(10); //70
             if (checkBoxSPYTasks.Checked)
@@ -884,22 +901,17 @@ namespace DWS_Lite
             if (checkBoxDisableServices.Checked)
             {   //Direct Registry modifications threw a .reg file will not be applied to the section of the registry that sets the start type of services
                 // Not sure if you can touch that area of the registry threw an Admin rights Console Command or not. 
+                _OutPut("Starting Un-Needed Service Disable.");
 
-                    //DPS
-                RunCmd("/c net stop DPS ");
-                _OutPut("Stopping Diagnostic Protocol Serivice.");
-                RunCmd("/c sc config DPS start = disabled");
-                _OutPut("Disabling Diagnostic Protocol Serivice.");
-                    //TrkWks
-                RunCmd("/c net stop TrkWks ");
-                _OutPut("Stopping Distributed link Tracking Client Service.");
-                RunCmd("/c sc config TrkWks start = disabled");
-                _OutPut("Disabling Distributed link Tracking Client Service.");
-                    //Disable Remote Registry
-                RunCmd("/c net stop RemoteRegistry ");
-                _OutPut("Stopping Remote Registry Service.");
-                RunCmd("/c sc config RemoteRegistry start = disabled");
-                _OutPut("Disabling Remote Registry Service.");
+                for (int i = 0; i < services_to_Disable.GetLength(0); i++)
+                {
+                    RunCmd("/c net stop " + services_to_Disable[i, 0]);
+                    _OutPut("-Killing the " + services_to_Disable[i, 1] + " (" + services_to_Disable[i, 0] + ").");
+                    RunCmd("/c sc config " + services_to_Disable[i, 0] + " start = disabled");
+                    _OutPut("-Disabling the " + services_to_Disable[i, 1] + " (" + services_to_Disable[i, 0] + ").");
+                }
+                _OutPut("Completed Un-Needed Service Disable.");
+
             }
             Progressbaradd(10); //85
             if (checkBoxDeleteWindows10Apps.Checked)
@@ -966,12 +978,13 @@ namespace DWS_Lite
         }
         void DisableSpyingTasks()
         {
-          
+            _OutPut("Starting Disable of Scheduled Sending of Data to Microsoft.");
             for (int i = 0; i < disabletaskslist.Length; i++)
             {
                 ProcStartargs("SCHTASKS", "/Change /TN \"" + disabletaskslist[i] + "\" /disable");
-                _OutPut("Disabled task: " + disabletaskslist[i]);
+                _OutPut("-"+disabletaskslist[i]+" Disabled.");
             }
+            _OutPut("Completed Removal of Scheduled Sending of Data to Microsoft.");
         }
 
         void AddToHostsAndFirewall()
@@ -996,10 +1009,10 @@ namespace DWS_Lite
                     {
                         ProcStartargs(_shellCmdLocation,
                             "/c echo " + "0.0.0.0 " + hostfile_BlockList[i] + " >> \"" + hostslocation + "\"");
-                        _OutPut(hostfile_BlockList[i] + " - Blocked.", LogLevel.Warning);
+                        _OutPut("-"+hostfile_BlockList[i] + " - Blocked.", LogLevel.Warning);
                     }
                     else
-                        _OutPut(hostfile_BlockList[i] + " - Already Blocked.");
+                        _OutPut("-"+hostfile_BlockList[i] + " - Already Blocked.");
                 }
             }
             catch (Exception ex)
@@ -1240,6 +1253,14 @@ namespace DWS_Lite
                 ProcStartargs(_shellCmdLocation,
                     "/c REG DELETE \"HKEY_CLASSES_ROOT\\Wow6432Node\\CLSID\\{018D5C66-4533-4307-9B53-224DE2ED1FE6}\" /f > NUL 2>&1");
                 _OutPut("Completed Un-Install of MS One Drive");
+                //Should move these out at a latter point and time to there own button or option.
+                _OutPut("Removing Stupid Ad apps Get Skype Get Office Zune Music.. May not be currently working.");
+                RunCmd("/c Get-AppxPackage *officehub* | Remove-AppxPackage");
+                RunCmd("/c Get-AppxPackage *skypeapp* | Remove-AppxPackage");
+                RunCmd("/c Get-AppxPackage *getstarted* | Remove-AppxPackage");
+                RunCmd("/c Get-AppxPackage *zunemusic* | Remove-AppxPackage");
+
+
             }
             catch (Exception ex)
             {
@@ -1388,6 +1409,12 @@ namespace DWS_Lite
             {
                 _OutPut(ex.Message, LogLevel.Error);
             }
+        }
+
+        public void restore_Metro_apps()
+        {
+            //Running this application may restore the Metro Apps
+            //Get-AppxPackage -AllUsers| Foreach {Add-AppxPackage -DisableDevelopmentMode -Register “$($_.InstallLocation)\AppXManifest.xml”}
         }
 
         public static byte[] StringToByteArray(string hex)

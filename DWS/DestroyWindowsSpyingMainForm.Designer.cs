@@ -35,10 +35,6 @@ namespace DWS_Lite
             this.CaptionWindow = new System.Windows.Forms.Label();
             this.CloseButton = new System.Windows.Forms.PictureBox();
             this.MinimizeButton = new System.Windows.Forms.PictureBox();
-            this.BorderUP = new System.Windows.Forms.PictureBox();
-            this.BorderDown = new System.Windows.Forms.PictureBox();
-            this.BorderLeft = new System.Windows.Forms.PictureBox();
-            this.BorderR = new System.Windows.Forms.PictureBox();
             this.tabPageLicense = new System.Windows.Forms.TabPage();
             this.linkLabelLicense = new System.Windows.Forms.LinkLabel();
             this.labelLicense = new System.Windows.Forms.Label();
@@ -60,6 +56,7 @@ namespace DWS_Lite
             this.btnRestoreSystem = new System.Windows.Forms.Button();
             this.btnDeleteAllWindows10Apps = new System.Windows.Forms.Button();
             this.tabPageSettings = new System.Windows.Forms.TabPage();
+            this.checkBoxOneDrive = new System.Windows.Forms.CheckBox();
             this.checkBoxP2PWinUpdate = new System.Windows.Forms.CheckBox();
             this.checkBoxDisableServices = new System.Windows.Forms.CheckBox();
             this.labelInfoDeleteMetroApps = new System.Windows.Forms.Label();
@@ -82,27 +79,30 @@ namespace DWS_Lite
             this.checkBoxAddToHosts = new System.Windows.Forms.CheckBox();
             this.checkBoxKeyLoggerAndTelemetry = new System.Windows.Forms.CheckBox();
             this.checkBoxCreateSystemRestorePoint = new System.Windows.Forms.CheckBox();
+            this.FormTabsControl = new System.Windows.Forms.TabControl();
             this.tabPageMain = new System.Windows.Forms.TabPage();
             this.btnDestroyWindows10Spy = new System.Windows.Forms.Button();
             this.LogOutputTextBox = new System.Windows.Forms.RichTextBox();
             this.ProgressBarStatus = new System.Windows.Forms.ProgressBar();
             this.btnDestroyWindowsSpying = new System.Windows.Forms.Button();
-            this.FormTabsControl = new System.Windows.Forms.TabControl();
-            this.checkBoxOneDrive = new System.Windows.Forms.CheckBox();
+            this.BorderUP = new System.Windows.Forms.PictureBox();
+            this.BorderDown = new System.Windows.Forms.PictureBox();
+            this.BorderLeft = new System.Windows.Forms.PictureBox();
+            this.BorderR = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.CloseButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BorderUP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BorderDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BorderLeft)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BorderR)).BeginInit();
             this.tabPageLicense.SuspendLayout();
             this.tabPageAbout.SuspendLayout();
             this.tabPageUtilites.SuspendLayout();
             this.groupBoxWindowsUpdate.SuspendLayout();
             this.groupBoxUACEdit.SuspendLayout();
             this.tabPageSettings.SuspendLayout();
-            this.tabPageMain.SuspendLayout();
             this.FormTabsControl.SuspendLayout();
+            this.tabPageMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BorderUP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BorderDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BorderLeft)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BorderR)).BeginInit();
             this.SuspendLayout();
             // 
             // CaptionWindow
@@ -148,42 +148,6 @@ namespace DWS_Lite
             this.MinimizeButton.Click += new System.EventHandler(this.MinimizeButton_Click);
             this.MinimizeButton.MouseEnter += new System.EventHandler(this.MinimizeButton_MouseEnter);
             this.MinimizeButton.MouseLeave += new System.EventHandler(this.MinimizeButton_MouseLeave);
-            // 
-            // BorderUP
-            // 
-            this.BorderUP.BackColor = System.Drawing.Color.Cyan;
-            this.BorderUP.Location = new System.Drawing.Point(-7, 0);
-            this.BorderUP.Name = "BorderUP";
-            this.BorderUP.Size = new System.Drawing.Size(480, 1);
-            this.BorderUP.TabIndex = 4;
-            this.BorderUP.TabStop = false;
-            // 
-            // BorderDown
-            // 
-            this.BorderDown.BackColor = System.Drawing.Color.Cyan;
-            this.BorderDown.Location = new System.Drawing.Point(-14, 456);
-            this.BorderDown.Name = "BorderDown";
-            this.BorderDown.Size = new System.Drawing.Size(480, 1);
-            this.BorderDown.TabIndex = 5;
-            this.BorderDown.TabStop = false;
-            // 
-            // BorderLeft
-            // 
-            this.BorderLeft.BackColor = System.Drawing.Color.Cyan;
-            this.BorderLeft.Location = new System.Drawing.Point(0, -8);
-            this.BorderLeft.Name = "BorderLeft";
-            this.BorderLeft.Size = new System.Drawing.Size(1, 500);
-            this.BorderLeft.TabIndex = 6;
-            this.BorderLeft.TabStop = false;
-            // 
-            // BorderR
-            // 
-            this.BorderR.BackColor = System.Drawing.Color.Cyan;
-            this.BorderR.Location = new System.Drawing.Point(452, -22);
-            this.BorderR.Name = "BorderR";
-            this.BorderR.Size = new System.Drawing.Size(1, 500);
-            this.BorderR.TabIndex = 7;
-            this.BorderR.TabStop = false;
             // 
             // tabPageLicense
             // 
@@ -256,7 +220,6 @@ namespace DWS_Lite
             // tabPageUtilites
             // 
             this.tabPageUtilites.BackColor = System.Drawing.Color.White;
-            this.tabPageUtilites.BackgroundImage = global::DWS_Lite.Properties.Resources.BGProgImg;
             this.tabPageUtilites.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabPageUtilites.Controls.Add(this.btnDisableOfficeUpdate);
             this.tabPageUtilites.Controls.Add(this.btnRemoveOldFirewallRules);
@@ -469,12 +432,28 @@ namespace DWS_Lite
             this.tabPageSettings.TabIndex = 1;
             this.tabPageSettings.Text = "Settings";
             // 
+            // checkBoxOneDrive
+            // 
+            this.checkBoxOneDrive.AutoSize = true;
+            this.checkBoxOneDrive.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxOneDrive.Checked = true;
+            this.checkBoxOneDrive.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxOneDrive.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.checkBoxOneDrive.Location = new System.Drawing.Point(6, 142);
+            this.checkBoxOneDrive.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBoxOneDrive.Name = "checkBoxOneDrive";
+            this.checkBoxOneDrive.Size = new System.Drawing.Size(158, 17);
+            this.checkBoxOneDrive.TabIndex = 24;
+            this.checkBoxOneDrive.Text = "Disable Microsoft One Drive";
+            this.checkBoxOneDrive.UseVisualStyleBackColor = false;
+            // 
             // checkBoxP2PWinUpdate
             // 
             this.checkBoxP2PWinUpdate.AutoSize = true;
             this.checkBoxP2PWinUpdate.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxP2PWinUpdate.Checked = true;
             this.checkBoxP2PWinUpdate.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxP2PWinUpdate.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.checkBoxP2PWinUpdate.Location = new System.Drawing.Point(6, 125);
             this.checkBoxP2PWinUpdate.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxP2PWinUpdate.Name = "checkBoxP2PWinUpdate";
@@ -489,6 +468,7 @@ namespace DWS_Lite
             this.checkBoxDisableServices.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxDisableServices.Checked = true;
             this.checkBoxDisableServices.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxDisableServices.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.checkBoxDisableServices.Location = new System.Drawing.Point(6, 108);
             this.checkBoxDisableServices.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDisableServices.Name = "checkBoxDisableServices";
@@ -677,6 +657,7 @@ namespace DWS_Lite
             // 
             this.checkBoxDeleteWindows10Apps.AutoSize = true;
             this.checkBoxDeleteWindows10Apps.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxDeleteWindows10Apps.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.checkBoxDeleteWindows10Apps.Location = new System.Drawing.Point(6, 195);
             this.checkBoxDeleteWindows10Apps.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDeleteWindows10Apps.Name = "checkBoxDeleteWindows10Apps";
@@ -692,6 +673,7 @@ namespace DWS_Lite
             this.checkBoxSPYTasks.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxSPYTasks.Checked = true;
             this.checkBoxSPYTasks.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxSPYTasks.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.checkBoxSPYTasks.Location = new System.Drawing.Point(6, 91);
             this.checkBoxSPYTasks.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxSPYTasks.Name = "checkBoxSPYTasks";
@@ -704,6 +686,7 @@ namespace DWS_Lite
             // 
             this.checkBoxSetDefaultPhoto.AutoSize = true;
             this.checkBoxSetDefaultPhoto.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxSetDefaultPhoto.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.checkBoxSetDefaultPhoto.Location = new System.Drawing.Point(6, 159);
             this.checkBoxSetDefaultPhoto.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxSetDefaultPhoto.Name = "checkBoxSetDefaultPhoto";
@@ -718,6 +701,7 @@ namespace DWS_Lite
             this.checkBoxDisableWindowsDefender.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxDisableWindowsDefender.Checked = true;
             this.checkBoxDisableWindowsDefender.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxDisableWindowsDefender.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.checkBoxDisableWindowsDefender.Location = new System.Drawing.Point(6, 74);
             this.checkBoxDisableWindowsDefender.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDisableWindowsDefender.Name = "checkBoxDisableWindowsDefender";
@@ -732,12 +716,14 @@ namespace DWS_Lite
             this.checkBoxDisablePrivateSettings.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxDisablePrivateSettings.Checked = true;
             this.checkBoxDisablePrivateSettings.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxDisablePrivateSettings.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.checkBoxDisablePrivateSettings.Location = new System.Drawing.Point(6, 57);
             this.checkBoxDisablePrivateSettings.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDisablePrivateSettings.Name = "checkBoxDisablePrivateSettings";
-            this.checkBoxDisablePrivateSettings.Size = new System.Drawing.Size(139, 17);
+            this.checkBoxDisablePrivateSettings.Size = new System.Drawing.Size(602, 17);
             this.checkBoxDisablePrivateSettings.TabIndex = 3;
-            this.checkBoxDisablePrivateSettings.Text = "Disable Private Settings";
+            this.checkBoxDisablePrivateSettings.Text = "Disable Sending of Windows Search Data to Microsoft (Anything you type in the Sea" +
+    "rch Bar even with Cortona Disabled)";
             this.checkBoxDisablePrivateSettings.UseVisualStyleBackColor = false;
             // 
             // checkBoxAddToHosts
@@ -746,6 +732,7 @@ namespace DWS_Lite
             this.checkBoxAddToHosts.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxAddToHosts.Checked = true;
             this.checkBoxAddToHosts.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxAddToHosts.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.checkBoxAddToHosts.Location = new System.Drawing.Point(6, 40);
             this.checkBoxAddToHosts.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxAddToHosts.Name = "checkBoxAddToHosts";
@@ -760,12 +747,13 @@ namespace DWS_Lite
             this.checkBoxKeyLoggerAndTelemetry.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxKeyLoggerAndTelemetry.Checked = true;
             this.checkBoxKeyLoggerAndTelemetry.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxKeyLoggerAndTelemetry.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.checkBoxKeyLoggerAndTelemetry.Location = new System.Drawing.Point(6, 23);
             this.checkBoxKeyLoggerAndTelemetry.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxKeyLoggerAndTelemetry.Name = "checkBoxKeyLoggerAndTelemetry";
-            this.checkBoxKeyLoggerAndTelemetry.Size = new System.Drawing.Size(177, 17);
+            this.checkBoxKeyLoggerAndTelemetry.Size = new System.Drawing.Size(262, 17);
             this.checkBoxKeyLoggerAndTelemetry.TabIndex = 1;
-            this.checkBoxKeyLoggerAndTelemetry.Text = "Delete keylogger and telemetry";
+            this.checkBoxKeyLoggerAndTelemetry.Text = "Disable/Remove Keyloggers/Telemetry/MetaData";
             this.checkBoxKeyLoggerAndTelemetry.UseVisualStyleBackColor = false;
             // 
             // checkBoxCreateSystemRestorePoint
@@ -774,6 +762,7 @@ namespace DWS_Lite
             this.checkBoxCreateSystemRestorePoint.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxCreateSystemRestorePoint.Checked = true;
             this.checkBoxCreateSystemRestorePoint.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxCreateSystemRestorePoint.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.checkBoxCreateSystemRestorePoint.Location = new System.Drawing.Point(6, 6);
             this.checkBoxCreateSystemRestorePoint.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxCreateSystemRestorePoint.Name = "checkBoxCreateSystemRestorePoint";
@@ -781,6 +770,19 @@ namespace DWS_Lite
             this.checkBoxCreateSystemRestorePoint.TabIndex = 0;
             this.checkBoxCreateSystemRestorePoint.Text = "Create system restore point";
             this.checkBoxCreateSystemRestorePoint.UseVisualStyleBackColor = false;
+            // 
+            // FormTabsControl
+            // 
+            this.FormTabsControl.Controls.Add(this.tabPageMain);
+            this.FormTabsControl.Controls.Add(this.tabPageSettings);
+            this.FormTabsControl.Controls.Add(this.tabPageUtilites);
+            this.FormTabsControl.Controls.Add(this.tabPageAbout);
+            this.FormTabsControl.Controls.Add(this.tabPageLicense);
+            this.FormTabsControl.Location = new System.Drawing.Point(0, 31);
+            this.FormTabsControl.Name = "FormTabsControl";
+            this.FormTabsControl.SelectedIndex = 0;
+            this.FormTabsControl.Size = new System.Drawing.Size(453, 426);
+            this.FormTabsControl.TabIndex = 0;
             // 
             // tabPageMain
             // 
@@ -848,32 +850,41 @@ namespace DWS_Lite
             this.btnDestroyWindowsSpying.UseVisualStyleBackColor = false;
             this.btnDestroyWindowsSpying.Click += new System.EventHandler(this.btnDestroyWindowsSpying_Click);
             // 
-            // FormTabsControl
+            // BorderUP
             // 
-            this.FormTabsControl.Controls.Add(this.tabPageMain);
-            this.FormTabsControl.Controls.Add(this.tabPageSettings);
-            this.FormTabsControl.Controls.Add(this.tabPageUtilites);
-            this.FormTabsControl.Controls.Add(this.tabPageAbout);
-            this.FormTabsControl.Controls.Add(this.tabPageLicense);
-            this.FormTabsControl.Location = new System.Drawing.Point(0, 31);
-            this.FormTabsControl.Name = "FormTabsControl";
-            this.FormTabsControl.SelectedIndex = 0;
-            this.FormTabsControl.Size = new System.Drawing.Size(453, 426);
-            this.FormTabsControl.TabIndex = 0;
+            this.BorderUP.BackColor = System.Drawing.Color.Cyan;
+            this.BorderUP.Location = new System.Drawing.Point(-7, 0);
+            this.BorderUP.Name = "BorderUP";
+            this.BorderUP.Size = new System.Drawing.Size(480, 1);
+            this.BorderUP.TabIndex = 4;
+            this.BorderUP.TabStop = false;
             // 
-            // checkBoxOneDrive
+            // BorderDown
             // 
-            this.checkBoxOneDrive.AutoSize = true;
-            this.checkBoxOneDrive.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxOneDrive.Checked = true;
-            this.checkBoxOneDrive.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxOneDrive.Location = new System.Drawing.Point(6, 142);
-            this.checkBoxOneDrive.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBoxOneDrive.Name = "checkBoxOneDrive";
-            this.checkBoxOneDrive.Size = new System.Drawing.Size(158, 17);
-            this.checkBoxOneDrive.TabIndex = 24;
-            this.checkBoxOneDrive.Text = "Disable Microsoft One Drive";
-            this.checkBoxOneDrive.UseVisualStyleBackColor = false;
+            this.BorderDown.BackColor = System.Drawing.Color.Cyan;
+            this.BorderDown.Location = new System.Drawing.Point(-14, 456);
+            this.BorderDown.Name = "BorderDown";
+            this.BorderDown.Size = new System.Drawing.Size(480, 1);
+            this.BorderDown.TabIndex = 5;
+            this.BorderDown.TabStop = false;
+            // 
+            // BorderLeft
+            // 
+            this.BorderLeft.BackColor = System.Drawing.Color.Cyan;
+            this.BorderLeft.Location = new System.Drawing.Point(0, -8);
+            this.BorderLeft.Name = "BorderLeft";
+            this.BorderLeft.Size = new System.Drawing.Size(1, 500);
+            this.BorderLeft.TabIndex = 6;
+            this.BorderLeft.TabStop = false;
+            // 
+            // BorderR
+            // 
+            this.BorderR.BackColor = System.Drawing.Color.Cyan;
+            this.BorderR.Location = new System.Drawing.Point(452, -22);
+            this.BorderR.Name = "BorderR";
+            this.BorderR.Size = new System.Drawing.Size(1, 500);
+            this.BorderR.TabIndex = 7;
+            this.BorderR.TabStop = false;
             // 
             // DestroyWindowsSpyingMainForm
             // 
@@ -900,10 +911,6 @@ namespace DWS_Lite
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DestroyWindowsSpyingMainForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.CloseButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BorderUP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BorderDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BorderLeft)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BorderR)).EndInit();
             this.tabPageLicense.ResumeLayout(false);
             this.tabPageLicense.PerformLayout();
             this.tabPageAbout.ResumeLayout(false);
@@ -913,8 +920,12 @@ namespace DWS_Lite
             this.groupBoxUACEdit.ResumeLayout(false);
             this.tabPageSettings.ResumeLayout(false);
             this.tabPageSettings.PerformLayout();
-            this.tabPageMain.ResumeLayout(false);
             this.FormTabsControl.ResumeLayout(false);
+            this.tabPageMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.BorderUP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BorderDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BorderLeft)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BorderR)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -924,10 +935,6 @@ namespace DWS_Lite
         private Label CaptionWindow;
         private PictureBox CloseButton;
         private PictureBox MinimizeButton;
-        private PictureBox BorderUP;
-        private PictureBox BorderDown;
-        private PictureBox BorderLeft;
-        private PictureBox BorderR;
         private TabPage tabPageLicense;
         private LinkLabel linkLabelLicense;
         private Label labelLicense;
@@ -970,14 +977,18 @@ namespace DWS_Lite
         private CheckBox checkBoxAddToHosts;
         private CheckBox checkBoxKeyLoggerAndTelemetry;
         private CheckBox checkBoxCreateSystemRestorePoint;
+        private TabControl FormTabsControl;
+        private CheckBox checkBoxP2PWinUpdate;
+        private CheckBox checkBoxOneDrive;
         private TabPage tabPageMain;
         private Button btnDestroyWindows10Spy;
         private RichTextBox LogOutputTextBox;
         private ProgressBar ProgressBarStatus;
         private Button btnDestroyWindowsSpying;
-        private TabControl FormTabsControl;
-        private CheckBox checkBoxP2PWinUpdate;
-        private CheckBox checkBoxOneDrive;
+        private PictureBox BorderUP;
+        private PictureBox BorderDown;
+        private PictureBox BorderLeft;
+        private PictureBox BorderR;
     }
 }
 
