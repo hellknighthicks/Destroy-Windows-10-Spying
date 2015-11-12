@@ -210,6 +210,7 @@ namespace DWS_Lite
                                                         {"RemoteRegistry"   , "Disabling Remote Registry Service"}
                                                 };
         #endregion
+
         public DestroyWindowsSpyingMainForm(string[] args)
         {
 
@@ -235,26 +236,15 @@ namespace DWS_Lite
             Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
 
             Text += Resources.build_number;
-            labelBuildDataTime.Text = @"Build number:" + Resources.build_number + @"  |  Build Time:" +
-                                      Resources.build_datatime;
+            //labelBuildDataTime.Text = @"Build number:" + Resources.build_number + @"  |  Build Time:" +
+                                      //Resources.build_datatime;
 
             StealthMode(args);
             new Thread(CheckUpdates).Start();
-            new Thread(AnimateBackground).Start();
 
         }
 
-        void AnimateBackground()
-        {
-            while (true)
-            {
-                for (float i = 0; i < 1f; i += 0.01f)
-                {
-                    Thread.Sleep(50);
-                    ChangeBorderColor(Rainbow(i));
-                }
-            }
-        }
+
 
         void CheckUpdates()
         {/*  Dont want to be pulling updates from Main branch any more... Temporarily disabled while new build is setup.
@@ -293,6 +283,7 @@ namespace DWS_Lite
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
+            _OutPut(GetWindowsBuildVersion());
             if (WindowsUtil.SystemRestore_Status() == 0)
             {
                 _OutPut("System Restore is Disabled.  Can not Create System Restore point.", LogLevel.Warning);
@@ -363,7 +354,7 @@ namespace DWS_Lite
                 tabPageUtilites.Enabled = false;
                 tabPageSettings.Enabled = false;
                 btnDestroyWindowsSpying.Visible = false;
-                btnDestroyWindows10Spy.Visible = true;
+                //btnDestroyWindows10Spy.Visible = true;
             }
             //------------------------------------------
 
@@ -566,7 +557,7 @@ namespace DWS_Lite
             catch (Exception)
             {
                 ControlBox = enableordisable;
-                tabPageMain.Enabled = enableordisable;
+                //tabPageMain.Enabled = enableordisable;
                 tabPageSettings.Enabled = enableordisable;
                 tabPageUtilites.Enabled = enableordisable;
             }
@@ -714,7 +705,7 @@ namespace DWS_Lite
             EnableOrDisableTab(false);
             SetCompleteText(true);
             _OutPut(string.Format("Starting: {0}.", DateTime.Now));
-            _OutPut(GetWindowsBuildVersion());
+            //_OutPut(GetWindowsBuildVersion());
             _OutPutSplit();
             _fatalErrors = 0;
             ProgressBarStatus.Value = 0;
@@ -845,6 +836,18 @@ namespace DWS_Lite
                     if (_debug) _OutPut(ex.Message, LogLevel.Debug);
                     _fatalErrors++;
                 }
+            }
+            if (CheckboxUAC_Silent.Checked)
+            {
+                //Behavior of the elevation prompt for administrators in Admin Approval Mode 0= off
+                SetRegValueHklm(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies", "ConsentPromptBehaviorUser", "0", RegistryValueKind.DWord);
+                //Detect application installations and prompt for elevation 0= off
+                SetRegValueHklm(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies", "EnableInstallerDetection", "0", RegistryValueKind.DWord);
+                //Only elevate UIAccess applications that are installed in secure locations 0=off
+                SetRegValueHklm(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies", "EnableSecureUIAPaths", "0", RegistryValueKind.DWord);
+                //When on Windows notifies the user when a program trys to make changes to the computer.  Default is on =1 Setting to Off = 0
+                SetRegValueHklm(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies", "EnableLUA", "0", RegistryValueKind.DWord);
+
             }
             Progressbaradd(2); //55
             if (checkBoxOneDrive.Checked)
@@ -1301,7 +1304,7 @@ namespace DWS_Lite
         }
         private void btnDestroyWindows78Spy_Click(object sender, EventArgs e)
         {
-            btnDestroyWindows10Spy.Enabled = false;
+            //btnDestroyWindows10Spy.Enabled = false;
             _fatalErrors = 0;
             new Thread(() =>
             {
@@ -1311,7 +1314,7 @@ namespace DWS_Lite
                 RunCmd("/c REG ADD HKLM\\SYSTEM\\CurrentControlSet\\Control\\WMI\\AutoLogger\\AutoLogger-Diagtrack-Listener /v Start /t REG_DWORD /d 0 /f");
                 Invoke(new MethodInvoker(delegate
                 {
-                    btnDestroyWindows10Spy.Enabled = true;
+                    //btnDestroyWindows10Spy.Enabled = true;
                     MessageBox.Show(GetTranslateText("Complete"), GetTranslateText("Info"), MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
                 }));
@@ -1491,7 +1494,7 @@ namespace DWS_Lite
         }
 
         void ChangeBorderColor(Color cl)
-        {
+        {/*
             try
             {
                 Invoke(new MethodInvoker(delegate
@@ -1506,6 +1509,7 @@ namespace DWS_Lite
             {
                 
             }
+          */
         }
 
         public static Color Rainbow(float progress)
