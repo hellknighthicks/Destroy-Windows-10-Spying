@@ -854,6 +854,12 @@ namespace DWS_Lite
             {
                 UnInstallOneDrive_Action();
             }
+            
+            if (checkBox_LockScreen.Checked)
+            {
+                SetRegValueHklm(@"SOFTWARE\Policies\Microsoft\Windows\Personalization", "NoLockScreen", "1", RegistryValueKind.DWord);
+                _OutPut("Disabled Sliding lock screen.");
+            }
             Progressbaradd(5); //55
             if (checkBoxP2PWinUpdate.Checked)
             {/*
@@ -1163,6 +1169,12 @@ namespace DWS_Lite
             RunCmd("/c netsh advfirewall firewall delete rule name=\"WindowsUpdateBlock\"");
             _OutPut("Windows Update enabled");
         }
+
+        //Enable Disable Dark tHeme
+        //HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize
+        //Create DWORD key: SystemUsesLightTheme
+
+
         private void btnDisableWindowsUpdate_Click(object sender, EventArgs e)
         {
             RunCmd("/c net stop wuauserv");
