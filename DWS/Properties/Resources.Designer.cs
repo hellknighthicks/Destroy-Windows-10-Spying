@@ -63,6 +63,16 @@ namespace DWS_Lite.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap background {
+            get {
+                object obj = ResourceManager.GetObject("background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BGProgImg {
             get {
                 object obj = ResourceManager.GetObject("BGProgImg", resourceCulture);
@@ -71,7 +81,7 @@ namespace DWS_Lite.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 06-Oct-15 20:02:56.36 
+        ///   Looks up a localized string similar to Thu 01/14/2016 14:49:37.80 
         ///.
         /// </summary>
         internal static string build_datatime {
@@ -81,7 +91,7 @@ namespace DWS_Lite.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 455.
+        ///   Looks up a localized string similar to 533.
         /// </summary>
         internal static string build_number {
             get {

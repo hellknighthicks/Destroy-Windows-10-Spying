@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Drawing;
-using System.Globalization;
+//using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Management;
-using System.Net;
+//using System.Net;
 using System.Resources;
 using System.Runtime.InteropServices;
 using System.Security.AccessControl;
@@ -13,16 +13,16 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using DWS_Lite.lang;
+//using DWS_Lite.lang;
 using DWS_Lite.lib;
 using DWS_Lite.Properties;
 using Microsoft.Win32;
 
 namespace DWS_Lite
 {
-    public partial class DestroyWindowsSpyingMainForm : Form
+    public partial class MainForm : Form
     {
-        private ResourceManager _rm;
+        //private ResourceManager _rm;
         private readonly string _systemPath = Path.GetPathRoot(Environment.SystemDirectory);
         private string _shellCmdLocation;
         private string _system32Location;
@@ -211,7 +211,7 @@ namespace DWS_Lite
                                                 };
         #endregion
 
-        public DestroyWindowsSpyingMainForm(string[] args)
+        public MainForm(string[] args)
         {
 
             InitializeComponent();
@@ -353,13 +353,14 @@ namespace DWS_Lite
                 _win10 = false;
                 tabPageUtilites.Enabled = false;
                 tabPageSettings.Enabled = false;
-                btnDestroyWindowsSpying.Visible = false;
+                Button_Execite_Checked.Visible = false;
                 //btnDestroyWindows10Spy.Visible = true;
             }
             //------------------------------------------
 
         }
         #region Language
+
         private string _GetLang(string[] args)
         {
             string languageName = null;
@@ -375,7 +376,7 @@ namespace DWS_Lite
         }
 
         string GetTranslateText(string name)
-        {
+        {/*
             try
             {
                 return _rm.GetString(name);
@@ -385,6 +386,8 @@ namespace DWS_Lite
                 if (_debug) _OutPut(ex.Message, LogLevel.Debug);
                 return null;
             }
+          */
+            return string.Empty;
         }
         #endregion
         private void CheckEnableOrDisableUac()
@@ -478,7 +481,7 @@ namespace DWS_Lite
         {
             if(logLevel == LogLevel.Debug && String.IsNullOrEmpty(str))
                 return;
-            var logItemColor = new System.Drawing.Color();
+            var logItemColor = new Color();
 
             switch (logLevel)
             {
@@ -548,8 +551,8 @@ namespace DWS_Lite
             {
                 Invoke(new MethodInvoker(delegate
                 {
-                    this.ControlBox = enableordisable;
-                    btnDestroyWindowsSpying.Enabled = enableordisable;
+                    ControlBox = enableordisable;
+                    Button_Execite_Checked.Enabled = enableordisable;
                     tabPageSettings.Enabled = enableordisable;
                     tabPageUtilites.Enabled = enableordisable;
                 }));
@@ -962,9 +965,8 @@ namespace DWS_Lite
                     //StatusCommandsLable.Text = string.Format("Destroy Windows 10 Spying - {0}!", GetTranslateText("Complete"));
                     //StatusCommandsLable.ForeColor = Color.DarkGreen;
                     if (
-                        MessageBox.Show("Worked Completed. \nIn order for the changes to be fully applied you need to restart your computer.", "Work Completed",
-                            MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) ==
-                        DialogResult.Yes)
+                        MessageBox.Show("Work Completed. \nIn order for the changes to be fully applied you need to restart your computer.", "Work Completed",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                     {
                         Process.Start("shutdown.exe", "-r -t 0");
                         Process.GetCurrentProcess().Kill();
@@ -988,10 +990,10 @@ namespace DWS_Lite
         void DisableSpyingTasks()
         {
             _OutPut("Starting Disable of Scheduled Sending of Data to Microsoft.");
-            for (int i = 0; i < disabletaskslist.Length; i++)
+            foreach (string t in disabletaskslist)
             {
-                ProcStartargs("SCHTASKS", "/Change /TN \"" + disabletaskslist[i] + "\" /disable");
-                _OutPut("-"+disabletaskslist[i]+" Disabled.");
+                ProcStartargs("SCHTASKS", "/Change /TN \"" + t + "\" /disable");
+                _OutPut("-"+t+" Disabled.");
             }
             _OutPut("Completed Removal of Scheduled Sending of Data to Microsoft.");
         }
@@ -1012,16 +1014,16 @@ namespace DWS_Lite
                 }
                 File.Create(hostslocation).Close();
                 File.WriteAllText(hostslocation, hosts + Environment.NewLine);
-                for (int i = 0; i < hostfile_BlockList.Length; i++)
+                foreach (string t in hostfile_BlockList)
                 {
-                    if (hosts != null && hosts.IndexOf(hostfile_BlockList[i], StringComparison.Ordinal) == -1)
+                    if (hosts != null && hosts.IndexOf(t, StringComparison.Ordinal) == -1)
                     {
                         ProcStartargs(_shellCmdLocation,
-                            "/c echo " + "0.0.0.0 " + hostfile_BlockList[i] + " >> \"" + hostslocation + "\"");
-                        _OutPut("-"+hostfile_BlockList[i] + " - Blocked.", LogLevel.Warning);
+                            "/c echo " + "0.0.0.0 " + t + " >> \"" + hostslocation + "\"");
+                        _OutPut("-"+t + " - Blocked.", LogLevel.Warning);
                     }
                     else
-                        _OutPut("-"+hostfile_BlockList[i] + " - Already Blocked.");
+                        _OutPut("-"+t + " - Already Blocked.");
                 }
             }
             catch (Exception ex)
@@ -1195,31 +1197,7 @@ namespace DWS_Lite
         {
             Process.GetCurrentProcess().Kill();
         }
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Process.Start("https://goo.gl/EpFSzj");
-        }
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Process.Start("http://goo.gl/fxEkcl");
-        }
-        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Process.Start("http://goo.gl/CDaZye");
-        }
-        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Process.Start("http://goo.gl/Xb9sy7");
-        }
-        private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Process.Start("http://goo.gl/sZIfQD");
-        }
 
-        private void linkLabelOtherThanks_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            MessageBox.Show(@"Чёрная поганка, Архангел, Yele, TRoskop, artemiy , moldabekovm", @"Thanks");
-        }
         private void btnDeleteMetroAppsInfo_Click(object sender, EventArgs e)
         {
             MessageBox.Show(@"Delete apps: Calculator, Windows Store, Windows Feedback, and other METRO apps.", @"Info",
@@ -1244,7 +1222,7 @@ namespace DWS_Lite
             _OutPut("Starting Removal of MS One Drive");
             try
             {
-                _OutPut("- Killing Service");
+                _OutPut("- Killing One Drive Service");
                 RunCmd("/c taskkill /f /im OneDrive.exe > NUL 2>&1");
                 RunCmd("/c ping 127.0.0.1 -n 5 > NUL 2>&1");
                 if (File.Exists(_systemPath + @"Windows\System32\OneDriveSetup.exe"))
@@ -1288,10 +1266,6 @@ namespace DWS_Lite
             }
         }
 
-        private void linkLabelSourceCode_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Process.Start("https://github.com/Nummer/Destroy-Windows-10-Spying");
-        }
         private void btnRemoveOldFirewallRules_Click(object sender, EventArgs e)
         {
             string[] rulename =
@@ -1310,10 +1284,7 @@ namespace DWS_Lite
 
             MessageBox.Show(GetTranslateText("Complete"), GetTranslateText("Info"));
         }
-        private void btnReportABug_Click(object sender, EventArgs e)
-        {
-            Process.Start("https://github.com/Nummer/Destroy-Windows-10-Spying/issues/new");
-        }
+
         private void btnDestroyWindows78Spy_Click(object sender, EventArgs e)
         {
             //btnDestroyWindows10Spy.Enabled = false;
@@ -1352,35 +1323,27 @@ namespace DWS_Lite
                     "2922324",
                     "971033"
             };
-            for (int i = 0; i < updatesnumberlist.Length; i++)
+            foreach (string t in updatesnumberlist)
             {
-                RunCmd("/c start /wait wusa /uninstall /norestart /quiet /kb:" + updatesnumberlist[i]);
-                _OutPut("Remove update KB" + updatesnumberlist[i]);
+                RunCmd("/c start /wait wusa /uninstall /norestart /quiet /kb:" + t);
+                _OutPut("Remove update KB" + t);
             }
         }
+
         void BlockIPs_WindowsFirewall()
         {
 
-            for (int i = 0; i < WindowsFirewall_SpyIPBlockList.Length; i++)
+            foreach (string t in WindowsFirewall_SpyIPBlockList)
             {
-                RunCmd("/c route -p ADD " + WindowsFirewall_SpyIPBlockList[i] + " MASK 255.255.255.255 0.0.0.0");
-                RunCmd("/c netsh advfirewall firewall delete rule name=\"" + WindowsFirewall_SpyIPBlockList[i] + "_Block\"");
-                RunCmd("/c netsh advfirewall firewall add rule name=\"" + WindowsFirewall_SpyIPBlockList[i] + "_Block\" dir=out interface=any action=block remoteip=" + WindowsFirewall_SpyIPBlockList[i]);
-                _OutPut("Adding Windows Firewall rule: \"" + WindowsFirewall_SpyIPBlockList[i] + "_Block\"");
+                RunCmd("/c route -p ADD " + t + " MASK 255.255.255.255 0.0.0.0");
+                RunCmd("/c netsh advfirewall firewall delete rule name=\"" + t + "_Block\"");
+                RunCmd("/c netsh advfirewall firewall add rule name=\"" + t + "_Block\" dir=out interface=any action=block remoteip=" + t);
+                _OutPut("Adding Windows Firewall rule: \"" + t + "_Block\"");
             }
             RunCmd("/c netsh advfirewall firewall delete rule name=\"WSearch_Block\"");
             RunCmd("/c netsh advfirewall firewall add rule name=\"WSearch_Block\" dir=out interface=any action=block service=WSearch");
             _OutPut("Adding Windows Firewall rule: \"WSearch_Block\"");
             _OutPut("Spy Ip list blocked");
-        }
-        private void linkLabelLicense_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Process.Start("http://www.apache.org/licenses/LICENSE-2.0");
-        }
-
-        private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Process.Start("http://dws.wzor.net/");
         }
 
         private void btnDisableOfficeUpdate_Click(object sender, EventArgs e)
@@ -1399,9 +1362,11 @@ namespace DWS_Lite
                     string userName = windowsIdentityUser.Name.Split('\\')[1];
                     MessageBox.Show(GetTranslateText("FindOffice16FileT"), GetTranslateText("Info"),
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    OpenFileDialog opnFileDialog = new OpenFileDialog();
-                    opnFileDialog.InitialDirectory = @"C:\Program Files\Microsoft Office\root\Office16\";
-                    opnFileDialog.Filter = @"msosync.exe|msosync.exe";
+                    OpenFileDialog opnFileDialog = new OpenFileDialog
+                    {
+                        InitialDirectory = @"C:\Program Files\Microsoft Office\root\Office16\",
+                        Filter = @"msosync.exe|msosync.exe"
+                    };
                     string officePath = @"C:\Program Files\Microsoft Office\root\Office16\msosync.exe";
                     if (opnFileDialog.ShowDialog() == DialogResult.OK)
                     {
@@ -1446,11 +1411,6 @@ namespace DWS_Lite
             return hex.Replace("-", "");
         }
 
-        private void CaptionWindow_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void CloseButton_Click(object sender, EventArgs e)
         {
             Process.GetCurrentProcess().Kill();
@@ -1459,12 +1419,6 @@ namespace DWS_Lite
         private void MinimizeButton_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
-        }
-
-        private void CaptionWindow_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
         }
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -1547,7 +1501,7 @@ namespace DWS_Lite
             }
         }
 
-        private void tabPageAbout_Click(object sender, EventArgs e)
+        private void checkBoxSetDefaultPhoto_CheckedChanged(object sender, EventArgs e)
         {
 
         }

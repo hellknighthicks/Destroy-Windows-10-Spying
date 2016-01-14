@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace DWS_Lite
 {
-    partial class DestroyWindowsSpyingMainForm
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -74,7 +74,7 @@ namespace DWS_Lite
             this.checkBoxKeyLoggerAndTelemetry = new System.Windows.Forms.CheckBox();
             this.checkBoxCreateSystemRestorePoint = new System.Windows.Forms.CheckBox();
             this.ProgressBarStatus = new System.Windows.Forms.ProgressBar();
-            this.btnDestroyWindowsSpying = new System.Windows.Forms.Button();
+            this.Button_Execite_Checked = new System.Windows.Forms.Button();
             this.LogOutputTextBox = new System.Windows.Forms.RichTextBox();
             this.FormTabsControl = new System.Windows.Forms.TabControl();
             ((System.ComponentModel.ISupportInitialize)(this.CloseButton)).BeginInit();
@@ -138,9 +138,9 @@ namespace DWS_Lite
             this.btnDisableOfficeUpdate.BackgroundImage = global::DWS_Lite.Properties.Resources.warning;
             this.btnDisableOfficeUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnDisableOfficeUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDisableOfficeUpdate.Location = new System.Drawing.Point(8, 119);
+            this.btnDisableOfficeUpdate.Location = new System.Drawing.Point(14, 119);
             this.btnDisableOfficeUpdate.Name = "btnDisableOfficeUpdate";
-            this.btnDisableOfficeUpdate.Size = new System.Drawing.Size(242, 23);
+            this.btnDisableOfficeUpdate.Size = new System.Drawing.Size(230, 23);
             this.btnDisableOfficeUpdate.TabIndex = 6;
             this.btnDisableOfficeUpdate.Text = "Disable Office 2016 Telemetry";
             this.btnDisableOfficeUpdate.UseVisualStyleBackColor = false;
@@ -164,9 +164,9 @@ namespace DWS_Lite
             this.btnDeleteOneDrive.BackColor = System.Drawing.Color.Transparent;
             this.btnDeleteOneDrive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteOneDrive.ForeColor = System.Drawing.Color.Black;
-            this.btnDeleteOneDrive.Location = new System.Drawing.Point(8, 90);
+            this.btnDeleteOneDrive.Location = new System.Drawing.Point(14, 90);
             this.btnDeleteOneDrive.Name = "btnDeleteOneDrive";
-            this.btnDeleteOneDrive.Size = new System.Drawing.Size(242, 23);
+            this.btnDeleteOneDrive.Size = new System.Drawing.Size(230, 23);
             this.btnDeleteOneDrive.TabIndex = 10;
             this.btnDeleteOneDrive.Text = "Delete One Drive";
             this.btnDeleteOneDrive.UseVisualStyleBackColor = false;
@@ -179,7 +179,7 @@ namespace DWS_Lite
             this.btnDeleteMetroAppsInfo.ForeColor = System.Drawing.Color.Black;
             this.btnDeleteMetroAppsInfo.Location = new System.Drawing.Point(199, 32);
             this.btnDeleteMetroAppsInfo.Name = "btnDeleteMetroAppsInfo";
-            this.btnDeleteMetroAppsInfo.Size = new System.Drawing.Size(51, 23);
+            this.btnDeleteMetroAppsInfo.Size = new System.Drawing.Size(45, 23);
             this.btnDeleteMetroAppsInfo.TabIndex = 9;
             this.btnDeleteMetroAppsInfo.Text = "?";
             this.btnDeleteMetroAppsInfo.UseVisualStyleBackColor = false;
@@ -261,9 +261,9 @@ namespace DWS_Lite
             // 
             this.btnOpenAndEditHosts.BackColor = System.Drawing.Color.Transparent;
             this.btnOpenAndEditHosts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpenAndEditHosts.Location = new System.Drawing.Point(8, 3);
+            this.btnOpenAndEditHosts.Location = new System.Drawing.Point(14, 3);
             this.btnOpenAndEditHosts.Name = "btnOpenAndEditHosts";
-            this.btnOpenAndEditHosts.Size = new System.Drawing.Size(242, 23);
+            this.btnOpenAndEditHosts.Size = new System.Drawing.Size(230, 23);
             this.btnOpenAndEditHosts.TabIndex = 6;
             this.btnOpenAndEditHosts.Text = "Open and edit HOSTS file";
             this.btnOpenAndEditHosts.UseVisualStyleBackColor = false;
@@ -273,9 +273,9 @@ namespace DWS_Lite
             // 
             this.btnRestoreSystem.BackColor = System.Drawing.Color.Transparent;
             this.btnRestoreSystem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRestoreSystem.Location = new System.Drawing.Point(8, 61);
+            this.btnRestoreSystem.Location = new System.Drawing.Point(14, 61);
             this.btnRestoreSystem.Name = "btnRestoreSystem";
-            this.btnRestoreSystem.Size = new System.Drawing.Size(242, 23);
+            this.btnRestoreSystem.Size = new System.Drawing.Size(230, 23);
             this.btnRestoreSystem.TabIndex = 1;
             this.btnRestoreSystem.Text = "Restore System";
             this.btnRestoreSystem.UseVisualStyleBackColor = false;
@@ -286,9 +286,9 @@ namespace DWS_Lite
             this.btnDeleteAllWindows10Apps.BackColor = System.Drawing.Color.Transparent;
             this.btnDeleteAllWindows10Apps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteAllWindows10Apps.ForeColor = System.Drawing.Color.Black;
-            this.btnDeleteAllWindows10Apps.Location = new System.Drawing.Point(8, 32);
+            this.btnDeleteAllWindows10Apps.Location = new System.Drawing.Point(14, 32);
             this.btnDeleteAllWindows10Apps.Name = "btnDeleteAllWindows10Apps";
-            this.btnDeleteAllWindows10Apps.Size = new System.Drawing.Size(219, 23);
+            this.btnDeleteAllWindows10Apps.Size = new System.Drawing.Size(213, 23);
             this.btnDeleteAllWindows10Apps.TabIndex = 0;
             this.btnDeleteAllWindows10Apps.Text = "Delete all windows 10 metro apps";
             this.btnDeleteAllWindows10Apps.UseVisualStyleBackColor = false;
@@ -336,8 +336,8 @@ namespace DWS_Lite
             this.checkBox_LockScreen.BackColor = System.Drawing.Color.Transparent;
             this.checkBox_LockScreen.Checked = true;
             this.checkBox_LockScreen.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_LockScreen.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.checkBox_LockScreen.Location = new System.Drawing.Point(6, 159);
+            this.checkBox_LockScreen.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.checkBox_LockScreen.Location = new System.Drawing.Point(6, 156);
             this.checkBox_LockScreen.Margin = new System.Windows.Forms.Padding(0);
             this.checkBox_LockScreen.Name = "checkBox_LockScreen";
             this.checkBox_LockScreen.Size = new System.Drawing.Size(154, 17);
@@ -351,8 +351,8 @@ namespace DWS_Lite
             this.CheckboxUAC_Silent.BackColor = System.Drawing.Color.Transparent;
             this.CheckboxUAC_Silent.Checked = true;
             this.CheckboxUAC_Silent.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CheckboxUAC_Silent.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.CheckboxUAC_Silent.Location = new System.Drawing.Point(6, 176);
+            this.CheckboxUAC_Silent.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.CheckboxUAC_Silent.Location = new System.Drawing.Point(6, 173);
             this.CheckboxUAC_Silent.Margin = new System.Windows.Forms.Padding(0);
             this.CheckboxUAC_Silent.Name = "CheckboxUAC_Silent";
             this.CheckboxUAC_Silent.Size = new System.Drawing.Size(137, 17);
@@ -366,8 +366,8 @@ namespace DWS_Lite
             this.checkBoxOneDrive.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxOneDrive.Checked = true;
             this.checkBoxOneDrive.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxOneDrive.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.checkBoxOneDrive.Location = new System.Drawing.Point(6, 142);
+            this.checkBoxOneDrive.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.checkBoxOneDrive.Location = new System.Drawing.Point(6, 139);
             this.checkBoxOneDrive.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxOneDrive.Name = "checkBoxOneDrive";
             this.checkBoxOneDrive.Size = new System.Drawing.Size(158, 17);
@@ -381,8 +381,8 @@ namespace DWS_Lite
             this.checkBoxP2PWinUpdate.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxP2PWinUpdate.Checked = true;
             this.checkBoxP2PWinUpdate.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxP2PWinUpdate.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.checkBoxP2PWinUpdate.Location = new System.Drawing.Point(6, 125);
+            this.checkBoxP2PWinUpdate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.checkBoxP2PWinUpdate.Location = new System.Drawing.Point(6, 122);
             this.checkBoxP2PWinUpdate.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxP2PWinUpdate.Name = "checkBoxP2PWinUpdate";
             this.checkBoxP2PWinUpdate.Size = new System.Drawing.Size(258, 17);
@@ -396,8 +396,8 @@ namespace DWS_Lite
             this.checkBoxDisableServices.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxDisableServices.Checked = true;
             this.checkBoxDisableServices.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxDisableServices.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.checkBoxDisableServices.Location = new System.Drawing.Point(6, 108);
+            this.checkBoxDisableServices.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.checkBoxDisableServices.Location = new System.Drawing.Point(6, 105);
             this.checkBoxDisableServices.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDisableServices.Name = "checkBoxDisableServices";
             this.checkBoxDisableServices.Size = new System.Drawing.Size(160, 17);
@@ -585,7 +585,7 @@ namespace DWS_Lite
             // 
             this.checkBoxDeleteWindows10Apps.AutoSize = true;
             this.checkBoxDeleteWindows10Apps.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxDeleteWindows10Apps.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.checkBoxDeleteWindows10Apps.ForeColor = System.Drawing.Color.OrangeRed;
             this.checkBoxDeleteWindows10Apps.Location = new System.Drawing.Point(6, 232);
             this.checkBoxDeleteWindows10Apps.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDeleteWindows10Apps.Name = "checkBoxDeleteWindows10Apps";
@@ -601,8 +601,8 @@ namespace DWS_Lite
             this.checkBoxSPYTasks.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxSPYTasks.Checked = true;
             this.checkBoxSPYTasks.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxSPYTasks.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.checkBoxSPYTasks.Location = new System.Drawing.Point(6, 91);
+            this.checkBoxSPYTasks.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.checkBoxSPYTasks.Location = new System.Drawing.Point(6, 88);
             this.checkBoxSPYTasks.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxSPYTasks.Name = "checkBoxSPYTasks";
             this.checkBoxSPYTasks.Size = new System.Drawing.Size(250, 17);
@@ -614,14 +614,15 @@ namespace DWS_Lite
             // 
             this.checkBoxSetDefaultPhoto.AutoSize = true;
             this.checkBoxSetDefaultPhoto.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxSetDefaultPhoto.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.checkBoxSetDefaultPhoto.Location = new System.Drawing.Point(6, 198);
+            this.checkBoxSetDefaultPhoto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.checkBoxSetDefaultPhoto.Location = new System.Drawing.Point(6, 190);
             this.checkBoxSetDefaultPhoto.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxSetDefaultPhoto.Name = "checkBoxSetDefaultPhoto";
             this.checkBoxSetDefaultPhoto.Size = new System.Drawing.Size(189, 17);
             this.checkBoxSetDefaultPhoto.TabIndex = 5;
             this.checkBoxSetDefaultPhoto.Text = "Set default windows photo viewer";
             this.checkBoxSetDefaultPhoto.UseVisualStyleBackColor = false;
+            this.checkBoxSetDefaultPhoto.CheckedChanged += new System.EventHandler(this.checkBoxSetDefaultPhoto_CheckedChanged);
             // 
             // checkBoxDisableWindowsDefender
             // 
@@ -629,8 +630,8 @@ namespace DWS_Lite
             this.checkBoxDisableWindowsDefender.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxDisableWindowsDefender.Checked = true;
             this.checkBoxDisableWindowsDefender.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxDisableWindowsDefender.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.checkBoxDisableWindowsDefender.Location = new System.Drawing.Point(6, 74);
+            this.checkBoxDisableWindowsDefender.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.checkBoxDisableWindowsDefender.Location = new System.Drawing.Point(6, 71);
             this.checkBoxDisableWindowsDefender.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDisableWindowsDefender.Name = "checkBoxDisableWindowsDefender";
             this.checkBoxDisableWindowsDefender.Size = new System.Drawing.Size(154, 17);
@@ -644,8 +645,8 @@ namespace DWS_Lite
             this.checkBoxDisablePrivateSettings.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxDisablePrivateSettings.Checked = true;
             this.checkBoxDisablePrivateSettings.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxDisablePrivateSettings.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.checkBoxDisablePrivateSettings.Location = new System.Drawing.Point(6, 57);
+            this.checkBoxDisablePrivateSettings.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.checkBoxDisablePrivateSettings.Location = new System.Drawing.Point(6, 54);
             this.checkBoxDisablePrivateSettings.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxDisablePrivateSettings.Name = "checkBoxDisablePrivateSettings";
             this.checkBoxDisablePrivateSettings.Size = new System.Drawing.Size(210, 17);
@@ -659,8 +660,8 @@ namespace DWS_Lite
             this.checkBoxAddToHosts.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxAddToHosts.Checked = true;
             this.checkBoxAddToHosts.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxAddToHosts.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.checkBoxAddToHosts.Location = new System.Drawing.Point(6, 40);
+            this.checkBoxAddToHosts.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.checkBoxAddToHosts.Location = new System.Drawing.Point(6, 37);
             this.checkBoxAddToHosts.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxAddToHosts.Name = "checkBoxAddToHosts";
             this.checkBoxAddToHosts.Size = new System.Drawing.Size(247, 17);
@@ -674,8 +675,8 @@ namespace DWS_Lite
             this.checkBoxKeyLoggerAndTelemetry.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxKeyLoggerAndTelemetry.Checked = true;
             this.checkBoxKeyLoggerAndTelemetry.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxKeyLoggerAndTelemetry.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.checkBoxKeyLoggerAndTelemetry.Location = new System.Drawing.Point(6, 23);
+            this.checkBoxKeyLoggerAndTelemetry.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.checkBoxKeyLoggerAndTelemetry.Location = new System.Drawing.Point(6, 20);
             this.checkBoxKeyLoggerAndTelemetry.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxKeyLoggerAndTelemetry.Name = "checkBoxKeyLoggerAndTelemetry";
             this.checkBoxKeyLoggerAndTelemetry.Size = new System.Drawing.Size(219, 17);
@@ -689,7 +690,7 @@ namespace DWS_Lite
             this.checkBoxCreateSystemRestorePoint.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxCreateSystemRestorePoint.Checked = true;
             this.checkBoxCreateSystemRestorePoint.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxCreateSystemRestorePoint.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.checkBoxCreateSystemRestorePoint.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.checkBoxCreateSystemRestorePoint.Location = new System.Drawing.Point(6, 3);
             this.checkBoxCreateSystemRestorePoint.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxCreateSystemRestorePoint.Name = "checkBoxCreateSystemRestorePoint";
@@ -706,19 +707,19 @@ namespace DWS_Lite
             this.ProgressBarStatus.Size = new System.Drawing.Size(548, 23);
             this.ProgressBarStatus.TabIndex = 1;
             // 
-            // btnDestroyWindowsSpying
+            // Button_Execite_Checked
             // 
-            this.btnDestroyWindowsSpying.BackColor = System.Drawing.Color.White;
-            this.btnDestroyWindowsSpying.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.btnDestroyWindowsSpying.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDestroyWindowsSpying.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnDestroyWindowsSpying.Location = new System.Drawing.Point(570, 499);
-            this.btnDestroyWindowsSpying.Name = "btnDestroyWindowsSpying";
-            this.btnDestroyWindowsSpying.Size = new System.Drawing.Size(261, 30);
-            this.btnDestroyWindowsSpying.TabIndex = 0;
-            this.btnDestroyWindowsSpying.Text = "Execute";
-            this.btnDestroyWindowsSpying.UseVisualStyleBackColor = false;
-            this.btnDestroyWindowsSpying.Click += new System.EventHandler(this.btnDestroyWindowsSpying_Click);
+            this.Button_Execite_Checked.BackColor = System.Drawing.Color.White;
+            this.Button_Execite_Checked.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.Button_Execite_Checked.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Execite_Checked.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Button_Execite_Checked.Location = new System.Drawing.Point(570, 499);
+            this.Button_Execite_Checked.Name = "Button_Execite_Checked";
+            this.Button_Execite_Checked.Size = new System.Drawing.Size(261, 30);
+            this.Button_Execite_Checked.TabIndex = 0;
+            this.Button_Execite_Checked.Text = "Execute";
+            this.Button_Execite_Checked.UseVisualStyleBackColor = false;
+            this.Button_Execite_Checked.Click += new System.EventHandler(this.btnDestroyWindowsSpying_Click);
             // 
             // LogOutputTextBox
             // 
@@ -749,11 +750,12 @@ namespace DWS_Lite
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
+            this.BackgroundImage = global::DWS_Lite.Properties.Resources.background;
             this.ClientSize = new System.Drawing.Size(847, 541);
             this.Controls.Add(this.ProgressBarStatus);
             this.Controls.Add(this.LogOutputTextBox);
             this.Controls.Add(this.MinimizeButton);
-            this.Controls.Add(this.btnDestroyWindowsSpying);
+            this.Controls.Add(this.Button_Execite_Checked);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.FormTabsControl);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -761,7 +763,7 @@ namespace DWS_Lite
             this.MaximizeBox = false;
             this.Name = "DestroyWindowsSpyingMainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DWS Lite                       build ";
+            this.Text = "Pro Silver Systems - Windows 10 Privatizer";
             this.TransparencyKey = System.Drawing.Color.Magenta;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DestroyWindowsSpyingMainForm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DestroyWindowsSpyingMainForm_FormClosed);
@@ -820,7 +822,7 @@ namespace DWS_Lite
         private CheckBox checkBoxKeyLoggerAndTelemetry;
         private CheckBox checkBoxCreateSystemRestorePoint;
         private ProgressBar ProgressBarStatus;
-        private Button btnDestroyWindowsSpying;
+        private Button Button_Execite_Checked;
         private RichTextBox LogOutputTextBox;
         private TabControl FormTabsControl;
         private CheckBox CheckboxUAC_Silent;
