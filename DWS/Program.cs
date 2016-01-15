@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace DWS_Lite
+namespace PSS_Windows_10_Privatizer
 {
     static class Program
     {

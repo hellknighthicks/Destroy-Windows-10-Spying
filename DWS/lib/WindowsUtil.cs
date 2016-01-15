@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using Microsoft.Win32;
 
-namespace DWS_Lite.lib
+namespace PSS_Windows_10_Privatizer.lib
 {
     class WindowsUtil
     {

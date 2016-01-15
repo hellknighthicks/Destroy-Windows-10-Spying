@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DWS_Lite.lang {
+namespace PSS_Windows_10_Privatizer.lang {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace DWS_Lite.lang {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DWS_Lite.lang.zh-CN", typeof(zh_CN).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PSS_Windows_10_Privatizer.lang.zh-CN", typeof(zh_CN).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -318,7 +318,7 @@ namespace DWS_Lite.lang {
         ///
         ///命令行参数：
         ////lang= - 设置程序启动时的语言。例子: /lang=en
-        ////deleteapp= - 允许你删除 Windows 的一个 Metro 应用。 例子: /deleteapp=bing or /deleteapp=no [rest of string was truncated]&quot;;.
+        ////deleteapp= - 允许你删除 Windows 的一个 Metro 应用。 例子: /deleteapp=bing or /de [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ReadMeTextBox {
             get {

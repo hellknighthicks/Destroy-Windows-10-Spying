@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DWS_Lite.Properties {
+namespace PSS_Windows_10_Privatizer.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace DWS_Lite.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DWS_Lite.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PSS_Windows_10_Privatizer.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -81,7 +81,7 @@ namespace DWS_Lite.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Thu 01/14/2016 14:49:37.80 
+        ///   Looks up a localized string similar to Fri 01/15/2016 14:29:17.77 
         ///.
         /// </summary>
         internal static string build_datatime {
@@ -91,7 +91,7 @@ namespace DWS_Lite.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 533.
+        ///   Looks up a localized string similar to 543.
         /// </summary>
         internal static string build_number {
             get {

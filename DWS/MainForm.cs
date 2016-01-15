@@ -5,8 +5,9 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Management;
+using System.Reflection;
 //using System.Net;
-using System.Resources;
+//using System.Resources;
 using System.Runtime.InteropServices;
 using System.Security.AccessControl;
 using System.Security.Principal;
@@ -14,11 +15,11 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 //using DWS_Lite.lang;
-using DWS_Lite.lib;
-using DWS_Lite.Properties;
+using PSS_Windows_10_Privatizer.Properties;
 using Microsoft.Win32;
+using PSS_Windows_10_Privatizer.lib;
 
-namespace DWS_Lite
+namespace PSS_Windows_10_Privatizer
 {
     public partial class MainForm : Form
     {
@@ -221,6 +222,8 @@ namespace DWS_Lite
             CheckWindowsVersion();
             //Check SYSNATIVE (x64)
             _SetShellSys32Path();
+
+            label_Title_Bar.Text = Assembly.GetCallingAssembly().GetName().Name;//System.IO.Path.GetFileName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
             if (WindowsUtil.SystemRestore_Status() == 0)
             {
@@ -1424,9 +1427,9 @@ namespace DWS_Lite
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
-        [DllImportAttribute("user32.dll")]
+        [DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        [DllImportAttribute("user32.dll")]
+        [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
         protected override CreateParams CreateParams
         {
@@ -1446,7 +1449,7 @@ namespace DWS_Lite
 
         private void CloseButton_MouseLeave(object sender, EventArgs e)
         {
-            CloseButton.BackColor = Color.White;
+            CloseButton.BackColor = Color.Transparent;
         }
 
         private void MinimizeButton_MouseEnter(object sender, EventArgs e)
@@ -1456,7 +1459,7 @@ namespace DWS_Lite
 
         private void MinimizeButton_MouseLeave(object sender, EventArgs e)
         {
-            MinimizeButton.BackColor = Color.White;
+            MinimizeButton.BackColor = Color.Transparent;
         }
 
         void ChangeBorderColor(Color cl)
@@ -1506,6 +1509,7 @@ namespace DWS_Lite
 
         }
 
+       
 
 
     }

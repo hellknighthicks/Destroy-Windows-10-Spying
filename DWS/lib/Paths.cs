@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace DWS_Lite.lib
+namespace PSS_Windows_10_Privatizer.lib
 {
     class Paths
     {

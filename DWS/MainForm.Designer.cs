@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace DWS_Lite
+namespace PSS_Windows_10_Privatizer
 {
     partial class MainForm
     {
@@ -77,6 +77,7 @@ namespace DWS_Lite
             this.Button_Execite_Checked = new System.Windows.Forms.Button();
             this.LogOutputTextBox = new System.Windows.Forms.RichTextBox();
             this.FormTabsControl = new System.Windows.Forms.TabControl();
+            this.label_Title_Bar = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.CloseButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeButton)).BeginInit();
             this.tabPageUtilites.SuspendLayout();
@@ -88,8 +89,8 @@ namespace DWS_Lite
             // 
             // CloseButton
             // 
-            this.CloseButton.BackColor = System.Drawing.Color.White;
-            this.CloseButton.BackgroundImage = global::DWS_Lite.Properties.Resources.close;
+            this.CloseButton.BackColor = System.Drawing.Color.Transparent;
+            this.CloseButton.BackgroundImage = global::PSS_Windows_10_Privatizer.Properties.Resources.close;
             this.CloseButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CloseButton.Location = new System.Drawing.Point(826, 7);
             this.CloseButton.Name = "CloseButton";
@@ -102,7 +103,8 @@ namespace DWS_Lite
             // 
             // MinimizeButton
             // 
-            this.MinimizeButton.BackgroundImage = global::DWS_Lite.Properties.Resources.minimize;
+            this.MinimizeButton.BackColor = System.Drawing.Color.Transparent;
+            this.MinimizeButton.BackgroundImage = global::PSS_Windows_10_Privatizer.Properties.Resources.minimize;
             this.MinimizeButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MinimizeButton.Location = new System.Drawing.Point(802, 7);
             this.MinimizeButton.Name = "MinimizeButton";
@@ -135,7 +137,7 @@ namespace DWS_Lite
             // btnDisableOfficeUpdate
             // 
             this.btnDisableOfficeUpdate.BackColor = System.Drawing.Color.Transparent;
-            this.btnDisableOfficeUpdate.BackgroundImage = global::DWS_Lite.Properties.Resources.warning;
+            this.btnDisableOfficeUpdate.BackgroundImage = global::PSS_Windows_10_Privatizer.Properties.Resources.warning;
             this.btnDisableOfficeUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnDisableOfficeUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDisableOfficeUpdate.Location = new System.Drawing.Point(14, 119);
@@ -745,13 +747,26 @@ namespace DWS_Lite
             this.FormTabsControl.Size = new System.Drawing.Size(269, 464);
             this.FormTabsControl.TabIndex = 0;
             // 
-            // DestroyWindowsSpyingMainForm
+            // label_Title_Bar
+            // 
+            this.label_Title_Bar.AutoSize = true;
+            this.label_Title_Bar.BackColor = System.Drawing.Color.Transparent;
+            this.label_Title_Bar.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_Title_Bar.ForeColor = System.Drawing.Color.White;
+            this.label_Title_Bar.Location = new System.Drawing.Point(8, 0);
+            this.label_Title_Bar.Name = "label_Title_Bar";
+            this.label_Title_Bar.Size = new System.Drawing.Size(59, 23);
+            this.label_Title_Bar.TabIndex = 4;
+            this.label_Title_Bar.Text = "label1";
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.BackgroundImage = global::DWS_Lite.Properties.Resources.background;
+            this.BackgroundImage = global::PSS_Windows_10_Privatizer.Properties.Resources.background;
             this.ClientSize = new System.Drawing.Size(847, 541);
+            this.Controls.Add(this.label_Title_Bar);
             this.Controls.Add(this.ProgressBarStatus);
             this.Controls.Add(this.LogOutputTextBox);
             this.Controls.Add(this.MinimizeButton);
@@ -761,7 +776,7 @@ namespace DWS_Lite
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
-            this.Name = "DestroyWindowsSpyingMainForm";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pro Silver Systems - Windows 10 Privatizer";
             this.TransparencyKey = System.Drawing.Color.Magenta;
@@ -776,6 +791,7 @@ namespace DWS_Lite
             this.tabPageSettings.PerformLayout();
             this.FormTabsControl.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -827,6 +843,7 @@ namespace DWS_Lite
         private TabControl FormTabsControl;
         private CheckBox CheckboxUAC_Silent;
         private CheckBox checkBox_LockScreen;
+        private Label label_Title_Bar;
     }
 }
 
