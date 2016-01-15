@@ -223,7 +223,7 @@ namespace PSS_Windows_10_Privatizer
             //Check SYSNATIVE (x64)
             _SetShellSys32Path();
 
-            label_Title_Bar.Text = Assembly.GetCallingAssembly().GetName().Name;//System.IO.Path.GetFileName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            lable_Title_Bar.Text = Assembly.GetCallingAssembly().GetName().Name;//System.IO.Path.GetFileName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
             if (WindowsUtil.SystemRestore_Status() == 0)
             {
@@ -1192,11 +1192,11 @@ namespace PSS_Windows_10_Privatizer
         {
             ProcStartargs("notepad", _system32Location + @"drivers\etc\hosts");
         }
-        private void DestroyWindowsSpyingMainForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Process.GetCurrentProcess().Kill();
         }
-        private void DestroyWindowsSpyingMainForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Process.GetCurrentProcess().Kill();
         }
@@ -1442,6 +1442,8 @@ namespace PSS_Windows_10_Privatizer
             }
         }
 
+        
+
         private void CloseButton_MouseEnter(object sender, EventArgs e)
         {
             CloseButton.BackColor = Color.Gainsboro;
@@ -1509,7 +1511,30 @@ namespace PSS_Windows_10_Privatizer
 
         }
 
-       
+        private void MainForm_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        protected override void OnPaint(PaintEventArgs pe)
+        {
+            using (Font f = new Font(this.Font.FontFamily, 8f, FontStyle.Regular))
+            {
+                pe.Graphics.DrawString(
+                    "Beta",
+                    f,
+                    Brushes.Red,
+                    new PointF(450, 5),
+                    new StringFormat
+                    {
+                        Alignment = StringAlignment.Near,
+                    });
+            }
+        }
 
 
     }

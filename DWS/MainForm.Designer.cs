@@ -77,7 +77,7 @@ namespace PSS_Windows_10_Privatizer
             this.Button_Execite_Checked = new System.Windows.Forms.Button();
             this.LogOutputTextBox = new System.Windows.Forms.RichTextBox();
             this.FormTabsControl = new System.Windows.Forms.TabControl();
-            this.label_Title_Bar = new System.Windows.Forms.Label();
+            this.lable_Title_Bar = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.CloseButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeButton)).BeginInit();
             this.tabPageUtilites.SuspendLayout();
@@ -414,9 +414,9 @@ namespace PSS_Windows_10_Privatizer
             this.labelInfoDeleteMetroApps.ForeColor = System.Drawing.Color.Red;
             this.labelInfoDeleteMetroApps.Location = new System.Drawing.Point(3, 219);
             this.labelInfoDeleteMetroApps.Name = "labelInfoDeleteMetroApps";
-            this.labelInfoDeleteMetroApps.Size = new System.Drawing.Size(242, 13);
+            this.labelInfoDeleteMetroApps.Size = new System.Drawing.Size(251, 13);
             this.labelInfoDeleteMetroApps.TabIndex = 20;
-            this.labelInfoDeleteMetroApps.Text = "Caution if Metro Apps are deleted its permanent!";
+            this.labelInfoDeleteMetroApps.Text = "Be Aware if Metro Apps are deleted its permanent!";
             // 
             // checkBoxDeleteAppXBOX
             // 
@@ -747,17 +747,18 @@ namespace PSS_Windows_10_Privatizer
             this.FormTabsControl.Size = new System.Drawing.Size(269, 464);
             this.FormTabsControl.TabIndex = 0;
             // 
-            // label_Title_Bar
+            // lable_Title_Bar
             // 
-            this.label_Title_Bar.AutoSize = true;
-            this.label_Title_Bar.BackColor = System.Drawing.Color.Transparent;
-            this.label_Title_Bar.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_Title_Bar.ForeColor = System.Drawing.Color.White;
-            this.label_Title_Bar.Location = new System.Drawing.Point(8, 0);
-            this.label_Title_Bar.Name = "label_Title_Bar";
-            this.label_Title_Bar.Size = new System.Drawing.Size(59, 23);
-            this.label_Title_Bar.TabIndex = 4;
-            this.label_Title_Bar.Text = "label1";
+            this.lable_Title_Bar.AutoSize = true;
+            this.lable_Title_Bar.BackColor = System.Drawing.Color.Transparent;
+            this.lable_Title_Bar.Enabled = false;
+            this.lable_Title_Bar.Font = new System.Drawing.Font("Tahoma", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lable_Title_Bar.ForeColor = System.Drawing.Color.White;
+            this.lable_Title_Bar.Location = new System.Drawing.Point(8, 0);
+            this.lable_Title_Bar.Name = "lable_Title_Bar";
+            this.lable_Title_Bar.Size = new System.Drawing.Size(108, 23);
+            this.lable_Title_Bar.TabIndex = 4;
+            this.lable_Title_Bar.Text = "App Name";
             // 
             // MainForm
             // 
@@ -766,7 +767,7 @@ namespace PSS_Windows_10_Privatizer
             this.BackColor = System.Drawing.Color.DimGray;
             this.BackgroundImage = global::PSS_Windows_10_Privatizer.Properties.Resources.background;
             this.ClientSize = new System.Drawing.Size(847, 541);
-            this.Controls.Add(this.label_Title_Bar);
+            this.Controls.Add(this.lable_Title_Bar);
             this.Controls.Add(this.ProgressBarStatus);
             this.Controls.Add(this.LogOutputTextBox);
             this.Controls.Add(this.MinimizeButton);
@@ -780,8 +781,9 @@ namespace PSS_Windows_10_Privatizer
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pro Silver Systems - Windows 10 Privatizer";
             this.TransparencyKey = System.Drawing.Color.Magenta;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DestroyWindowsSpyingMainForm_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DestroyWindowsSpyingMainForm_FormClosed);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.CloseButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeButton)).EndInit();
             this.tabPageUtilites.ResumeLayout(false);
@@ -843,7 +845,7 @@ namespace PSS_Windows_10_Privatizer
         private TabControl FormTabsControl;
         private CheckBox CheckboxUAC_Silent;
         private CheckBox checkBox_LockScreen;
-        private Label label_Title_Bar;
+        private Label lable_Title_Bar;
     }
 }
 
