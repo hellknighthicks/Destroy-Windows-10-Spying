@@ -35,7 +35,7 @@
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
-    <ApplicationIcon>other_cat.ico</ApplicationIcon>
+    <ApplicationIcon>pss_logo.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
@@ -195,7 +195,7 @@
     <None Include="Resources\BGProgImg.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="other_cat.ico" />
+    <Content Include="pss_logo.ico" />
     <None Include="Resources\background.png" />
     <None Include="Resources\close.png" />
     <None Include="Resources\minimize.png" />
