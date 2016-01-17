@@ -289,7 +289,7 @@ namespace PSS_Windows_10_Privatizer
             _OutPut(GetWindowsBuildVersion());
             if (WindowsUtil.SystemRestore_Status() == 0)
             {
-                _OutPut("System Restore is Disabled.  Can not Create System Restore point.", LogLevel.Warning);
+                _OutPut("System Restore is Disabled.  \nUnable to Create System Restore point.", LogLevel.Warning);
                 _OutPut("Be aware Changes will be Irreversable!!!");
             }
         }
