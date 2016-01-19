@@ -113,8 +113,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>en-US.resx</DependentUpon>
     </Compile>
-    <Compile Include="Lib\Paths.cs" />
-    <Compile Include="Lib\WindowsUtil.cs" />
+    <Compile Include="lib\Paths.cs" />
+    <Compile Include="lib\WindowsUtil.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">
