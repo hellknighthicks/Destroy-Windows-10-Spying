@@ -1,6 +1,6 @@
-# Destroy Windows 10 Spying
+# Pro Silver Systems Windows 10 Privatizer
 
-Privatize for Wind 10 (The Community Branch)
+Privatize for Win 10 (The Community Branch)
 
 Features:
   - Removes all spyware modules
