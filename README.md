@@ -3,18 +3,10 @@
 Privatize for Win 10 (The Community Branch)
 
 Features:
-  - Removes all spyware modules
-  - Removes spying apps
+  - Removes Windows 10 Built in spyware modules
   - Disables Internet distribution of Windows Updates
-  - Add to hosts spying domains!
   - Optimizes Services 
   - Enhances System performance by removing un-needed Bloat
-
-  Original Code by
-[Twitter @nummerok](https://twitter.com/nummerok)
-
-
-
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
