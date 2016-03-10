@@ -34,8 +34,8 @@ namespace PSS_Windows_10_Privatizer
             this.CloseButton = new System.Windows.Forms.PictureBox();
             this.MinimizeButton = new System.Windows.Forms.PictureBox();
             this.tabPageUtilites = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnDisableOfficeUpdate = new System.Windows.Forms.Button();
-            this.btnRemoveOldFirewallRules = new System.Windows.Forms.Button();
             this.btnDeleteOneDrive = new System.Windows.Forms.Button();
             this.btnDeleteMetroAppsInfo = new System.Windows.Forms.Button();
             this.groupBoxWindowsUpdate = new System.Windows.Forms.GroupBox();
@@ -78,9 +78,11 @@ namespace PSS_Windows_10_Privatizer
             this.LogOutputTextBox = new System.Windows.Forms.RichTextBox();
             this.FormTabsControl = new System.Windows.Forms.TabControl();
             this.lable_Title_Bar = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.CloseButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeButton)).BeginInit();
             this.tabPageUtilites.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.groupBoxWindowsUpdate.SuspendLayout();
             this.groupBoxUACEdit.SuspendLayout();
             this.tabPageSettings.SuspendLayout();
@@ -119,8 +121,8 @@ namespace PSS_Windows_10_Privatizer
             // 
             this.tabPageUtilites.BackColor = System.Drawing.Color.White;
             this.tabPageUtilites.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPageUtilites.Controls.Add(this.groupBox1);
             this.tabPageUtilites.Controls.Add(this.btnDisableOfficeUpdate);
-            this.tabPageUtilites.Controls.Add(this.btnRemoveOldFirewallRules);
             this.tabPageUtilites.Controls.Add(this.btnDeleteOneDrive);
             this.tabPageUtilites.Controls.Add(this.btnDeleteMetroAppsInfo);
             this.tabPageUtilites.Controls.Add(this.groupBoxWindowsUpdate);
@@ -133,6 +135,16 @@ namespace PSS_Windows_10_Privatizer
             this.tabPageUtilites.Size = new System.Drawing.Size(261, 438);
             this.tabPageUtilites.TabIndex = 2;
             this.tabPageUtilites.Text = "Utilites";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Location = new System.Drawing.Point(8, 320);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(242, 115);
+            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Display Settings";
             // 
             // btnDisableOfficeUpdate
             // 
@@ -147,19 +159,6 @@ namespace PSS_Windows_10_Privatizer
             this.btnDisableOfficeUpdate.Text = "Disable Office 2016 Telemetry";
             this.btnDisableOfficeUpdate.UseVisualStyleBackColor = false;
             this.btnDisableOfficeUpdate.Click += new System.EventHandler(this.btnDisableOfficeUpdate_Click);
-            // 
-            // btnRemoveOldFirewallRules
-            // 
-            this.btnRemoveOldFirewallRules.BackColor = System.Drawing.Color.Transparent;
-            this.btnRemoveOldFirewallRules.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoveOldFirewallRules.ForeColor = System.Drawing.Color.Green;
-            this.btnRemoveOldFirewallRules.Location = new System.Drawing.Point(8, 412);
-            this.btnRemoveOldFirewallRules.Name = "btnRemoveOldFirewallRules";
-            this.btnRemoveOldFirewallRules.Size = new System.Drawing.Size(242, 23);
-            this.btnRemoveOldFirewallRules.TabIndex = 6;
-            this.btnRemoveOldFirewallRules.Text = "Remove all old DWS firewall rules";
-            this.btnRemoveOldFirewallRules.UseVisualStyleBackColor = false;
-            this.btnRemoveOldFirewallRules.Click += new System.EventHandler(this.btnRemoveOldFirewallRules_Click);
             // 
             // btnDeleteOneDrive
             // 
@@ -760,6 +759,14 @@ namespace PSS_Windows_10_Privatizer
             this.lable_Title_Bar.TabIndex = 4;
             this.lable_Title_Bar.Text = "App Name";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(6, 33);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -787,6 +794,7 @@ namespace PSS_Windows_10_Privatizer
             ((System.ComponentModel.ISupportInitialize)(this.CloseButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeButton)).EndInit();
             this.tabPageUtilites.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.groupBoxWindowsUpdate.ResumeLayout(false);
             this.groupBoxUACEdit.ResumeLayout(false);
             this.tabPageSettings.ResumeLayout(false);
@@ -803,7 +811,6 @@ namespace PSS_Windows_10_Privatizer
         private PictureBox MinimizeButton;
         private TabPage tabPageUtilites;
         private Button btnDisableOfficeUpdate;
-        private Button btnRemoveOldFirewallRules;
         private Button btnDeleteOneDrive;
         private Button btnDeleteMetroAppsInfo;
         private GroupBox groupBoxWindowsUpdate;
@@ -846,6 +853,8 @@ namespace PSS_Windows_10_Privatizer
         private CheckBox CheckboxUAC_Silent;
         private CheckBox checkBox_LockScreen;
         private Label lable_Title_Bar;
+        private GroupBox groupBox1;
+        private ComboBox comboBox1;
     }
 }
 

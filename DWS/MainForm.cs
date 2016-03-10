@@ -33,29 +33,30 @@ namespace PSS_Windows_10_Privatizer
         private bool _debug;
 
         #region Global Vars
-        string[] WindowsFirewall_SpyIPBlockList =
+
+        readonly string[] WindowsFirewall_SpyIPBlockList =
             {//List of Know Windows Spying IP addresses & Malware
                 "111.221.29.177",
                 "111.221.29.253",
                 "131.253.40.37",
                 "134.170.30.202",
-                "134.170.115.60",
-                "134.170.165.248",
-                "134.170.165.253",
-                "134.170.185.70",
-                "137.116.81.24",
-                "137.117.235.16",
-                "157.55.129.21",
-                "157.55.133.204",
-                "157.56.121.89",
-                "157.56.91.77",
-                "168.63.108.233",
-                "191.232.139.254",
-                "191.232.80.58",
-                "191.232.80.62",
-                "191.237.208.126",
-                "204.79.197.200",
-                "207.46.101.29",
+                "134.170.115.60",   // Microsoft Corp
+                "134.170.165.248",  // Microsoft Corp
+                "134.170.165.253",  // Microsoft Corp
+                "134.170.185.70",   // Microsoft Corp
+                "137.116.81.24",    // Microsoft Azure
+                "137.117.235.16",   // Microsoft Azure
+                "157.55.129.21",    // Microsoft Azure
+                "157.55.133.204",   // Microsoft Azure
+                "157.56.121.89",    // Microsoft Corporation
+                "157.56.91.77",     // Microsoft Corporation
+                "168.63.108.233",   // Microsoft Azure
+                "191.232.139.254",  // eu.vortex.data.microsoft.com Microsoft bingbot
+                "191.232.80.58",    // Microsoft Corporation
+                "191.232.80.62",    // Microsoft Corporation
+                "191.237.208.126",  // Microsoft Azure
+                //"204.79.197.200", // Bing search engine
+                "207.46.101.29",    // Microsoft Azure
                 "207.46.114.58",
                 "207.46.223.94",
                 "207.68.166.254",
@@ -1269,24 +1270,7 @@ namespace PSS_Windows_10_Privatizer
             }
         }
 
-        private void btnRemoveOldFirewallRules_Click(object sender, EventArgs e)
-        {
-            string[] rulename =
-            {
-                "MS Spynet block 1",
-                "MS Spynet block 2",
-                "MS telemetry block 1",
-                "MS telemetry block 2",
-                "185.13.160.61_Block",
-                "184.86.56.12_Block"
-            };
-            foreach (var hostname in rulename)
-            {
-                RunCmd("/c netsh advfirewall firewall delete rule name=\"" + hostname + "\"");
-            }
-
-            MessageBox.Show(GetTranslateText("Complete"), GetTranslateText("Info"));
-        }
+        
 
         private void btnDestroyWindows78Spy_Click(object sender, EventArgs e)
         {
