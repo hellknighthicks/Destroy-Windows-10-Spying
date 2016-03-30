@@ -863,6 +863,22 @@ namespace PSS_Windows_10_Privatizer
                 SetRegValueHklm(@"SOFTWARE\Policies\Microsoft\Windows\Personalization", "NoLockScreen", "1", RegistryValueKind.DWord);
                 _OutPut("Disabled Sliding lock screen.");
             }
+
+            if(checkBox_SecurityCenter.Checked)
+            {
+
+                SetRegValueHklm(@"SOFTWARE\Microsoft\Security Center", "AntiVirusDisableNotify", "1", RegistryValueKind.DWord);
+                _OutPut("Disabled Security Center - Antivirus Notification.");
+                SetRegValueHklm(@"SOFTWARE\Microsoft\Security Center", "FirewallDisableNotify", "1", RegistryValueKind.DWord);
+                _OutPut("Disabled Security Center - Firewall Notification.");
+                SetRegValueHklm(@"SOFTWARE\Microsoft\Security Center", "UpdatesDisableNotify", "1", RegistryValueKind.DWord);
+                _OutPut("Disabled Security Center - Windows Updates Notification.");
+                RunCmd("/c netstop wscsvc");
+                _OutPut("Stopped Security Center Service");
+                RunCmd("/c sc config wscsvc start= disabled");
+                _OutPut("Disabled Security Center - Service");
+
+            }
             Progressbaradd(5); //55
             if (checkBoxP2PWinUpdate.Checked)
             {/*
@@ -919,7 +935,7 @@ namespace PSS_Windows_10_Privatizer
                 {
                     RunCmd("/c net stop " + services_to_Disable[i, 0]);
                     _OutPut("-Killing the " + services_to_Disable[i, 1] + " (" + services_to_Disable[i, 0] + ").");
-                    RunCmd("/c sc config " + services_to_Disable[i, 0] + " start = disabled");
+                    RunCmd("/c sc config " + services_to_Disable[i, 0] + " start= disabled");
                     _OutPut("-Disabling the " + services_to_Disable[i, 1] + " (" + services_to_Disable[i, 0] + ").");
                 }
                 _OutPut("Completed Un-Needed Service Disable.");

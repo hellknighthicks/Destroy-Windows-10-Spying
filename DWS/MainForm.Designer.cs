@@ -49,6 +49,7 @@ namespace PSS_Windows_10_Privatizer
             this.btnRestoreSystem = new System.Windows.Forms.Button();
             this.btnDeleteAllWindows10Apps = new System.Windows.Forms.Button();
             this.tabPageSettings = new System.Windows.Forms.TabPage();
+            this.checkBox_SecurityCenter = new System.Windows.Forms.CheckBox();
             this.checkBox_LockScreen = new System.Windows.Forms.CheckBox();
             this.CheckboxUAC_Silent = new System.Windows.Forms.CheckBox();
             this.checkBoxOneDrive = new System.Windows.Forms.CheckBox();
@@ -309,6 +310,7 @@ namespace PSS_Windows_10_Privatizer
             // 
             this.tabPageSettings.BackColor = System.Drawing.Color.White;
             this.tabPageSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPageSettings.Controls.Add(this.checkBox_SecurityCenter);
             this.tabPageSettings.Controls.Add(this.checkBox_LockScreen);
             this.tabPageSettings.Controls.Add(this.CheckboxUAC_Silent);
             this.tabPageSettings.Controls.Add(this.checkBoxOneDrive);
@@ -327,6 +329,21 @@ namespace PSS_Windows_10_Privatizer
             this.tabPageSettings.Size = new System.Drawing.Size(261, 438);
             this.tabPageSettings.TabIndex = 1;
             this.tabPageSettings.Text = "Options";
+            // 
+            // checkBox_SecurityCenter
+            // 
+            this.checkBox_SecurityCenter.AutoSize = true;
+            this.checkBox_SecurityCenter.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox_SecurityCenter.Checked = true;
+            this.checkBox_SecurityCenter.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_SecurityCenter.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.checkBox_SecurityCenter.Location = new System.Drawing.Point(6, 173);
+            this.checkBox_SecurityCenter.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBox_SecurityCenter.Name = "checkBox_SecurityCenter";
+            this.checkBox_SecurityCenter.Size = new System.Drawing.Size(203, 17);
+            this.checkBox_SecurityCenter.TabIndex = 27;
+            this.checkBox_SecurityCenter.Text = "Disable Security Center & Notifications";
+            this.checkBox_SecurityCenter.UseVisualStyleBackColor = false;
             // 
             // checkBox_LockScreen
             // 
@@ -350,7 +367,7 @@ namespace PSS_Windows_10_Privatizer
             this.CheckboxUAC_Silent.Checked = true;
             this.CheckboxUAC_Silent.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CheckboxUAC_Silent.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.CheckboxUAC_Silent.Location = new System.Drawing.Point(6, 173);
+            this.CheckboxUAC_Silent.Location = new System.Drawing.Point(6, 264);
             this.CheckboxUAC_Silent.Margin = new System.Windows.Forms.Padding(0);
             this.CheckboxUAC_Silent.Name = "CheckboxUAC_Silent";
             this.CheckboxUAC_Silent.Size = new System.Drawing.Size(137, 17);
@@ -423,7 +440,7 @@ namespace PSS_Windows_10_Privatizer
             this.checkBoxSetDefaultPhoto.AutoSize = true;
             this.checkBoxSetDefaultPhoto.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxSetDefaultPhoto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.checkBoxSetDefaultPhoto.Location = new System.Drawing.Point(6, 190);
+            this.checkBoxSetDefaultPhoto.Location = new System.Drawing.Point(6, 418);
             this.checkBoxSetDefaultPhoto.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxSetDefaultPhoto.Name = "checkBoxSetDefaultPhoto";
             this.checkBoxSetDefaultPhoto.Size = new System.Drawing.Size(189, 17);
@@ -869,6 +886,7 @@ namespace PSS_Windows_10_Privatizer
         private CheckBox checkBoxDeleteAppCamera;
         private CheckBox checkBoxDeleteApp3d;
         private CheckBox checkBoxDeleteWindows10Apps;
+        private CheckBox checkBox_SecurityCenter;
     }
 }
 
