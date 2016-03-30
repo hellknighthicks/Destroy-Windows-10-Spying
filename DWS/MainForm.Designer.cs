@@ -35,6 +35,7 @@ namespace PSS_Windows_10_Privatizer
             this.MinimizeButton = new System.Windows.Forms.PictureBox();
             this.tabPageUtilites = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnDisableOfficeUpdate = new System.Windows.Forms.Button();
             this.btnDeleteOneDrive = new System.Windows.Forms.Button();
             this.btnDeleteMetroAppsInfo = new System.Windows.Forms.Button();
@@ -53,6 +54,18 @@ namespace PSS_Windows_10_Privatizer
             this.checkBoxOneDrive = new System.Windows.Forms.CheckBox();
             this.checkBoxP2PWinUpdate = new System.Windows.Forms.CheckBox();
             this.checkBoxDisableServices = new System.Windows.Forms.CheckBox();
+            this.checkBoxSPYTasks = new System.Windows.Forms.CheckBox();
+            this.checkBoxSetDefaultPhoto = new System.Windows.Forms.CheckBox();
+            this.checkBoxDisableWindowsDefender = new System.Windows.Forms.CheckBox();
+            this.checkBoxDisablePrivateSettings = new System.Windows.Forms.CheckBox();
+            this.checkBoxAddToHosts = new System.Windows.Forms.CheckBox();
+            this.checkBoxKeyLoggerAndTelemetry = new System.Windows.Forms.CheckBox();
+            this.checkBoxCreateSystemRestorePoint = new System.Windows.Forms.CheckBox();
+            this.ProgressBarStatus = new System.Windows.Forms.ProgressBar();
+            this.Button_Execite_Checked = new System.Windows.Forms.Button();
+            this.LogOutputTextBox = new System.Windows.Forms.RichTextBox();
+            this.FormTabsControl = new System.Windows.Forms.TabControl();
+            this.tabPageMETRO = new System.Windows.Forms.TabPage();
             this.labelInfoDeleteMetroApps = new System.Windows.Forms.Label();
             this.checkBoxDeleteAppXBOX = new System.Windows.Forms.CheckBox();
             this.checkBoxDeleteAppVoice = new System.Windows.Forms.CheckBox();
@@ -66,19 +79,7 @@ namespace PSS_Windows_10_Privatizer
             this.checkBoxDeleteAppCamera = new System.Windows.Forms.CheckBox();
             this.checkBoxDeleteApp3d = new System.Windows.Forms.CheckBox();
             this.checkBoxDeleteWindows10Apps = new System.Windows.Forms.CheckBox();
-            this.checkBoxSPYTasks = new System.Windows.Forms.CheckBox();
-            this.checkBoxSetDefaultPhoto = new System.Windows.Forms.CheckBox();
-            this.checkBoxDisableWindowsDefender = new System.Windows.Forms.CheckBox();
-            this.checkBoxDisablePrivateSettings = new System.Windows.Forms.CheckBox();
-            this.checkBoxAddToHosts = new System.Windows.Forms.CheckBox();
-            this.checkBoxKeyLoggerAndTelemetry = new System.Windows.Forms.CheckBox();
-            this.checkBoxCreateSystemRestorePoint = new System.Windows.Forms.CheckBox();
-            this.ProgressBarStatus = new System.Windows.Forms.ProgressBar();
-            this.Button_Execite_Checked = new System.Windows.Forms.Button();
-            this.LogOutputTextBox = new System.Windows.Forms.RichTextBox();
-            this.FormTabsControl = new System.Windows.Forms.TabControl();
             this.lable_Title_Bar = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.CloseButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeButton)).BeginInit();
             this.tabPageUtilites.SuspendLayout();
@@ -87,6 +88,7 @@ namespace PSS_Windows_10_Privatizer
             this.groupBoxUACEdit.SuspendLayout();
             this.tabPageSettings.SuspendLayout();
             this.FormTabsControl.SuspendLayout();
+            this.tabPageMETRO.SuspendLayout();
             this.SuspendLayout();
             // 
             // CloseButton
@@ -145,6 +147,14 @@ namespace PSS_Windows_10_Privatizer
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Display Settings";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(6, 33);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 0;
             // 
             // btnDisableOfficeUpdate
             // 
@@ -304,19 +314,6 @@ namespace PSS_Windows_10_Privatizer
             this.tabPageSettings.Controls.Add(this.checkBoxOneDrive);
             this.tabPageSettings.Controls.Add(this.checkBoxP2PWinUpdate);
             this.tabPageSettings.Controls.Add(this.checkBoxDisableServices);
-            this.tabPageSettings.Controls.Add(this.labelInfoDeleteMetroApps);
-            this.tabPageSettings.Controls.Add(this.checkBoxDeleteAppXBOX);
-            this.tabPageSettings.Controls.Add(this.checkBoxDeleteAppVoice);
-            this.tabPageSettings.Controls.Add(this.checkBoxDeleteAppSolit);
-            this.tabPageSettings.Controls.Add(this.checkBoxDeleteAppPhotos);
-            this.tabPageSettings.Controls.Add(this.checkBoxDeleteAppPhone);
-            this.tabPageSettings.Controls.Add(this.checkBoxDeleteAppPeopleOneNote);
-            this.tabPageSettings.Controls.Add(this.checkBoxDeleteAppZune);
-            this.tabPageSettings.Controls.Add(this.checkBoxDeleteAppBing);
-            this.tabPageSettings.Controls.Add(this.checkBoxDeleteMailCalendarMaps);
-            this.tabPageSettings.Controls.Add(this.checkBoxDeleteAppCamera);
-            this.tabPageSettings.Controls.Add(this.checkBoxDeleteApp3d);
-            this.tabPageSettings.Controls.Add(this.checkBoxDeleteWindows10Apps);
             this.tabPageSettings.Controls.Add(this.checkBoxSPYTasks);
             this.tabPageSettings.Controls.Add(this.checkBoxSetDefaultPhoto);
             this.tabPageSettings.Controls.Add(this.checkBoxDisableWindowsDefender);
@@ -329,7 +326,7 @@ namespace PSS_Windows_10_Privatizer
             this.tabPageSettings.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageSettings.Size = new System.Drawing.Size(261, 438);
             this.tabPageSettings.TabIndex = 1;
-            this.tabPageSettings.Text = "Settings";
+            this.tabPageSettings.Text = "Options";
             // 
             // checkBox_LockScreen
             // 
@@ -405,196 +402,6 @@ namespace PSS_Windows_10_Privatizer
             this.checkBoxDisableServices.TabIndex = 22;
             this.checkBoxDisableServices.Text = "Disable Un-Needed Services";
             this.checkBoxDisableServices.UseVisualStyleBackColor = false;
-            // 
-            // labelInfoDeleteMetroApps
-            // 
-            this.labelInfoDeleteMetroApps.AutoSize = true;
-            this.labelInfoDeleteMetroApps.BackColor = System.Drawing.Color.Transparent;
-            this.labelInfoDeleteMetroApps.ForeColor = System.Drawing.Color.Red;
-            this.labelInfoDeleteMetroApps.Location = new System.Drawing.Point(3, 219);
-            this.labelInfoDeleteMetroApps.Name = "labelInfoDeleteMetroApps";
-            this.labelInfoDeleteMetroApps.Size = new System.Drawing.Size(251, 13);
-            this.labelInfoDeleteMetroApps.TabIndex = 20;
-            this.labelInfoDeleteMetroApps.Text = "Be Aware if Metro Apps are deleted its permanent!";
-            // 
-            // checkBoxDeleteAppXBOX
-            // 
-            this.checkBoxDeleteAppXBOX.AutoSize = true;
-            this.checkBoxDeleteAppXBOX.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxDeleteAppXBOX.Checked = true;
-            this.checkBoxDeleteAppXBOX.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxDeleteAppXBOX.Enabled = false;
-            this.checkBoxDeleteAppXBOX.Location = new System.Drawing.Point(6, 419);
-            this.checkBoxDeleteAppXBOX.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBoxDeleteAppXBOX.Name = "checkBoxDeleteAppXBOX";
-            this.checkBoxDeleteAppXBOX.Size = new System.Drawing.Size(84, 17);
-            this.checkBoxDeleteAppXBOX.TabIndex = 18;
-            this.checkBoxDeleteAppXBOX.Text = "Delete XBoX";
-            this.checkBoxDeleteAppXBOX.UseVisualStyleBackColor = false;
-            // 
-            // checkBoxDeleteAppVoice
-            // 
-            this.checkBoxDeleteAppVoice.AutoSize = true;
-            this.checkBoxDeleteAppVoice.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxDeleteAppVoice.Checked = true;
-            this.checkBoxDeleteAppVoice.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxDeleteAppVoice.Enabled = false;
-            this.checkBoxDeleteAppVoice.Location = new System.Drawing.Point(6, 402);
-            this.checkBoxDeleteAppVoice.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBoxDeleteAppVoice.Name = "checkBoxDeleteAppVoice";
-            this.checkBoxDeleteAppVoice.Size = new System.Drawing.Size(132, 17);
-            this.checkBoxDeleteAppVoice.TabIndex = 17;
-            this.checkBoxDeleteAppVoice.Text = "Delete Voice Recorder";
-            this.checkBoxDeleteAppVoice.UseVisualStyleBackColor = false;
-            // 
-            // checkBoxDeleteAppSolit
-            // 
-            this.checkBoxDeleteAppSolit.AutoSize = true;
-            this.checkBoxDeleteAppSolit.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxDeleteAppSolit.Checked = true;
-            this.checkBoxDeleteAppSolit.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxDeleteAppSolit.Enabled = false;
-            this.checkBoxDeleteAppSolit.Location = new System.Drawing.Point(6, 385);
-            this.checkBoxDeleteAppSolit.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBoxDeleteAppSolit.Name = "checkBoxDeleteAppSolit";
-            this.checkBoxDeleteAppSolit.Size = new System.Drawing.Size(147, 17);
-            this.checkBoxDeleteAppSolit.TabIndex = 16;
-            this.checkBoxDeleteAppSolit.Text = "Delete Solitaire Collection";
-            this.checkBoxDeleteAppSolit.UseVisualStyleBackColor = false;
-            // 
-            // checkBoxDeleteAppPhotos
-            // 
-            this.checkBoxDeleteAppPhotos.AutoSize = true;
-            this.checkBoxDeleteAppPhotos.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxDeleteAppPhotos.Checked = true;
-            this.checkBoxDeleteAppPhotos.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxDeleteAppPhotos.Enabled = false;
-            this.checkBoxDeleteAppPhotos.Location = new System.Drawing.Point(6, 368);
-            this.checkBoxDeleteAppPhotos.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBoxDeleteAppPhotos.Name = "checkBoxDeleteAppPhotos";
-            this.checkBoxDeleteAppPhotos.Size = new System.Drawing.Size(93, 17);
-            this.checkBoxDeleteAppPhotos.TabIndex = 15;
-            this.checkBoxDeleteAppPhotos.Text = "Delete Photos";
-            this.checkBoxDeleteAppPhotos.UseVisualStyleBackColor = false;
-            // 
-            // checkBoxDeleteAppPhone
-            // 
-            this.checkBoxDeleteAppPhone.AutoSize = true;
-            this.checkBoxDeleteAppPhone.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxDeleteAppPhone.Checked = true;
-            this.checkBoxDeleteAppPhone.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxDeleteAppPhone.Enabled = false;
-            this.checkBoxDeleteAppPhone.Location = new System.Drawing.Point(6, 351);
-            this.checkBoxDeleteAppPhone.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBoxDeleteAppPhone.Name = "checkBoxDeleteAppPhone";
-            this.checkBoxDeleteAppPhone.Size = new System.Drawing.Size(146, 17);
-            this.checkBoxDeleteAppPhone.TabIndex = 14;
-            this.checkBoxDeleteAppPhone.Text = "Delete Phone Companion";
-            this.checkBoxDeleteAppPhone.UseVisualStyleBackColor = false;
-            // 
-            // checkBoxDeleteAppPeopleOneNote
-            // 
-            this.checkBoxDeleteAppPeopleOneNote.AutoSize = true;
-            this.checkBoxDeleteAppPeopleOneNote.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxDeleteAppPeopleOneNote.Checked = true;
-            this.checkBoxDeleteAppPeopleOneNote.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxDeleteAppPeopleOneNote.Enabled = false;
-            this.checkBoxDeleteAppPeopleOneNote.Location = new System.Drawing.Point(6, 334);
-            this.checkBoxDeleteAppPeopleOneNote.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBoxDeleteAppPeopleOneNote.Name = "checkBoxDeleteAppPeopleOneNote";
-            this.checkBoxDeleteAppPeopleOneNote.Size = new System.Drawing.Size(159, 17);
-            this.checkBoxDeleteAppPeopleOneNote.TabIndex = 13;
-            this.checkBoxDeleteAppPeopleOneNote.Text = "Delete People and OneNote";
-            this.checkBoxDeleteAppPeopleOneNote.UseVisualStyleBackColor = false;
-            // 
-            // checkBoxDeleteAppZune
-            // 
-            this.checkBoxDeleteAppZune.AutoSize = true;
-            this.checkBoxDeleteAppZune.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxDeleteAppZune.Checked = true;
-            this.checkBoxDeleteAppZune.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxDeleteAppZune.Enabled = false;
-            this.checkBoxDeleteAppZune.Location = new System.Drawing.Point(6, 317);
-            this.checkBoxDeleteAppZune.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBoxDeleteAppZune.Name = "checkBoxDeleteAppZune";
-            this.checkBoxDeleteAppZune.Size = new System.Drawing.Size(184, 17);
-            this.checkBoxDeleteAppZune.TabIndex = 12;
-            this.checkBoxDeleteAppZune.Text = "Delete Groove Music and Film TV ";
-            this.checkBoxDeleteAppZune.UseVisualStyleBackColor = false;
-            // 
-            // checkBoxDeleteAppBing
-            // 
-            this.checkBoxDeleteAppBing.AutoSize = true;
-            this.checkBoxDeleteAppBing.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxDeleteAppBing.Checked = true;
-            this.checkBoxDeleteAppBing.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxDeleteAppBing.Enabled = false;
-            this.checkBoxDeleteAppBing.Location = new System.Drawing.Point(6, 300);
-            this.checkBoxDeleteAppBing.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBoxDeleteAppBing.Name = "checkBoxDeleteAppBing";
-            this.checkBoxDeleteAppBing.Size = new System.Drawing.Size(229, 17);
-            this.checkBoxDeleteAppBing.TabIndex = 11;
-            this.checkBoxDeleteAppBing.Text = "Delete Money, Sports, News and Weather";
-            this.checkBoxDeleteAppBing.UseVisualStyleBackColor = false;
-            // 
-            // checkBoxDeleteMailCalendarMaps
-            // 
-            this.checkBoxDeleteMailCalendarMaps.AutoSize = true;
-            this.checkBoxDeleteMailCalendarMaps.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxDeleteMailCalendarMaps.Checked = true;
-            this.checkBoxDeleteMailCalendarMaps.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxDeleteMailCalendarMaps.Enabled = false;
-            this.checkBoxDeleteMailCalendarMaps.Location = new System.Drawing.Point(6, 283);
-            this.checkBoxDeleteMailCalendarMaps.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBoxDeleteMailCalendarMaps.Name = "checkBoxDeleteMailCalendarMaps";
-            this.checkBoxDeleteMailCalendarMaps.Size = new System.Drawing.Size(174, 17);
-            this.checkBoxDeleteMailCalendarMaps.TabIndex = 10;
-            this.checkBoxDeleteMailCalendarMaps.Text = "Delete Mail,Calendar and Maps";
-            this.checkBoxDeleteMailCalendarMaps.UseVisualStyleBackColor = false;
-            // 
-            // checkBoxDeleteAppCamera
-            // 
-            this.checkBoxDeleteAppCamera.AutoSize = true;
-            this.checkBoxDeleteAppCamera.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxDeleteAppCamera.Checked = true;
-            this.checkBoxDeleteAppCamera.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxDeleteAppCamera.Enabled = false;
-            this.checkBoxDeleteAppCamera.Location = new System.Drawing.Point(6, 266);
-            this.checkBoxDeleteAppCamera.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBoxDeleteAppCamera.Name = "checkBoxDeleteAppCamera";
-            this.checkBoxDeleteAppCamera.Size = new System.Drawing.Size(97, 17);
-            this.checkBoxDeleteAppCamera.TabIndex = 9;
-            this.checkBoxDeleteAppCamera.Text = "Delete Camera";
-            this.checkBoxDeleteAppCamera.UseVisualStyleBackColor = false;
-            // 
-            // checkBoxDeleteApp3d
-            // 
-            this.checkBoxDeleteApp3d.AutoSize = true;
-            this.checkBoxDeleteApp3d.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxDeleteApp3d.Checked = true;
-            this.checkBoxDeleteApp3d.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxDeleteApp3d.Enabled = false;
-            this.checkBoxDeleteApp3d.Location = new System.Drawing.Point(6, 249);
-            this.checkBoxDeleteApp3d.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBoxDeleteApp3d.Name = "checkBoxDeleteApp3d";
-            this.checkBoxDeleteApp3d.Size = new System.Drawing.Size(108, 17);
-            this.checkBoxDeleteApp3d.TabIndex = 8;
-            this.checkBoxDeleteApp3d.Text = "Delete Builder 3D";
-            this.checkBoxDeleteApp3d.UseVisualStyleBackColor = false;
-            // 
-            // checkBoxDeleteWindows10Apps
-            // 
-            this.checkBoxDeleteWindows10Apps.AutoSize = true;
-            this.checkBoxDeleteWindows10Apps.BackColor = System.Drawing.Color.Transparent;
-            this.checkBoxDeleteWindows10Apps.ForeColor = System.Drawing.Color.OrangeRed;
-            this.checkBoxDeleteWindows10Apps.Location = new System.Drawing.Point(6, 232);
-            this.checkBoxDeleteWindows10Apps.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBoxDeleteWindows10Apps.Name = "checkBoxDeleteWindows10Apps";
-            this.checkBoxDeleteWindows10Apps.Size = new System.Drawing.Size(173, 17);
-            this.checkBoxDeleteWindows10Apps.TabIndex = 7;
-            this.checkBoxDeleteWindows10Apps.Text = "Delete windows 10 metro apps";
-            this.checkBoxDeleteWindows10Apps.UseVisualStyleBackColor = false;
-            this.checkBoxDeleteWindows10Apps.CheckedChanged += new System.EventHandler(this.checkBoxDeleteWindows10Apps_CheckedChanged);
             // 
             // checkBoxSPYTasks
             // 
@@ -739,12 +546,224 @@ namespace PSS_Windows_10_Privatizer
             // FormTabsControl
             // 
             this.FormTabsControl.Controls.Add(this.tabPageSettings);
+            this.FormTabsControl.Controls.Add(this.tabPageMETRO);
             this.FormTabsControl.Controls.Add(this.tabPageUtilites);
             this.FormTabsControl.Location = new System.Drawing.Point(566, 29);
             this.FormTabsControl.Name = "FormTabsControl";
             this.FormTabsControl.SelectedIndex = 0;
             this.FormTabsControl.Size = new System.Drawing.Size(269, 464);
             this.FormTabsControl.TabIndex = 0;
+            // 
+            // tabPageMETRO
+            // 
+            this.tabPageMETRO.Controls.Add(this.labelInfoDeleteMetroApps);
+            this.tabPageMETRO.Controls.Add(this.checkBoxDeleteAppXBOX);
+            this.tabPageMETRO.Controls.Add(this.checkBoxDeleteAppVoice);
+            this.tabPageMETRO.Controls.Add(this.checkBoxDeleteAppSolit);
+            this.tabPageMETRO.Controls.Add(this.checkBoxDeleteAppPhotos);
+            this.tabPageMETRO.Controls.Add(this.checkBoxDeleteAppPhone);
+            this.tabPageMETRO.Controls.Add(this.checkBoxDeleteAppPeopleOneNote);
+            this.tabPageMETRO.Controls.Add(this.checkBoxDeleteAppZune);
+            this.tabPageMETRO.Controls.Add(this.checkBoxDeleteAppBing);
+            this.tabPageMETRO.Controls.Add(this.checkBoxDeleteMailCalendarMaps);
+            this.tabPageMETRO.Controls.Add(this.checkBoxDeleteAppCamera);
+            this.tabPageMETRO.Controls.Add(this.checkBoxDeleteApp3d);
+            this.tabPageMETRO.Controls.Add(this.checkBoxDeleteWindows10Apps);
+            this.tabPageMETRO.Location = new System.Drawing.Point(4, 22);
+            this.tabPageMETRO.Name = "tabPageMETRO";
+            this.tabPageMETRO.Size = new System.Drawing.Size(261, 438);
+            this.tabPageMETRO.TabIndex = 3;
+            this.tabPageMETRO.Text = "Metro Apps";
+            this.tabPageMETRO.UseVisualStyleBackColor = true;
+            // 
+            // labelInfoDeleteMetroApps
+            // 
+            this.labelInfoDeleteMetroApps.AutoSize = true;
+            this.labelInfoDeleteMetroApps.BackColor = System.Drawing.Color.Transparent;
+            this.labelInfoDeleteMetroApps.ForeColor = System.Drawing.Color.Red;
+            this.labelInfoDeleteMetroApps.Location = new System.Drawing.Point(7, 0);
+            this.labelInfoDeleteMetroApps.Name = "labelInfoDeleteMetroApps";
+            this.labelInfoDeleteMetroApps.Size = new System.Drawing.Size(251, 13);
+            this.labelInfoDeleteMetroApps.TabIndex = 33;
+            this.labelInfoDeleteMetroApps.Text = "Be Aware if Metro Apps are deleted its permanent!";
+            // 
+            // checkBoxDeleteAppXBOX
+            // 
+            this.checkBoxDeleteAppXBOX.AutoSize = true;
+            this.checkBoxDeleteAppXBOX.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxDeleteAppXBOX.Checked = true;
+            this.checkBoxDeleteAppXBOX.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxDeleteAppXBOX.Enabled = false;
+            this.checkBoxDeleteAppXBOX.Location = new System.Drawing.Point(10, 200);
+            this.checkBoxDeleteAppXBOX.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBoxDeleteAppXBOX.Name = "checkBoxDeleteAppXBOX";
+            this.checkBoxDeleteAppXBOX.Size = new System.Drawing.Size(84, 17);
+            this.checkBoxDeleteAppXBOX.TabIndex = 32;
+            this.checkBoxDeleteAppXBOX.Text = "Delete XBoX";
+            this.checkBoxDeleteAppXBOX.UseVisualStyleBackColor = false;
+            // 
+            // checkBoxDeleteAppVoice
+            // 
+            this.checkBoxDeleteAppVoice.AutoSize = true;
+            this.checkBoxDeleteAppVoice.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxDeleteAppVoice.Checked = true;
+            this.checkBoxDeleteAppVoice.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxDeleteAppVoice.Enabled = false;
+            this.checkBoxDeleteAppVoice.Location = new System.Drawing.Point(10, 183);
+            this.checkBoxDeleteAppVoice.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBoxDeleteAppVoice.Name = "checkBoxDeleteAppVoice";
+            this.checkBoxDeleteAppVoice.Size = new System.Drawing.Size(132, 17);
+            this.checkBoxDeleteAppVoice.TabIndex = 31;
+            this.checkBoxDeleteAppVoice.Text = "Delete Voice Recorder";
+            this.checkBoxDeleteAppVoice.UseVisualStyleBackColor = false;
+            // 
+            // checkBoxDeleteAppSolit
+            // 
+            this.checkBoxDeleteAppSolit.AutoSize = true;
+            this.checkBoxDeleteAppSolit.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxDeleteAppSolit.Checked = true;
+            this.checkBoxDeleteAppSolit.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxDeleteAppSolit.Enabled = false;
+            this.checkBoxDeleteAppSolit.Location = new System.Drawing.Point(10, 166);
+            this.checkBoxDeleteAppSolit.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBoxDeleteAppSolit.Name = "checkBoxDeleteAppSolit";
+            this.checkBoxDeleteAppSolit.Size = new System.Drawing.Size(147, 17);
+            this.checkBoxDeleteAppSolit.TabIndex = 30;
+            this.checkBoxDeleteAppSolit.Text = "Delete Solitaire Collection";
+            this.checkBoxDeleteAppSolit.UseVisualStyleBackColor = false;
+            // 
+            // checkBoxDeleteAppPhotos
+            // 
+            this.checkBoxDeleteAppPhotos.AutoSize = true;
+            this.checkBoxDeleteAppPhotos.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxDeleteAppPhotos.Checked = true;
+            this.checkBoxDeleteAppPhotos.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxDeleteAppPhotos.Enabled = false;
+            this.checkBoxDeleteAppPhotos.Location = new System.Drawing.Point(10, 149);
+            this.checkBoxDeleteAppPhotos.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBoxDeleteAppPhotos.Name = "checkBoxDeleteAppPhotos";
+            this.checkBoxDeleteAppPhotos.Size = new System.Drawing.Size(93, 17);
+            this.checkBoxDeleteAppPhotos.TabIndex = 29;
+            this.checkBoxDeleteAppPhotos.Text = "Delete Photos";
+            this.checkBoxDeleteAppPhotos.UseVisualStyleBackColor = false;
+            // 
+            // checkBoxDeleteAppPhone
+            // 
+            this.checkBoxDeleteAppPhone.AutoSize = true;
+            this.checkBoxDeleteAppPhone.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxDeleteAppPhone.Checked = true;
+            this.checkBoxDeleteAppPhone.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxDeleteAppPhone.Enabled = false;
+            this.checkBoxDeleteAppPhone.Location = new System.Drawing.Point(10, 132);
+            this.checkBoxDeleteAppPhone.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBoxDeleteAppPhone.Name = "checkBoxDeleteAppPhone";
+            this.checkBoxDeleteAppPhone.Size = new System.Drawing.Size(146, 17);
+            this.checkBoxDeleteAppPhone.TabIndex = 28;
+            this.checkBoxDeleteAppPhone.Text = "Delete Phone Companion";
+            this.checkBoxDeleteAppPhone.UseVisualStyleBackColor = false;
+            // 
+            // checkBoxDeleteAppPeopleOneNote
+            // 
+            this.checkBoxDeleteAppPeopleOneNote.AutoSize = true;
+            this.checkBoxDeleteAppPeopleOneNote.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxDeleteAppPeopleOneNote.Checked = true;
+            this.checkBoxDeleteAppPeopleOneNote.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxDeleteAppPeopleOneNote.Enabled = false;
+            this.checkBoxDeleteAppPeopleOneNote.Location = new System.Drawing.Point(10, 115);
+            this.checkBoxDeleteAppPeopleOneNote.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBoxDeleteAppPeopleOneNote.Name = "checkBoxDeleteAppPeopleOneNote";
+            this.checkBoxDeleteAppPeopleOneNote.Size = new System.Drawing.Size(159, 17);
+            this.checkBoxDeleteAppPeopleOneNote.TabIndex = 27;
+            this.checkBoxDeleteAppPeopleOneNote.Text = "Delete People and OneNote";
+            this.checkBoxDeleteAppPeopleOneNote.UseVisualStyleBackColor = false;
+            // 
+            // checkBoxDeleteAppZune
+            // 
+            this.checkBoxDeleteAppZune.AutoSize = true;
+            this.checkBoxDeleteAppZune.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxDeleteAppZune.Checked = true;
+            this.checkBoxDeleteAppZune.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxDeleteAppZune.Enabled = false;
+            this.checkBoxDeleteAppZune.Location = new System.Drawing.Point(10, 98);
+            this.checkBoxDeleteAppZune.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBoxDeleteAppZune.Name = "checkBoxDeleteAppZune";
+            this.checkBoxDeleteAppZune.Size = new System.Drawing.Size(184, 17);
+            this.checkBoxDeleteAppZune.TabIndex = 26;
+            this.checkBoxDeleteAppZune.Text = "Delete Groove Music and Film TV ";
+            this.checkBoxDeleteAppZune.UseVisualStyleBackColor = false;
+            // 
+            // checkBoxDeleteAppBing
+            // 
+            this.checkBoxDeleteAppBing.AutoSize = true;
+            this.checkBoxDeleteAppBing.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxDeleteAppBing.Checked = true;
+            this.checkBoxDeleteAppBing.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxDeleteAppBing.Enabled = false;
+            this.checkBoxDeleteAppBing.Location = new System.Drawing.Point(10, 81);
+            this.checkBoxDeleteAppBing.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBoxDeleteAppBing.Name = "checkBoxDeleteAppBing";
+            this.checkBoxDeleteAppBing.Size = new System.Drawing.Size(229, 17);
+            this.checkBoxDeleteAppBing.TabIndex = 25;
+            this.checkBoxDeleteAppBing.Text = "Delete Money, Sports, News and Weather";
+            this.checkBoxDeleteAppBing.UseVisualStyleBackColor = false;
+            // 
+            // checkBoxDeleteMailCalendarMaps
+            // 
+            this.checkBoxDeleteMailCalendarMaps.AutoSize = true;
+            this.checkBoxDeleteMailCalendarMaps.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxDeleteMailCalendarMaps.Checked = true;
+            this.checkBoxDeleteMailCalendarMaps.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxDeleteMailCalendarMaps.Enabled = false;
+            this.checkBoxDeleteMailCalendarMaps.Location = new System.Drawing.Point(10, 64);
+            this.checkBoxDeleteMailCalendarMaps.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBoxDeleteMailCalendarMaps.Name = "checkBoxDeleteMailCalendarMaps";
+            this.checkBoxDeleteMailCalendarMaps.Size = new System.Drawing.Size(174, 17);
+            this.checkBoxDeleteMailCalendarMaps.TabIndex = 24;
+            this.checkBoxDeleteMailCalendarMaps.Text = "Delete Mail,Calendar and Maps";
+            this.checkBoxDeleteMailCalendarMaps.UseVisualStyleBackColor = false;
+            // 
+            // checkBoxDeleteAppCamera
+            // 
+            this.checkBoxDeleteAppCamera.AutoSize = true;
+            this.checkBoxDeleteAppCamera.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxDeleteAppCamera.Checked = true;
+            this.checkBoxDeleteAppCamera.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxDeleteAppCamera.Enabled = false;
+            this.checkBoxDeleteAppCamera.Location = new System.Drawing.Point(10, 47);
+            this.checkBoxDeleteAppCamera.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBoxDeleteAppCamera.Name = "checkBoxDeleteAppCamera";
+            this.checkBoxDeleteAppCamera.Size = new System.Drawing.Size(97, 17);
+            this.checkBoxDeleteAppCamera.TabIndex = 23;
+            this.checkBoxDeleteAppCamera.Text = "Delete Camera";
+            this.checkBoxDeleteAppCamera.UseVisualStyleBackColor = false;
+            // 
+            // checkBoxDeleteApp3d
+            // 
+            this.checkBoxDeleteApp3d.AutoSize = true;
+            this.checkBoxDeleteApp3d.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxDeleteApp3d.Checked = true;
+            this.checkBoxDeleteApp3d.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxDeleteApp3d.Enabled = false;
+            this.checkBoxDeleteApp3d.Location = new System.Drawing.Point(10, 30);
+            this.checkBoxDeleteApp3d.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBoxDeleteApp3d.Name = "checkBoxDeleteApp3d";
+            this.checkBoxDeleteApp3d.Size = new System.Drawing.Size(108, 17);
+            this.checkBoxDeleteApp3d.TabIndex = 22;
+            this.checkBoxDeleteApp3d.Text = "Delete Builder 3D";
+            this.checkBoxDeleteApp3d.UseVisualStyleBackColor = false;
+            // 
+            // checkBoxDeleteWindows10Apps
+            // 
+            this.checkBoxDeleteWindows10Apps.AutoSize = true;
+            this.checkBoxDeleteWindows10Apps.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxDeleteWindows10Apps.ForeColor = System.Drawing.Color.OrangeRed;
+            this.checkBoxDeleteWindows10Apps.Location = new System.Drawing.Point(10, 13);
+            this.checkBoxDeleteWindows10Apps.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBoxDeleteWindows10Apps.Name = "checkBoxDeleteWindows10Apps";
+            this.checkBoxDeleteWindows10Apps.Size = new System.Drawing.Size(173, 17);
+            this.checkBoxDeleteWindows10Apps.TabIndex = 21;
+            this.checkBoxDeleteWindows10Apps.Text = "Delete windows 10 metro apps";
+            this.checkBoxDeleteWindows10Apps.UseVisualStyleBackColor = false;
             // 
             // lable_Title_Bar
             // 
@@ -758,14 +777,6 @@ namespace PSS_Windows_10_Privatizer
             this.lable_Title_Bar.Size = new System.Drawing.Size(108, 23);
             this.lable_Title_Bar.TabIndex = 4;
             this.lable_Title_Bar.Text = "App Name";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(6, 33);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -800,6 +811,8 @@ namespace PSS_Windows_10_Privatizer
             this.tabPageSettings.ResumeLayout(false);
             this.tabPageSettings.PerformLayout();
             this.FormTabsControl.ResumeLayout(false);
+            this.tabPageMETRO.ResumeLayout(false);
+            this.tabPageMETRO.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -826,19 +839,6 @@ namespace PSS_Windows_10_Privatizer
         private CheckBox checkBoxOneDrive;
         private CheckBox checkBoxP2PWinUpdate;
         private CheckBox checkBoxDisableServices;
-        private Label labelInfoDeleteMetroApps;
-        private CheckBox checkBoxDeleteAppXBOX;
-        private CheckBox checkBoxDeleteAppVoice;
-        private CheckBox checkBoxDeleteAppSolit;
-        private CheckBox checkBoxDeleteAppPhotos;
-        private CheckBox checkBoxDeleteAppPhone;
-        private CheckBox checkBoxDeleteAppPeopleOneNote;
-        private CheckBox checkBoxDeleteAppZune;
-        private CheckBox checkBoxDeleteAppBing;
-        private CheckBox checkBoxDeleteMailCalendarMaps;
-        private CheckBox checkBoxDeleteAppCamera;
-        private CheckBox checkBoxDeleteApp3d;
-        private CheckBox checkBoxDeleteWindows10Apps;
         private CheckBox checkBoxSPYTasks;
         private CheckBox checkBoxSetDefaultPhoto;
         private CheckBox checkBoxDisableWindowsDefender;
@@ -855,6 +855,20 @@ namespace PSS_Windows_10_Privatizer
         private Label lable_Title_Bar;
         private GroupBox groupBox1;
         private ComboBox comboBox1;
+        private TabPage tabPageMETRO;
+        private Label labelInfoDeleteMetroApps;
+        private CheckBox checkBoxDeleteAppXBOX;
+        private CheckBox checkBoxDeleteAppVoice;
+        private CheckBox checkBoxDeleteAppSolit;
+        private CheckBox checkBoxDeleteAppPhotos;
+        private CheckBox checkBoxDeleteAppPhone;
+        private CheckBox checkBoxDeleteAppPeopleOneNote;
+        private CheckBox checkBoxDeleteAppZune;
+        private CheckBox checkBoxDeleteAppBing;
+        private CheckBox checkBoxDeleteMailCalendarMaps;
+        private CheckBox checkBoxDeleteAppCamera;
+        private CheckBox checkBoxDeleteApp3d;
+        private CheckBox checkBoxDeleteWindows10Apps;
     }
 }
 

@@ -529,24 +529,20 @@ namespace PSS_Windows_10_Privatizer
                 {
                     try
                     {
+                        if (ProgressBarStatus.Value + numberadd > 100)
+                            ProgressBarStatus.Value = 100;
+                        else
                         ProgressBarStatus.Value += numberadd;
                     }
                     catch (Exception)
                     {
-                        // ignored
+                        //No need to blow up
                     }
                 }));
             }
             catch (Exception)
             {
-                try
-                {
-                    ProgressBarStatus.Value += numberadd;
-                }
-                catch (Exception)
-                {
-                    // ignored
-                }
+                //No need to blow up 
             }
         }
         private void EnableOrDisableTab(bool enableordisable)
