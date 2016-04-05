@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Management;
 using System.Reflection;
-//using System.Net;
+using System.Net;
 //using System.Resources;
 using System.Runtime.InteropServices;
 using System.Security.AccessControl;
@@ -251,31 +251,30 @@ namespace PSS_Windows_10_Privatizer
 
 
         void CheckUpdates()
-        {/*  Dont want to be pulling updates from Main branch any more... Temporarily disabled while new build is setup.
+        {  
             try
             {
                 string latestVersion = new WebClient().DownloadString(
-                    "http://raw.githubusercontent.com/Nummer/Destroy-Windows-10-Spying/master/DWS/Resources/build_number.txt");
-                if (Convert.ToInt32(Resources.build_number) <
-                    Convert.ToInt32(latestVersion))
+                    "http://raw.githubusercontent.com/hellknighthicks/Windows-10-Privatizer/master/DWS/Resources/build_number.txt");
+
+                if (Convert.ToInt32(Resources.build_number) < Convert.ToInt32(latestVersion))
                 {
                     if (
                         MessageBox.Show(
-                            string.Format("New version found.\nBuild number: {0}\nDownload now?", latestVersion),
+                            string.Format("There is a newer version avaliable.\nBuild number: {0}\nWould you like to download now?", latestVersion),
                             @"Update",
                             MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        Process.Start("https://github.com/Nummer/Destroy-Windows-10-Spying/releases/latest");
+                        Process.Start("https://github.com/hellknighthicks/Windows-10-Privatizer/releases/latest");
                     }
                 }
                 _OutPut(string.Format("Latest version number: {0}", latestVersion));
             }
             catch (Exception ex)
             {
-                _OutPut("Error check updates.", LogLevel.Error);
+                _OutPut("Error checking for updates.", LogLevel.Error);
                 if (_debug) _OutPut(ex.Message, LogLevel.Debug);
             }
-          */
         }
 
         public override sealed string Text

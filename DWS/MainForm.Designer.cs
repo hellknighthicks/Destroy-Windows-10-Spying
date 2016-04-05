@@ -367,7 +367,7 @@ namespace PSS_Windows_10_Privatizer
             this.CheckboxUAC_Silent.Checked = true;
             this.CheckboxUAC_Silent.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CheckboxUAC_Silent.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.CheckboxUAC_Silent.Location = new System.Drawing.Point(6, 264);
+            this.CheckboxUAC_Silent.Location = new System.Drawing.Point(6, 282);
             this.CheckboxUAC_Silent.Margin = new System.Windows.Forms.Padding(0);
             this.CheckboxUAC_Silent.Name = "CheckboxUAC_Silent";
             this.CheckboxUAC_Silent.Size = new System.Drawing.Size(137, 17);
