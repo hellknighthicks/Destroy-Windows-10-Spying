@@ -1113,20 +1113,7 @@ namespace PSS_Windows_10_Privatizer
             }
 
         }
-        private void checkBoxDeleteWindows10Apps_CheckedChanged(object sender, EventArgs e)
-        {
-            checkBoxDeleteApp3d.Enabled = checkBoxDeleteWindows10Apps.Checked;
-            checkBoxDeleteAppBing.Enabled = checkBoxDeleteWindows10Apps.Checked;
-            checkBoxDeleteAppCamera.Enabled = checkBoxDeleteWindows10Apps.Checked;
-            checkBoxDeleteAppPeopleOneNote.Enabled = checkBoxDeleteWindows10Apps.Checked;
-            checkBoxDeleteAppPhone.Enabled = checkBoxDeleteWindows10Apps.Checked;
-            checkBoxDeleteAppPhotos.Enabled = checkBoxDeleteWindows10Apps.Checked;
-            checkBoxDeleteAppSolit.Enabled = checkBoxDeleteWindows10Apps.Checked;
-            checkBoxDeleteAppVoice.Enabled = checkBoxDeleteWindows10Apps.Checked;
-            checkBoxDeleteAppXBOX.Enabled = checkBoxDeleteWindows10Apps.Checked;
-            checkBoxDeleteAppZune.Enabled = checkBoxDeleteWindows10Apps.Checked;
-            checkBoxDeleteMailCalendarMaps.Enabled = checkBoxDeleteWindows10Apps.Checked;
-        }
+
         private void btnDeleteAllWindows10Apps_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show(GetTranslateText("Really"), GetTranslateText("Question"), MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
@@ -1531,6 +1518,19 @@ namespace PSS_Windows_10_Privatizer
             }
         }
 
-
+        private void checkBoxDeleteWindows10Apps_CheckedChanged_1(object sender, EventArgs e)
+        {
+            checkBoxDeleteApp3d.Enabled = checkBoxDeleteWindows10Apps.Checked;
+            checkBoxDeleteAppBing.Enabled = checkBoxDeleteWindows10Apps.Checked;
+            checkBoxDeleteAppCamera.Enabled = checkBoxDeleteWindows10Apps.Checked;
+            checkBoxDeleteAppPeopleOneNote.Enabled = checkBoxDeleteWindows10Apps.Checked;
+            checkBoxDeleteAppPhone.Enabled = checkBoxDeleteWindows10Apps.Checked;
+            checkBoxDeleteAppPhotos.Enabled = checkBoxDeleteWindows10Apps.Checked;
+            checkBoxDeleteAppSolit.Enabled = checkBoxDeleteWindows10Apps.Checked;
+            checkBoxDeleteAppVoice.Enabled = checkBoxDeleteWindows10Apps.Checked;
+            checkBoxDeleteAppXBOX.Enabled = checkBoxDeleteWindows10Apps.Checked;
+            checkBoxDeleteAppZune.Enabled = checkBoxDeleteWindows10Apps.Checked;
+            checkBoxDeleteMailCalendarMaps.Enabled = checkBoxDeleteWindows10Apps.Checked;
+        }
     }
 }

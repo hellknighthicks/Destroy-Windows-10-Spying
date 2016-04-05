@@ -781,6 +781,7 @@ namespace PSS_Windows_10_Privatizer
             this.checkBoxDeleteWindows10Apps.TabIndex = 21;
             this.checkBoxDeleteWindows10Apps.Text = "Delete windows 10 metro apps";
             this.checkBoxDeleteWindows10Apps.UseVisualStyleBackColor = false;
+            this.checkBoxDeleteWindows10Apps.CheckedChanged += new System.EventHandler(this.checkBoxDeleteWindows10Apps_CheckedChanged_1);
             // 
             // lable_Title_Bar
             // 
