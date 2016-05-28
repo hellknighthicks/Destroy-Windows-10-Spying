@@ -719,7 +719,7 @@ namespace PSS_Windows_10_Privatizer
             {
                 try
                 {
-                    string restorepointName = "DestroyWindowsSpying " + DateTime.Now;
+                    string restorepointName = "PSS - Windows 10 Privatizer " + DateTime.Now;
                     _OutPut("Creating restore point " + restorepointName + "...");
                     CreateRestorePoint(restorepointName);
                     _OutPut("Restore point " + restorepointName + " created.");
@@ -878,6 +878,40 @@ namespace PSS_Windows_10_Privatizer
                 _OutPut("Disabled Security Center - Service");
 
             }
+            if (checkBox_ActionCenter.Checked)
+            {
+                SetRegValueHkcu(@"Software\Policies\Microsoft\Windows\Explorer", "DisableNotificationCenter", "1", RegistryValueKind.DWord);
+                SetRegValueHklm(@"SOFTWARE\Policies\Microsoft\Windows\Explorer", "DisableNotificationCenter", "1", RegistryValueKind.DWord);
+                _OutPut("Disabled Action Center");
+            }
+
+            if (checkBox_StickyKeys.Checked)
+            {
+                _OutPut("Disabling Sticky Keys");
+                _OutPut("- Current User");
+                SetRegValueHkcu(@"Control Panel\Accessibility\StickyKeys",          "Flags", "506", RegistryValueKind.String);
+                SetRegValueHkcu(@"Control Panel\Accessibility\Keyboard Response",   "Flags", "122", RegistryValueKind.String);
+                SetRegValueHkcu(@"Control Panel\Accessibility\ToggleKeys",          "Flags", "58",  RegistryValueKind.String);
+
+                //TO DO: add these other keys as well.
+                /*
+                    ;Disable Toggle Keys
+                    [HKEY_CURRENT_USER\Control Panel\Accessibility\ToggleKeys]
+                    “Flags”=”58”
+                    ; For when noone is logged in
+                    ;Disable Sticky Keys
+                    [HKEY_USERS\.DEFAULT\Control Panel\Accessibility\StickyKeys]
+                    “Flags”=”506”
+                    ;Disable Filter Keys
+                    [HKEY_USERS\.DEFAULT\Control Panel\Accessibility\Keyboard Response]
+                    “Flags”=”122”
+                    ;Disable Toggle Keys
+                    [HKEY_USERS\.DEFAULT\Control Panel\Accessibility\ToggleKeys]
+                    “Flags”=”58”
+                 */
+
+            }
+
             Progressbaradd(5); //55
             if (checkBoxP2PWinUpdate.Checked)
             {/*
