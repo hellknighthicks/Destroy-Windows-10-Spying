@@ -49,7 +49,10 @@ namespace PSS_Windows_10_Privatizer
             this.btnRestoreSystem = new System.Windows.Forms.Button();
             this.btnDeleteAllWindows10Apps = new System.Windows.Forms.Button();
             this.tabPageSettings = new System.Windows.Forms.TabPage();
-            this.checkBox_ActionCenter = new System.Windows.Forms.CheckBox();
+            this.checkBox_Disable_ActionCenter = new System.Windows.Forms.CheckBox();
+            this.checkBox_SetDarkTheme = new System.Windows.Forms.CheckBox();
+            this.checkBox_StickyKeys = new System.Windows.Forms.CheckBox();
+            this.checkBox_ActionCenterActions = new System.Windows.Forms.CheckBox();
             this.checkBox_SecurityCenter = new System.Windows.Forms.CheckBox();
             this.checkBox_LockScreen = new System.Windows.Forms.CheckBox();
             this.CheckboxUAC_Silent = new System.Windows.Forms.CheckBox();
@@ -82,7 +85,8 @@ namespace PSS_Windows_10_Privatizer
             this.checkBoxDeleteApp3d = new System.Windows.Forms.CheckBox();
             this.checkBoxDeleteWindows10Apps = new System.Windows.Forms.CheckBox();
             this.lable_Title_Bar = new System.Windows.Forms.Label();
-            this.checkBox_StickyKeys = new System.Windows.Forms.CheckBox();
+            this.checkBox_FixAdminAccount = new System.Windows.Forms.CheckBox();
+            this.checkBox_DisableGameDVR = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.CloseButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeButton)).BeginInit();
             this.tabPageUtilites.SuspendLayout();
@@ -312,8 +316,12 @@ namespace PSS_Windows_10_Privatizer
             // 
             this.tabPageSettings.BackColor = System.Drawing.Color.White;
             this.tabPageSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPageSettings.Controls.Add(this.checkBox_DisableGameDVR);
+            this.tabPageSettings.Controls.Add(this.checkBox_FixAdminAccount);
+            this.tabPageSettings.Controls.Add(this.checkBox_Disable_ActionCenter);
+            this.tabPageSettings.Controls.Add(this.checkBox_SetDarkTheme);
             this.tabPageSettings.Controls.Add(this.checkBox_StickyKeys);
-            this.tabPageSettings.Controls.Add(this.checkBox_ActionCenter);
+            this.tabPageSettings.Controls.Add(this.checkBox_ActionCenterActions);
             this.tabPageSettings.Controls.Add(this.checkBox_SecurityCenter);
             this.tabPageSettings.Controls.Add(this.checkBox_LockScreen);
             this.tabPageSettings.Controls.Add(this.CheckboxUAC_Silent);
@@ -334,20 +342,61 @@ namespace PSS_Windows_10_Privatizer
             this.tabPageSettings.TabIndex = 1;
             this.tabPageSettings.Text = "Options";
             // 
-            // checkBox_ActionCenter
+            // checkBox_Disable_ActionCenter
             // 
-            this.checkBox_ActionCenter.AutoSize = true;
-            this.checkBox_ActionCenter.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox_ActionCenter.Checked = true;
-            this.checkBox_ActionCenter.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_ActionCenter.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.checkBox_ActionCenter.Location = new System.Drawing.Point(6, 190);
-            this.checkBox_ActionCenter.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBox_ActionCenter.Name = "checkBox_ActionCenter";
-            this.checkBox_ActionCenter.Size = new System.Drawing.Size(129, 17);
-            this.checkBox_ActionCenter.TabIndex = 28;
-            this.checkBox_ActionCenter.Text = "Disable Action Center";
-            this.checkBox_ActionCenter.UseVisualStyleBackColor = false;
+            this.checkBox_Disable_ActionCenter.AutoSize = true;
+            this.checkBox_Disable_ActionCenter.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox_Disable_ActionCenter.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.checkBox_Disable_ActionCenter.Location = new System.Drawing.Point(6, 207);
+            this.checkBox_Disable_ActionCenter.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBox_Disable_ActionCenter.Name = "checkBox_Disable_ActionCenter";
+            this.checkBox_Disable_ActionCenter.Size = new System.Drawing.Size(260, 17);
+            this.checkBox_Disable_ActionCenter.TabIndex = 32;
+            this.checkBox_Disable_ActionCenter.Text = "Disable Action Center Service (Will Cause Popup)";
+            this.checkBox_Disable_ActionCenter.UseVisualStyleBackColor = false;
+            // 
+            // checkBox_SetDarkTheme
+            // 
+            this.checkBox_SetDarkTheme.AutoSize = true;
+            this.checkBox_SetDarkTheme.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox_SetDarkTheme.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.checkBox_SetDarkTheme.Location = new System.Drawing.Point(6, 401);
+            this.checkBox_SetDarkTheme.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBox_SetDarkTheme.Name = "checkBox_SetDarkTheme";
+            this.checkBox_SetDarkTheme.Size = new System.Drawing.Size(102, 17);
+            this.checkBox_SetDarkTheme.TabIndex = 31;
+            this.checkBox_SetDarkTheme.Text = "Set Dark Theme";
+            this.checkBox_SetDarkTheme.UseVisualStyleBackColor = false;
+            // 
+            // checkBox_StickyKeys
+            // 
+            this.checkBox_StickyKeys.AutoSize = true;
+            this.checkBox_StickyKeys.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox_StickyKeys.Checked = true;
+            this.checkBox_StickyKeys.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_StickyKeys.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.checkBox_StickyKeys.Location = new System.Drawing.Point(6, 224);
+            this.checkBox_StickyKeys.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBox_StickyKeys.Name = "checkBox_StickyKeys";
+            this.checkBox_StickyKeys.Size = new System.Drawing.Size(117, 17);
+            this.checkBox_StickyKeys.TabIndex = 29;
+            this.checkBox_StickyKeys.Text = "Disable Sticky Keys";
+            this.checkBox_StickyKeys.UseVisualStyleBackColor = false;
+            // 
+            // checkBox_ActionCenterActions
+            // 
+            this.checkBox_ActionCenterActions.AutoSize = true;
+            this.checkBox_ActionCenterActions.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox_ActionCenterActions.Checked = true;
+            this.checkBox_ActionCenterActions.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_ActionCenterActions.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.checkBox_ActionCenterActions.Location = new System.Drawing.Point(6, 190);
+            this.checkBox_ActionCenterActions.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBox_ActionCenterActions.Name = "checkBox_ActionCenterActions";
+            this.checkBox_ActionCenterActions.Size = new System.Drawing.Size(167, 17);
+            this.checkBox_ActionCenterActions.TabIndex = 28;
+            this.checkBox_ActionCenterActions.Text = "Disable Action Center Actions";
+            this.checkBox_ActionCenterActions.UseVisualStyleBackColor = false;
             // 
             // checkBox_SecurityCenter
             // 
@@ -815,20 +864,35 @@ namespace PSS_Windows_10_Privatizer
             this.lable_Title_Bar.TabIndex = 4;
             this.lable_Title_Bar.Text = "App Name";
             // 
-            // checkBox_StickyKeys
+            // checkBox_FixAdminAccount
             // 
-            this.checkBox_StickyKeys.AutoSize = true;
-            this.checkBox_StickyKeys.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox_StickyKeys.Checked = true;
-            this.checkBox_StickyKeys.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_StickyKeys.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.checkBox_StickyKeys.Location = new System.Drawing.Point(6, 207);
-            this.checkBox_StickyKeys.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBox_StickyKeys.Name = "checkBox_StickyKeys";
-            this.checkBox_StickyKeys.Size = new System.Drawing.Size(117, 17);
-            this.checkBox_StickyKeys.TabIndex = 29;
-            this.checkBox_StickyKeys.Text = "Disable Sticky Keys";
-            this.checkBox_StickyKeys.UseVisualStyleBackColor = false;
+            this.checkBox_FixAdminAccount.AutoSize = true;
+            this.checkBox_FixAdminAccount.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox_FixAdminAccount.Checked = true;
+            this.checkBox_FixAdminAccount.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_FixAdminAccount.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.checkBox_FixAdminAccount.Location = new System.Drawing.Point(6, 384);
+            this.checkBox_FixAdminAccount.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBox_FixAdminAccount.Name = "checkBox_FixAdminAccount";
+            this.checkBox_FixAdminAccount.Size = new System.Drawing.Size(147, 17);
+            this.checkBox_FixAdminAccount.TabIndex = 33;
+            this.checkBox_FixAdminAccount.Text = "Fix Admin Account Rights";
+            this.checkBox_FixAdminAccount.UseVisualStyleBackColor = false;
+            // 
+            // checkBox_DisableGameDVR
+            // 
+            this.checkBox_DisableGameDVR.AutoSize = true;
+            this.checkBox_DisableGameDVR.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox_DisableGameDVR.Checked = true;
+            this.checkBox_DisableGameDVR.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_DisableGameDVR.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.checkBox_DisableGameDVR.Location = new System.Drawing.Point(6, 241);
+            this.checkBox_DisableGameDVR.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBox_DisableGameDVR.Name = "checkBox_DisableGameDVR";
+            this.checkBox_DisableGameDVR.Size = new System.Drawing.Size(137, 17);
+            this.checkBox_DisableGameDVR.TabIndex = 34;
+            this.checkBox_DisableGameDVR.Text = "Disable Xbox GameDVR";
+            this.checkBox_DisableGameDVR.UseVisualStyleBackColor = false;
             // 
             // MainForm
             // 
@@ -922,8 +986,12 @@ namespace PSS_Windows_10_Privatizer
         private CheckBox checkBoxDeleteApp3d;
         private CheckBox checkBoxDeleteWindows10Apps;
         private CheckBox checkBox_SecurityCenter;
-        private CheckBox checkBox_ActionCenter;
+        private CheckBox checkBox_ActionCenterActions;
         private CheckBox checkBox_StickyKeys;
+        private CheckBox checkBox_SetDarkTheme;
+        private CheckBox checkBox_Disable_ActionCenter;
+        private CheckBox checkBox_DisableGameDVR;
+        private CheckBox checkBox_FixAdminAccount;
     }
 }
 

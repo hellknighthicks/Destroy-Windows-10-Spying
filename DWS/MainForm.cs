@@ -860,6 +860,7 @@ namespace PSS_Windows_10_Privatizer
             if (checkBox_LockScreen.Checked)
             {
                 SetRegValueHklm(@"SOFTWARE\Policies\Microsoft\Windows\Personalization", "NoLockScreen", "1", RegistryValueKind.DWord);
+                SetRegValueHklm(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\SessionData", "AllowLockScreen", "0", RegistryValueKind.DWord);
                 _OutPut("Disabled Sliding lock screen.");
             }
 
@@ -872,13 +873,20 @@ namespace PSS_Windows_10_Privatizer
                 _OutPut("Disabled Security Center - Firewall Notification.");
                 SetRegValueHklm(@"SOFTWARE\Microsoft\Security Center", "UpdatesDisableNotify", "1", RegistryValueKind.DWord);
                 _OutPut("Disabled Security Center - Windows Updates Notification.");
+
+            }
+            
+            if(checkBox_Disable_ActionCenter.Checked)
+            {
                 RunCmd("/c netstop wscsvc");
                 _OutPut("Stopped Security Center Service");
                 RunCmd("/c sc config wscsvc start= disabled");
                 _OutPut("Disabled Security Center - Service");
-
             }
-            if (checkBox_ActionCenter.Checked)
+
+
+
+            if (checkBox_ActionCenterActions.Checked)
             {
                 SetRegValueHkcu(@"Software\Policies\Microsoft\Windows\Explorer", "DisableNotificationCenter", "1", RegistryValueKind.DWord);
                 SetRegValueHklm(@"SOFTWARE\Policies\Microsoft\Windows\Explorer", "DisableNotificationCenter", "1", RegistryValueKind.DWord);
@@ -934,6 +942,32 @@ namespace PSS_Windows_10_Privatizer
                 }
             }
             Progressbaradd(5); //60
+
+            if (checkBox_DisableGameDVR.Checked)
+            {/*
+              * 
+              *  0= Disable 
+              *  1= Enabled
+              */
+                try
+                {
+                    SetRegValueHkcu(@"System\GameConfigStore", "GameDVR_Enabled", "0", RegistryValueKind.DWord);
+                    SetRegValueHkcu(@"SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR\", "AppCaptureEnabled", "0", RegistryValueKind.DWord);
+                    SetRegValueHklm(@"SOFTWARE\Policies\Microsoft\Windows\GameDVR", "AllowGameDVR", "0", RegistryValueKind.DWord);
+                    _OutPut("Disabled Xbox DVR");
+                }
+                catch (Exception ex)
+                {
+                    _OutPut("Failed to Disable Xbox DVR", LogLevel.Error);
+                    if (_debug) _OutPut(ex.Message, LogLevel.Debug);
+                    _fatalErrors++;
+                }
+            }
+
+            if(checkBox_FixAdminAccount.Checked)
+            {
+                SetRegValueHklm(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\UIPI\", "(Default)", "1", RegistryValueKind.Unknown);
+            }
             if (checkBoxSetDefaultPhoto.Checked)
             {
                 _OutPut("Starting Set Default PhotoViewer");
@@ -953,6 +987,16 @@ namespace PSS_Windows_10_Privatizer
                 SetRegValueHkcu(@"Software\Classes\.jpg", null, "PhotoViewer.FileAssoc.Tiff", RegistryValueKind.String);
                 _OutPut("Completed Set Default PhotoViewer");
             }
+            if(checkBox_SetDarkTheme.Checked)
+            {
+                _OutPut("Enabling Dark Theme");
+                _OutPut("-Adding Reg Keys");
+                SetRegValueHklm(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize", "AppsUseLightTheme", "0", RegistryValueKind.DWord); // this key will be on upgraded machines HKEY_CURRENT_USER\, create a DWORD value named “” with a value of “0”.
+                SetRegValueHkcu(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize", "AppsUseLightTheme", "0", RegistryValueKind.DWord);
+
+                //Setting these values to 1 should turn the light theame back on.  Notes ive see indicate most actually just remove the keys to turn light theame back on.
+            }
+
             Progressbaradd(10); //70
             if (checkBoxSPYTasks.Checked)
             {
@@ -1565,6 +1609,11 @@ namespace PSS_Windows_10_Privatizer
             checkBoxDeleteAppXBOX.Enabled = checkBoxDeleteWindows10Apps.Checked;
             checkBoxDeleteAppZune.Enabled = checkBoxDeleteWindows10Apps.Checked;
             checkBoxDeleteMailCalendarMaps.Enabled = checkBoxDeleteWindows10Apps.Checked;
+        }
+
+        private void checkBox_Disable_ActionCenter_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
